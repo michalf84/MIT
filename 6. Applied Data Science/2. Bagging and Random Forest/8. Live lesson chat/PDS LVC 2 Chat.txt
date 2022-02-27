@@ -1,0 +1,541 @@
+19:54:59 From  Lucy Edosomwan gl  to  Everyone:
+	Good morning from Atlanta
+19:56:12 From  Chris Kaiser gl  to  Everyone:
+	morning
+19:56:31 From  Pallavi Kawale gl  to  Everyone:
+	Good morning everyone
+19:57:33 From  Cheslan Simpson gl  to  Everyone:
+	Good Morning, good afternoon, good evening
+19:57:44 From  Dominic H. Goodall gl  to  Everyone:
+	Good morning from Ithaca, NY
+19:57:48 From  Victor Chavarria gl  to  Everyone:
+	Good morning from Minneapolis, MN
+19:57:49 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	Good morning.
+19:58:04 From  Diallo Bocar Elimane gl  to  Everyone:
+	Hello everyone
+19:58:10 From  Fedor Galstyan gl  to  Everyone:
+	Good morning!
+19:59:43 From  Blessy Joy Chamaparampil gl  to  Everyone:
+	Good Morning
+20:00:07 From  Dina Ashour gl  to  Everyone:
+	Good morning everyone!
+20:00:10 From  Great Learning  to  Hosts and panelists:
+	Good morning
+20:00:22 From  Ken Wise gl  to  Everyone:
+	Good morning
+20:00:24 From  MARIA SUSANA REZZONICO gl  to  Everyone:
+	Good morning
+20:00:27 From  William Ricci gl  to  Everyone:
+	Good morning!
+20:00:30 From  William Corwin gl  to  Everyone:
+	hey hey hey!
+20:00:34 From  George Katsriku gl  to  Hosts and panelists:
+	Good morning
+20:00:37 From  Chris Lieberman gl  to  Everyone:
+	Hello from the snowy Midwest
+20:00:46 From  Jacqueline gl  to  Everyone:
+	Good morning from Boston
+20:00:51 From  Monica Matthews gl  to  Everyone:
+	GM everyone
+20:00:52 From  Juan Bermudez gl  to  Everyone:
+	Good morning
+20:00:52 From  Viktoriya Olari gl  to  Hosts and panelists:
+	Good Afternoon!
+20:00:53 From  Shan Siddiqui gl  to  Everyone:
+	Good morning from Chicago
+20:00:54 From  Aditya Bandimatt gl  to  Everyone:
+	Good Morning everyone!
+20:00:54 From  George Katsriku gl  to  Everyone:
+	Good morning
+20:00:57 From  Brian Myunghun Yue gl  to  Everyone:
+	Good morning!
+20:00:58 From  Sergio Bracho Argotte gl  to  Everyone:
+	Good morning from Chile
+20:01:06 From  Mukul Mondal gl  to  Everyone:
+	Good morning
+20:01:11 From  Thanh Dang gl  to  Hosts and panelists:
+	good morning!
+20:01:16 From  Shajan Thomas gl  to  Everyone:
+	Good morning!
+20:01:28 From  frantz verella gl  to  Hosts and panelists:
+	Good morning Everyone
+20:09:11 From  Chris Lieberman gl  to  Hosts and panelists:
+	How is depth typically measured?  By ALL nodes or nodes - root?
+20:11:07 From  Mark Braxton gl  to  Everyone:
+	Can someone explain impurities in regard to parent and child nodes in more detail?
+20:11:07 From  [GL-TA] Ajith  to  Everyone:
+	@Chris - Q: How is depth typically measured?  By ALL nodes or nodes - root?		A: Depth –The depth of a node is the number of edges from the node to the tree's root node. We just count how many edges between the targeting node and the root.
+20:11:16 From  Jesus Chavez gl  to  Everyone:
+	GM, professor mentioned the thick of the line represents the amount of the values, but I don't see any difference
+20:13:40 From  Diljot Chhina gl  to  Hosts and panelists:
+	From what I understand Your parent node is the previous node to the child node - as you add more nodes the homogeneity increases which means the impurity decreases
+20:13:47 From  Pornthip Suyasith gl  to  Hosts and panelists:
+	What is max depth?
+20:13:48 From  Fernando Garcia Corona gl  to  Everyone:
+	@JEsus, I think he meant the thickness of the color how dark or light it is
+20:14:18 From  Paula Iglesias Otárola gl  to  Everyone:
+	yes, box color
+20:14:20 From  RAVI KUMAR TOLETY gl  to  Hosts and panelists:
+	True that @Fernando
+20:14:33 From  [GL-TA] Jai  to  Everyone:
+	@Diljot , Yes.
+20:15:16 From  Jesus Chavez gl  to  Everyone:
+	oh! box color
+20:15:21 From  Jesus Chavez gl  to  Everyone:
+	gotcha
+20:15:23 From  Jesus Chavez gl  to  Everyone:
+	thanks
+20:16:03 From  [GL-TA] Jai  to  Everyone:
+	Pornthip- Q:What is max depth?
+	A:The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node. It is a hyper parameter in Decision Trees.
+20:16:35 From  Wilberto W Montoya gl  to  Everyone:
+	so variance = overfit?
+20:16:51 From  Erika Spangler gl  to  Everyone:
+	Extremely low variance = overfit
+20:17:02 From  Shilpa Tyagi gl  to  Everyone:
+	low bias+high variance= overfit
+20:17:29 From  Wilberto W Montoya gl  to  Everyone:
+	ok we need the low bias too thanks
+20:17:31 From  Shilpa Tyagi gl  to  Everyone:
+	low bias on train and high variance on test
+20:17:41 From  Shilpa Tyagi gl  to  Everyone:
+	causes overfitting
+20:18:13 From  NING LI gl  to  Hosts and panelists:
+	For each new level of the DT, the information gain is calculated on top of the previous level or it is always referring to the gain from the root, please?
+20:18:51 From  [GL-TA] Jai  to  Everyone:
+	@Shilpa - Q:low bias+high variance= overfit
+	A: Yes, if the model has low bias and high variance, we can say it is overfitted
+20:18:56 From  [GL-TA] Avijit  to  Everyone:
+	@Wiberto    -Q:so variance = overfit?	A:The variance is an error from sensitivity to small fluctuations in the training set. 	When a model overfits the training data, it is said to have high variance.
+20:19:25 From  Nageswara Rao Biradhar gl  to  Everyone:
+	So can I state that Pruning is similar to feature selection in regression?
+20:19:41 From  [GL-TA] Ajith  to  Everyone:
+	@Erika - Q: Extremely low variance = overfit		A: Overfit refers to low bias and high variance
+20:20:14 From  Erika Spangler gl  to  Everyone:
+	Of the test data.
+20:20:15 From  Erika Spangler gl  to  Everyone:
+	?
+20:21:28 From  Natalia Pacheco Fallas gl  to  Hosts and panelists:
+	What is easier to fix or what is worst to have? Variance or bias?
+20:21:35 From  Diljot Chhina gl  to  Hosts and panelists:
+	What is meant by “how much we lose” in pruning
+20:21:50 From  NING LI gl  to  Everyone:
+	For each new level of the DT, the information gain is calculated on top of the previous level or it is always referring to the gain from the root, please?
+20:22:01 From  Thanh Dang gl  to  Hosts and panelists:
+	can we prune top down vs bottom up? Or maybe we can start anywhere?
+20:22:07 From  Diljot Chhina gl  to  Hosts and panelists:
+	^ locally
+20:22:25 From  Alvin Kuo gl  to  Everyone:
+	@NING I think it’s previos
+20:23:37 From  Diallo Bocar Elimane gl  to  Everyone:
+	What is the reasonable entropy?
+20:23:40 From  [GL-TA] Maruthi Reddy  to  Everyone:
+	@Nageshwara- Q: So can I state that Pruning is similar to feature selection in regression?	A: Pruning is similar to Lasso Method in regression.
+20:24:44 From  Diljot Chhina gl  to  Hosts and panelists:
+	what does this mean “aggregate leaves all the way to the node”
+20:25:26 From  Diljot Chhina gl  to  Hosts and panelists:
+	Is the intent of pruning to reduce nodes so that it reduces both misclassification error and overfit?
+20:25:48 From  Svetlana Vo gl  to  Everyone:
+	to avoid doing pruning, can you state a constraint how deep the original tree can grow?
+20:26:13 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Svetlana Yes, the max_depth of a Decision Tree is a hyperparameter we can set beforehand
+20:26:16 From  Alvin Kuo gl  to  Everyone:
+	@Diallo I think entropy is aimed to minimized when the model is ran every time. But the model is good enough is still deepening on the performance to be compared with training vs test
+20:26:31 From  Chris Lieberman gl  to  Hosts and panelists:
+	Can you review the concept of “misclassification”?
+20:26:41 From  Fernando Garcia Corona gl  to  Everyone:
+	how is the outcome evaluated when we aggregate the leafs into a node?
+20:26:43 From  Diallo Bocar Elimane gl  to  Everyone:
+	Thnaks
+20:27:11 From  Alvin Kuo gl  to  Everyone:
+	@Svetlana I think we can set max_depth in the parameter
+20:27:35 From  [GL-TA] Maruthi Reddy  to  Everyone:
+	@Natalia Q:What is easier to fix or what is worst to have? Variance or bias?		A:Bias and variance are complements of each other” The increase of one will result in the decrease of the other and vice versa. Hence, we need to find the right balance of values.
+20:27:46 From  Nageswara Rao Biradhar gl  to  Everyone:
+	@Maruthi - Thanks. Only difference I see is there is no compensatory term introduced in Pruning when compared to Lasso. we just lose some information in Pruning right?
+20:28:01 From  Sarah Ford gl  to  Everyone:
+	What are some typical heuristics to decide whether pruning is beneficial?
+20:28:14 From  [GL-TA] Maruthi Reddy  to  Everyone:
+	@Nageswara yes you are right.
+20:28:16 From  Paula Iglesias Otárola gl  to  Everyone:
+	@Diallo, entropy max value depends on how many values can Y take (for 2 Max E is 1, but for more Y leves it is a different, higher, value)… so "reasonable" dependes on each problem
+20:29:03 From  Diallo Bocar Elimane gl  to  Everyone:
+	Thanks Paula
+20:29:35 From  HARIISH UPPILI gl  to  Everyone:
+	That means if the data has a pattern the higher fitting may actually work right ?
+20:30:25 From  Svetlana Vo gl  to  Everyone:
+	thank you!
+20:30:53 From  NING LI gl  to  Everyone:
+	When we look at a tree and try to get some conclusions, what kind of entropy value will be ‘good enough’ to make sense? 0.5 or less?
+20:31:27 From  [GL-TA] Akash  to  Everyone:
+	@Sarah Q:What are some typical heuristics to decide whether pruning is beneficial? 
+	A: A common strategy is to grow the tree until each node contains a small number of instances then use pruning to remove nodes that do not provide additional information. Pruning should reduce the size of a learning tree without reducing predictive accuracy as measured by a cross-validation set.
+20:36:07 From  Wilberto W Montoya gl  to  Everyone:
+	About entropy and the greedy algorithm in Decision Trees, In game theory, by example, chess heuristics, navigate 3 or 4 levels deep in the tree before taking the decision of which "move" to do. Wondering if Decision Tree models are using a similar approach like comparing the entropy 2 or 3 levels deep before taking the decision to split the tree for a specific feature/condition.
+20:37:41 From  Alvin Kuo gl  to  Everyone:
+	@Wilberto the latest layer. So that’s why it’s locally optimal, but not guarantee the global optimal
+20:38:24 From  Sunil Acharya gl  to  Everyone:
+	Is it possible that some times when you prune -you "graft" part of the pruned sub- tree to the upper part of the tree further up-stream?
+20:38:52 From  Wilberto W Montoya gl  to  Everyone:
+	yes is the local in 2 layers then you keep doing the same in next level, like next "move"
+20:42:02 From  Lucy Edosomwan gl  to  Everyone:
+	What is RVs?
+20:42:06 From  Alvin Kuo gl  to  Everyone:
+	@Sunil I guess not since if it’s homogenius, the branch won’t go further. So pruning is supposedly be one layer only, but not keep upstream
+20:42:11 From  Alvin Kuo gl  to  Everyone:
+	RV = Random variable
+20:42:13 From  Jesus Chavez gl  to  Everyone:
+	random variables?
+20:42:26 From  Lucy Edosomwan gl  to  Everyone:
+	ah thanks Alvin
+20:42:59 From  [GL-TA] Maruthi Reddy  to  Everyone:
+	@ Wilberto- Q: Wondering if Decision Tree models are using a similar approach like comparing the entropy 2 or 3 levels deep before taking the decision to split the tree for a specific feature/condition.		A: No, Decision Trees compares entropy of only 1 level at a time before taking a decision to split.
+20:43:34 From  Wilberto W Montoya gl  to  Everyone:
+	thanks
+20:47:48 From  Wilberto W Montoya gl  to  Everyone:
+	why test data has different size?
+20:47:55 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	What is meant by “Datasets are correlated” for bootstrapping?
+20:48:08 From  Jesus Chavez gl  to  Everyone:
+	Boostraps can repeat samples?
+20:48:25 From  Rodrigo Senra gl  to  Everyone:
+	@wilberto: was by chance, the test set contains what was not selected in the bootstrap set
+20:48:25 From  John Rogers gl  to  Everyone:
+	So test sets are created by that which has been left out at random?
+20:48:32 From  Dayna Levy gl  to  Everyone:
+	but that weights some samples more over others
+20:48:33 From  Govinda Villasa Lopez Garza gl  to  Everyone:
+	Are they random?
+20:49:05 From  Wilberto W Montoya gl  to  Everyone:
+	Ok professor answered my question
+20:49:20 From  Svetlana Vo gl  to  Everyone:
+	similar to Jesus's question, what's the benefit of including same observation twice in a bootstrap sample?
+20:49:25 From  [GL-TA] Ajith  to  Everyone:
+	@Jesus - Q: Boostraps can repeat samples?		A: Yes. The samples can be repeated
+20:49:49 From  [GL-TA] Jai  to  Everyone:
+	@Jesus, The bootstrap method involves iteratively resampling a dataset with replacement. It can be repeated.
+20:49:51 From  Great Learning  to  Hosts and panelists:
+	@Wilberto Q: why test data has different size?	A: The model uses the rules learned from the training data to predict the test data. So we take the large portion of the original data as the training data and a small portion (usually 30% or 20%) as the test data
+20:50:31 From  Jesus Chavez gl  to  Everyone:
+	ok thanks
+20:51:09 From  Great Learning  to  Hosts and panelists:
+	@John - Yes
+20:51:59 From  Mohammad Nazif Faqiry gl  to  Everyone:
+	How does the number of bootstrapping play in this limit/probability?
+20:53:05 From  Great Learning  to  Hosts and panelists:
+	@Svetlana Q: What's the benefit of including same observation twice in a bootstrap sample?	A: It is to make the samples, and consequently classifiers, as independent as they can be
+20:53:15 From  Thanh Dang gl  to  Hosts and panelists:
+	is there a good way to pick “n” so samples are not too dependent?
+20:54:05 From  Nageswara Rao Biradhar gl  to  Everyone:
+	How’s does f(x) looks like for a decision tree
+20:55:16 From  Sunil Acharya gl  to  Everyone:
+	@Nageswara Rao Biradhar  -refer to previous lecture notes where the map f(x_i) -> Y represents a DT
+20:57:37 From  Kuldeep Rawat gl  to  Everyone:
+	Can we eliminate a particular DT with a higher classification error (over a certain threshold) and not consider its vote at the aggregation stage?
+21:03:35 From  Thanh Dang gl  to  Hosts and panelists:
+	can we sample without replacement in large dataset?
+21:04:20 From  Robert D. Hill gl  to  Everyone:
+	is it possible to do a poor job of bootstrapping? if so, how?
+21:04:24 From  Thanh Dang gl  to  Hosts and panelists:
+	i think the professor is using boosting and bootstrapping interchangeable?
+21:04:28 From  Jose Daniel Cols Matheus gl  to  Everyone:
+	Can we use bagging with different classifier algorithms, e.g. K-NN + Decision Trees?
+21:04:36 From  Robert D. Hill gl  to  Everyone:
+	or stated differently...how do you make sure you use a good job of bootstrapping?
+21:05:08 From  Robert D. Hill gl  to  Everyone:
+	*do not use
+21:07:00 From  Diljot Chhina gl  to  Hosts and panelists:
+	is loss of 0 considered a good result?
+21:07:34 From  Svetlana Vo gl  to  Everyone:
+	do all samples in bootstrapping have to have the same size, and if not, do they get different vote weights?
+21:08:27 From  Alvin Kuo gl  to  Everyone:
+	@Robert I guess the reason why you want to aggregate because you want to eliminate the worry you think the boos-trapping does not do a good job.
+21:08:35 From  [GL-TA] Prateek Dhokwal  to  Hosts and panelists:
+	@Svetlana - Yes, they do have the sample size
+21:09:12 From  [GL-TA] Avijit  to  Everyone:
+	@Jose   -Q:Can we use bagging with different classifier algorithms, e.g. K-NN + Decision Trees?	A:Bagging is rarely used with KNN. But we use bagging in decision tree when our goal is to reduce variance of the tree.
+21:11:06 From  Dayna Levy gl  to  Everyone:
+	which ones are getting a 1 and which ones are getting a 0?
+21:11:34 From  Jose Daniel Cols Matheus gl  to  Hosts and panelists:
+	Thank you, Avijit.
+21:11:39 From  Pornthip Suyasith gl  to  Everyone:
+	Why x1 is French and it goes to 1 ?
+21:11:55 From  Wilberto W Montoya gl  to  Everyone:
+	Fliped a coin
+21:12:05 From  John Rogers gl  to  Everyone:
+	@Dayna it is coming from the data set, 1 = wait and 0 = leave
+21:12:18 From  Dayna Levy gl  to  Everyone:
+	so it could be 1=leave and 0=wait?
+21:12:20 From  Michael Allerheiligen gl  to  Hosts and panelists:
+	How do you choose the amount of bootstrap samples to utilize?
+21:12:21 From  Wilberto W Montoya gl  to  Everyone:
+	can be 0 or 1 because the category is not in the training data for that model
+21:12:21 From  Robert Gormley gl  to  Everyone:
+	What about result on test sets
+21:13:21 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	How to you the subset of the features? Randomly?
+21:14:02 From  Wilberto W Montoya gl  to  Everyone:
+	you subset that data and the tree chooses the features by entropy
+21:14:34 From  Nageswara Rao Biradhar gl  to  Everyone:
+	Each classifier is selected based on the error < 0.5 out of the possible sub tree decisions within each classifier?
+21:15:04 From  Mohammad Nazif Faqiry gl  to  Everyone:
+	Seems like letting an army (of small trees) do the job of  a superman (the big tree)
+21:15:30 From  Chris Kaiser gl  to  Everyone:
+	is simplicity key in these models? would maximizing each model and weighing averages be better?
+21:16:07 From  Wilberto W Montoya gl  to  Everyone:
+	like the quote "data is Data", Data Rules 😉
+21:16:22 From  Arnold Estrada gl  to  Everyone:
+	Why cant we have army of supermen?  In other words, can we use trees of greater complexity than one layer with this same bagging idea?
+21:16:41 From  Alvin Kuo gl  to  Everyone:
+	@Wilberto great quote! 🙂
+21:17:34 From  [GL-TA] Prateek Dhokwal  to  Hosts and panelists:
+	@Chris - Yes, the idea is to use simple classifiers that are not expensive computationally and get an ensemble model that is better than those individual weak learners
+21:17:42 From  Alvin Kuo gl  to  Everyone:
+	@Nageswra, I think <0.5 is the assumption of voting If it goes > 0.5, the result is even worse
+21:17:50 From  Stephanie Hurtado Lonard gl  to  Everyone:
+	did it freeze for everyone or just me?
+21:18:01 From  Arnold Estrada gl  to  Everyone:
+	didnt free for me
+21:18:05 From  Sarah Ford gl  to  Everyone:
+	What is the intuition behind assuming bootstrapped samples are completely independent?
+21:18:06 From  Arnold Estrada gl  to  Everyone:
+	freeze*
+21:18:07 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Stephanie I think it may be just you. Can you try rejoining?
+21:18:17 From  Stephanie Hurtado Lonard gl  to  Everyone:
+	ok now its back
+21:18:20 From  Maristela Monteiro gl  to  Everyone:
+	I am on random forest Part III
+21:18:43 From  Chelsea La Bella gl  to  Everyone:
+	he is answering questions before moving on you should see random forest part III on screen
+21:19:02 From  Wilberto W Montoya gl  to  Everyone:
+	Can we do "model pruning" eliminating the models that perform worst in test data?
+21:19:20 From  Wilberto W Montoya gl  to  Everyone:
+	I mean in the aggregation
+21:19:25 From  Stephanie Hurtado Lonard gl  to  Everyone:
+	all good now, thank you all!
+21:19:45 From  Saradha Ravi gl  to  Everyone:
+	that is powerful!
+21:20:44 From  Sunil Acharya gl  to  Everyone:
+	we have not lost the tree- we have just gained a forest right? (just making sure I don't get tripped on the quiz)
+21:20:48 From  Wilberto W Montoya gl  to  Everyone:
+	I remember the famous Netflix Prize winner used assemble too.
+21:21:44 From  [GL-TA] Prateek Dhokwal  to  Hosts and panelists:
+	@Sunil - Yes. Losing the tree means that we have lost the interpretability of the model.
+21:23:55 From  [GL-TA] Prateek Dhokwal  to  Everyone:
+	@Sunil - Yes. Losing the tree means that we have lost the interpretability of the model.
+21:24:19 From  Sunil Acharya gl  to  Everyone:
+	Thanks Prateek D
+21:25:26 From  HARIISH UPPILI gl  to  Everyone:
+	Does order matter atleast to ensure random forest produces meaningful classifications ?
+21:25:27 From  Arnold Estrada gl  to  Everyone:
+	so its like bagging across samples, rather than samples?
+21:25:50 From  Arnold Estrada gl  to  Everyone:
+	sorry.  Its like bagging across features, rather than samples
+21:25:53 From  Arnold Estrada gl  to  Everyone:
+	?
+21:27:19 From  [GL-TA] Prateek Dhokwal  to  Everyone:
+	@Harish - No, the order does not matter because each classifier is considered with equal importance
+21:28:53 From  Erika Spangler gl  to  Everyone:
+	What situations would lead you to use a random forest?
+21:30:43 From  Lorae Westmarsh gl  to  Everyone:
+	That would help overcome greedy tendencies
+21:31:07 From  Chris Lieberman gl  to  Hosts and panelists:
+	Does this “level 6” include the root node?
+21:31:36 From  Fernando Garcia Corona gl  to  Everyone:
+	@Arnold yes, I understand it so, but without repetition
+21:31:57 From  Robert Gormley gl  to  Everyone:
+	What constitutes the test set when using RF
+21:31:58 From  [GL-TA] Prateek Dhokwal  to  Everyone:
+	@Chris - Yes
+21:32:27 From  Svetlana Vo gl  to  Everyone:
+	can you give some examples where random forests vs random walk is the preferred approach?
+21:34:14 From  Thanh Dang gl  to  Hosts and panelists:
+	how do you calculate correlations among classifiers?
+21:39:07 From  Sarah Ford gl  to  Everyone:
+	Are RF/CART valid even if the assumption of independence between bootstrapped samples is violated?
+21:39:37 From  Rodrigo Senra gl  to  Everyone:
+	Could we use a Logistic regression?
+21:40:13 From  Kuldeep Rawat gl  to  Everyone:
+	How do we determine correlation between each classifier?
+21:40:26 From  Thanh Dang gl  to  Hosts and panelists:
+	is x a vector of features?
+21:41:20 From  Wilberto W Montoya gl  to  Everyone:
+	@Rodrigo I think Logistic can be overkill, because the non-linearity is being handled by the Tree
+21:42:03 From  [GL-TA] Prateek Dhokwal  to  Everyone:
+	@Sarah Q: Are RF/CART valid even if the assumption of independence between bootstrapped samples is violated?	A: If you are using the bootstrapped samples, then the assumptions will not be violated.
+21:42:10 From  Saradha Ravi gl  to  Everyone:
+	how is final value determined in Regression trees
+21:42:26 From  Saradha Ravi gl  to  Everyone:
+	like in the place of majority vote in categorical
+21:42:55 From  Saradha Ravi gl  to  Everyone:
+	sorry in classification label I mean
+21:43:47 From  Sunil Acharya gl  to  Everyone:
+	bewutiful=so you will create a set of tangents to the ellipse!
+21:44:06 From  [GL-TA] Prateek Dhokwal  to  Everyone:
+	@Rodrigo Q: Could we use a Logistic regression?	A: Yes, you can do any classifier while training a bagging classifier but the performance will depend on the data. On the other hand, Random Forests can only use decision tress as base classifiers
+21:45:56 From  Fernando Garcia Corona gl  to  Everyone:
+	how the classification works when the outcome is categorical variable with more than 2 values? voting?
+21:47:21 From  [GL-TA] Prateek Dhokwal  to  Everyone:
+	@Fernando - Yes, Voting works In multi-class classification as well.
+21:48:38 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	In a Random Forest how to you the subset of the features? Randomly?
+21:49:17 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	* how to select the subset
+21:49:43 From  Wilberto W Montoya gl  to  Everyone:
+	You mentioned you do not like Pruning, Which one is your favorite method method professor?
+21:50:04 From  Thanh Dang gl  to  Hosts and panelists:
+	whats the final leaf of the regression tree look like?
+21:52:10 From  Mike Hankinson gl  to  Everyone:
+	Cool Classification and Regression Trees (CART) examples using python.....https://towardsdatascience.com/cart-classification-and-regression-trees-for-clean-but-powerful-models-cc89e60b7a85
+21:52:40 From  Vijay Goswami gl  to  Everyone:
+	Thanks for sharing
+21:52:48 From  Blessy Joy Chamaparampil gl  to  Everyone:
+	Thank you Mike
+21:55:49 From  Saradha Ravi gl  to  Everyone:
+	when we bag regression trees how is the final outcome decided..
+21:56:10 From  Thanh Dang gl  to  Hosts and panelists:
+	thank you both!
+21:56:22 From  Govinda Villasa Lopez Garza gl  to  Everyone:
+	Sorry, gotta drop. Awesome class!!
+21:56:39 From  Sarah Ford gl  to  Hosts and panelists:
+	@GL-TA "If you are using bootstrapped samples, the assumptions will not be violated." Could you please clarify? Slide 26 says that bootstrapped datasets are correlated or dependent and that only weakens when you get to a large sample. At what point do they become completely independent?
+21:56:44 From  Rodrigo Senra gl  to  Everyone:
+	Thank you Professor
+21:57:24 From  Maria Isabel Rodriguez Torres gl  to  Everyone:
+	Thank you Professor! Great class😀
+21:57:35 From  JITEN MEHTA gl  to  Hosts and panelists:
+	Will need to drop off at 1130 . thanks for the session
+21:57:48 From  Naresh Mutyala gl  to  Everyone:
+	Thank you Professor
+21:57:56 From  Dino Cehic gl  to  Everyone:
+	Thanks!
+21:58:10 From  Scott Penco gl  to  Hosts and panelists:
+	Thank you!
+21:58:55 From  Saradha Ravi gl  to  Everyone:
+	the question was on regression actually professor
+21:59:44 From  Saradha Ravi gl  to  Everyone:
+	oh ok.. thanks Vishnu
+22:00:54 From  Saradha Ravi gl  to  Everyone:
+	thank you professor!
+22:00:56 From  Rodrigo Senra gl  to  Everyone:
+	thanks a lot. Great lecture today
+22:00:57 From  Chelsea La Bella gl  to  Everyone:
+	Thank you!
+22:00:58 From  Kevin Humbles gl  to  Everyone:
+	Thank you all.
+22:00:59 From  Sunil Acharya gl  to  Everyone:
+	Can CART identify a classification that looks like Mandelbrot set?
+22:01:01 From  Shajan Thomas gl  to  Everyone:
+	Thank you!
+22:01:05 From  George Katsriku gl  to  Hosts and panelists:
+	Thank you
+22:01:06 From  Wilberto W Montoya gl  to  Everyone:
+	Thank you Professor
+22:01:07 From  Viktoriya Olari gl  to  Hosts and panelists:
+	Thank you!
+22:01:10 From  venkata Ratna Priya moganti gl  to  Hosts and panelists:
+	Great Lecture! Thank you.
+22:01:11 From  Alvin Kuo gl  to  Everyone:
+	Thanks professor 🙂
+22:01:11 From  Allison Chen gl  to  Hosts and panelists:
+	Thank you!
+22:01:12 From  Sunil Acharya gl  to  Everyone:
+	with reasonable computational labor
+22:01:16 From  Jose Daniel Cols Matheus gl  to  Everyone:
+	Thank you professor!
+22:01:17 From  Asmaa Soliman AbuMaziad gl  to  Hosts and panelists:
+	Thank you everyone
+22:01:22 From  Sarah Ford gl  to  Everyone:
+	Thank you!
+22:01:28 From  LINGFEI LI (FIONN) gl  to  Everyone:
+	Thank you Prof!
+22:01:35 From  Taiga Nishihori, MD gl  to  Everyone:
+	Thank you!
+22:01:49 From  RAVI KUMAR TOLETY gl  to  Everyone:
+	Thank you professor..
+22:02:10 From  Blessy Joy Chamaparampil gl  to  Everyone:
+	Thank you Professor
+22:02:14 From  Chris Kaiser gl  to  Everyone:
+	how long is long when talking computational time?
+22:02:17 From  Juan Bermudez gl  to  Everyone:
+	Thanks
+22:02:21 From  Paula Iglesias Otárola gl  to  Everyone:
+	Great session! Thank you professor!
+22:03:11 From  Jacqueline gl  to  Everyone:
+	Thank you!U!
+22:03:33 From  Sunil Acharya gl  to  Everyone:
+	Drew; from your IRL experience with DS, tell me problem size that is currently will push the limits of computations
+22:03:43 From  Andy Mak gl  to  Everyone:
+	Thank you professor!
+22:03:59 From  Great Learning  to  Hosts and panelists:
+	Thank you
+22:04:18 From  Taiga Nishihori, MD gl  to  Everyone:
+	Sorry, i probably missed it but could you give a general instructions on how to handle missing values (numerical/categorical - probably another class of category) in decision tress/random forest?
+22:04:49 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	In a Random Forest how to select the subset of the features? Randomly?
+22:05:41 From  Thanh Dang gl  to  Hosts and panelists:
+	Could you speak a bit about boosting? I heard boosting has become more preferred in recent time? Is that true?
+22:12:40 From  Wilberto W Montoya gl  to  Everyone:
+	Send me a copy of the speech
+22:13:19 From  Thanh Dang gl  to  Hosts and panelists:
+	great insights and intuition for data science!
+22:13:32 From  Nageswara Rao Biradhar gl  to  Everyone:
+	We need more such speeches in addition to technical sessions from Professor Dehleh
+22:14:12 From  Will McGuire gl  to  Everyone:
+	on the note of copy of speech, is there captioning available on these sessions?
+22:14:25 From  Manish Kumar Srivastava gl  to  Everyone:
+	+1 👍
+22:22:55 From  Sivakumar Visweswaran gl  to  Everyone:
+	ok, thank you for the guidance on my question on using multiple model ensembles
+22:28:07 From  Chris Lieberman gl  to  Hosts and panelists:
+	But calculating the model and running variables thorough it are different time frames…right?
+22:28:09 From  Chris Kaiser gl  to  Everyone:
+	perfect thank you
+22:29:35 From  Saradha Ravi gl  to  Everyone:
+	will we cover batch vs online learning setting in this course?
+22:31:14 From  Mukul Mondal gl  to  Everyone:
+	Thank you all
+22:31:20 From  FABIANA P NOVELLO gl  to  Everyone:
+	thank you
+22:31:20 From  Lucy Edosomwan gl  to  Everyone:
+	Thank you!
+22:31:21 From  Juan Bermudez gl  to  Everyone:
+	Thanks for the lecture
+22:31:22 From  Diallo Bocar Elimane gl  to  Everyone:
+	Thanks
+22:31:23 From  Mustafa Sagir gl  to  Hosts and panelists:
+	Thanks!
+22:31:25 From  Dino Cehic gl  to  Everyone:
+	👍🏻
+22:31:25 From  José Andrés Valenzuela Molina gl  to  Everyone:
+	thanks
+22:31:25 From  Oktay Selcuk gl  to  Everyone:
+	Thank you
+22:31:25 From  Alvin Kuo gl  to  Everyone:
+	Thank you all 🙂
+22:31:25 From  Leng Khye Sut gl  to  Everyone:
+	Thank you!
+22:31:26 From  Manish Kumar Srivastava gl  to  Everyone:
+	Thank you Professor. Thank you Drew
+22:31:26 From  Indira R Reddy gl  to  Everyone:
+	Thank you
+22:31:26 From  Mohammad Nazif Faqiry gl  to  Everyone:
+	Thanks Drew and Professor!
+22:31:27 From  Andriana Inkoom gl  to  Everyone:
+	Thank you
+22:31:27 From  MARIA SUSANA REZZONICO gl  to  Everyone:
+	Thank you
+22:31:28 From  venkata Ratna Priya moganti gl  to  Everyone:
+	Thank you
+22:31:29 From  Victor Chavarria gl  to  Everyone:
+	thanks
+22:31:29 From  Thanh Dang gl  to  Hosts and panelists:
+	excited!
+22:31:34 From  Paula Iglesias Otárola gl  to  Everyone:
+	thanks!!
+22:31:34 From  Blessy Joy Chamaparampil gl  to  Everyone:
+	Thank you
+22:31:38 From  Shan Siddiqui gl  to  Everyone:
+	Thank you

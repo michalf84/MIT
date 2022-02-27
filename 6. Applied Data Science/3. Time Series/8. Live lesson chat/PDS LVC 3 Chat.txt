@@ -1,0 +1,538 @@
+19:51:15 From  Mohammad Ayub gl  to  Everyone:
+	good morning everyone.
+19:51:22 From  Chris Kaiser gl  to  Everyone:
+	morning
+19:52:11 From  Andy Mak gl  to  Everyone:
+	Good morning everyone
+19:52:43 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	Good morning.
+19:53:08 From  Cheslan Simpson gl  to  Everyone:
+	Good morning, good afternoon everyone.
+19:54:26 From  Curt Cardall gl  to  Everyone:
+	guten Morgen guten Tag. guten Abend Alle
+19:55:20 From  Kurt Borg gl  to  Everyone:
+	Good morning
+19:55:43 From  Chen Wei Ku gl  to  Everyone:
+	good morning
+19:57:11 From  Katherine Morgan gl  to  Hosts and panelists:
+	Snow day!
+19:57:14 From  Zhengfang Wang gl  to  Everyone:
+	Good morning
+19:57:31 From  Vijay Goswami gl  to  Everyone:
+	Good Morning Everyone
+19:57:34 From  Vijay Goswami gl  to  Everyone:
+	Happy Friday
+19:57:48 From  Srikanth Panchavati gl  to  Everyone:
+	Good morning and Happy Friday!
+19:58:10 From  Kurt Borg gl  to  Everyone:
+	Haapy Friday
+19:58:33 From  Shan Siddiqui gl  to  Everyone:
+	Good morning. Happy Friday!
+19:58:39 From  Sergio Bracho Argotte gl  to  Everyone:
+	Good morning everyone!
+19:58:40 From  Zhengfang Wang gl  to  Everyone:
+	WOW
+19:58:43 From  Arnold Estrada gl  to  Everyone:
+	Good morning!
+19:58:44 From  Shan Siddiqui gl  to  Everyone:
+	Same here in Chicago Professor
+19:58:52 From  Aditya Bandimatt gl  to  Everyone:
+	Good Morning from Bangalore!
+19:58:54 From  Shan Siddiqui gl  to  Everyone:
+	:-)
+19:58:54 From  Sergio Bracho Argotte gl  to  Everyone:
+	In Chile its the opposite
+19:58:57 From  Diallo Bocar Elimane gl  to  Everyone:
+	Hello everyone
+19:59:00 From  zoom 87  to  Hosts and panelists:
+	Good morning
+19:59:01 From  Mohammad Ayub gl  to  Everyone:
+	Same in Iowa :)
+19:59:12 From  Kurt Borg gl  to  Everyone:
+	Los Angeles
+19:59:13 From  FABIANA P NOVELLO gl  to  Everyone:
+	in Brazil is about 30º C
+19:59:17 From  Justin Stokes gl  to  Everyone:
+	Ice in Ohio
+19:59:18 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	Same in Canada!
+19:59:23 From  Srikanth Panchavati gl  to  Everyone:
+	Its snowing in Toronto and GTA area
+19:59:31 From  Pallavi Kawale gl  to  Everyone:
+	Good morning everyone
+19:59:39 From  Kurt Borg gl  to  Everyone:
+	42 F Deg
+19:59:43 From  JAVIER RAMIREZ gl  to  Everyone:
+	Oi
+19:59:47 From  Govinda Villasa Lopez Garza gl  to  Everyone:
+	morning
+19:59:57 From  Mohammad Nazif Faqiry gl  to  Everyone:
+	Good morning from Indiana!
+20:00:02 From  FABIANA P NOVELLO gl  to  Everyone:
+	Good morning
+20:00:04 From  William Corwin gl  to  Everyone:
+	Happy Friday! :)
+20:00:05 From  Michael Allerheiligen gl  to  Hosts and panelists:
+	Good morning from New Mexico!
+20:00:10 From  Michael Jeffries gl  to  Everyone:
+	Good morning
+20:00:26 From  Victor Chavarria gl  to  Everyone:
+	Good morning from Minneapolis, MN
+20:00:28 From  MARIA SUSANA REZZONICO gl  to  Everyone:
+	Good morning
+20:00:33 From  Reena Choudhary gl  to  Everyone:
+	good morning everyone
+20:00:36 From  Kevin Humbles gl  to  Everyone:
+	Good morning
+20:00:58 From  Oktay Selcuk gl  to  Everyone:
+	good morning form Miami
+20:01:22 From  Ruth Ndila Ndeto gl  to  Everyone:
+	Good afternoon from Dublin :)
+20:01:37 From  Fedor Galstyan gl  to  Everyone:
+	Hi everyone!
+20:01:42 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Good afternoon from Swiss…
+20:06:58 From  Juan Bermudez gl  to  Everyone:
+	Hello
+20:09:14 From  RAVI KUMAR TOLETY gl  to  Hosts and panelists:
+	Good Morning All
+20:09:36 From  RAVI KUMAR TOLETY gl  to  Everyone:
+	Good Morning All
+20:12:31 From  Diljot Chhina gl  to  Hosts and panelists:
+	What does deterministic mean in this context for trends
+20:14:02 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Diljot The new value may potentially be determined / calculated from the previous values through a simple formula, such as a linear or quadratic formula
+20:14:16 From  Diljot Chhina gl  to  Hosts and panelists:
+	thanks!
+20:15:00 From  Diallo Bocar Elimane gl  to  Everyone:
+	Is time Series = Descriptive Analytics ?
+20:15:26 From  [GL-TA] Ajith  to  Everyone:
+	@Diljot The deterministic trend is one that you can determine from the equation directly
+20:16:00 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Diallo Time Series forecasting also involves forecasting future values that are unknown, so that would be classified under Predictive Analytics
+20:16:23 From  Erika Spangler gl  to  Everyone:
+	How is time series different from a linear regression where X is time?
+20:16:29 From  Diallo Bocar Elimane gl  to  Everyone:
+	Thanks
+20:17:50 From  [GL-TA] Maruthi Reddy  to  Hosts and panelists:
+	@Erika Linear Regression assumes the samples are independent of each other but its not the case with time series. They are dependent on previous values.
+20:18:00 From  [GL-TA] Maruthi Reddy  to  Everyone:
+	@Erika Linear Regression assumes the samples are independent of each other but its not the case with time series. They are dependent on previous values.
+20:18:00 From  Diallo Bocar Elimane gl  to  Everyone:
+	Good Question Erika
+20:18:20 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Erika Because in linear regression, the observations are not correlated with each other, and are completely independent events. In time series, the observations are correlated with each other (autocorrelation). That's how Time Series is different from the machine learning we have seen so far.
+20:18:47 From  Erika Spangler gl  to  Everyone:
+	Thanks
+20:19:03 From  Ticiana Beqari gl  to  Everyone:
+	what does Rx stand for?
+20:19:17 From  Thanh Dang gl  to  Hosts and panelists:
+	auto covariance
+20:19:34 From  Ahsan Yousaf gl  to  Everyone:
+	AutoCovariance
+20:20:01 From  [GL-TA] Jai  to  Everyone:
+	@Ticiana, it stand for auto covariance
+20:20:07 From  Arnold Estrada gl  to  Everyone:
+	How is auto covariance related to autocorrelation?
+20:20:41 From  Diljot Chhina gl  to  Hosts and panelists:
+	Should you de-trend the data before doing a regression analysis?
+20:20:48 From  Diljot Chhina gl  to  Hosts and panelists:
+	is this consider a data prep step?
+20:21:01 From  Eduardo Brandao de Souza Mendes gl  to  Everyone:
+	none of the series shown were really stationary right?
+20:21:09 From  [GL-TA] Avijit  to  Hosts and panelists:
+	@Arnold The correlation is a scaled version of the covariance that lies between -1 and 1, where 1 represents strong positive correlation, 0 represents independence, and -1 represents strong negative correlation. For a time series process, the random variables relate to the same quantity measured at different points in time. Therefore the dependence between them is described by the autocovariance and autocorrelation functions, with the ‘auto’ prefix being added to denote the fact that both random variables measure the same quantity (at different time points).
+20:21:30 From  Maurice Edwards gl  to  Everyone:
+	They all had trend, no stationarity
+20:21:30 From  Diljot Chhina gl  to  Hosts and panelists:
+	Im thinking about the use case of looking at sales trends over last 12 months and forecasted next 3 months - but there has been a lot of volatility with covid
+20:21:50 From  Jesus Chavez gl  to  Everyone:
+	What's lambda again?
+20:22:28 From  [GL-TA] Avijit  to  Everyone:
+	@Arnold  Q:How is auto covariance related to autocorrelation?	A:The correlation is a scaled version of the covariance that lies between -1 and 1, where 1 represents strong positive correlation, 0 represents independence, and -1 represents strong negative correlation. For a time series process, the random variables relate to the same quantity measured at different points in time. Therefore the dependence between them is described by the autocovariance and autocorrelation functions, with the ‘auto’ prefix being added to denote the fact that both random variables measure the same quantity (at different time points).
+20:22:29 From  [GL-TA] Maruthi Reddy  to  Everyone:
+	@Eduardo Yes you are right. They are not stationary. You will see the stationarity graphs in the upcoming slides.
+20:23:00 From  Victor Chavarria gl  to  Everyone:
+	would moving average be a form of autocovariance?
+20:23:08 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	What should be the length of the window? What should be the size of lambda?
+20:23:44 From  Erika Spangler gl  to  Everyone:
+	What is Tau?
+20:23:59 From  Scott Penco gl  to  Hosts and panelists:
+	The uploaded slides are missing some slides. Will they be updated?
+20:24:08 From  Alvin Kuo gl  to  Everyone:
+	@Mahzabeen I guess it depends on the data availability and the range you have interest to investigate
+20:24:40 From  Shilpa Tyagi gl  to  Everyone:
+	I think Tau is the lag in time they are considering
+20:25:45 From  Erika Spangler gl  to  Everyone:
+	Thanks Shilpa, like the difference size between 2 points? Not sure what Lag is?
+20:26:04 From  Alvin Kuo gl  to  Everyone:
+	@Erika yes, the difference between two time points
+20:26:08 From  [GL-TA] Debjyoti Ghosh  to  Hosts and panelists:
+	@Victor 
+	Q:would moving average be a form of autocovariance?
+	A: Moving Average would give the trend considering its influence from the recent past to be more relevant than its influence from long ago however autocovariance is a way to interpret the covariance of the process with itself. 
+	while they're not the same, they do hold intuition to describe the other's trend
+20:26:10 From  Erika Spangler gl  to  Everyone:
+	Thanks team!
+20:26:24 From  [GL-TA] Jai  to  Everyone:
+	@Shilpa, It is the difference between two-time intervals.
+20:26:29 From  Sunil Acharya gl  to  Everyone:
+	tau = arbitrary time step
+20:26:39 From  [GL-TA] Debjyoti Ghosh  to  Everyone:
+	@Victor 
+	Q:would moving average be a form of autocovariance?
+	A: Moving Average would give the trend considering its influence from the recent past to be more relevant than its influence from long ago however autocovariance is a way to interpret the covariance of the process with itself. 
+	while they're not the same, they do hold intuition to describe the other's trend
+20:26:52 From  Shilpa Tyagi gl  to  Everyone:
+	yeah, like diff in time points, like comparing every data points which are two days away, 2 months away, 2 secs away... so 2 will be tau.. that's how I am understanding
+20:27:05 From  Shilpa Tyagi gl  to  Everyone:
+	and 2 is the lag
+20:27:50 From  Victor Chavarria gl  to  Everyone:
+	that makes sense. Thanks Debjyoti
+20:28:32 From  Erika Spangler gl  to  Everyone:
+	2 variables or 2 points?
+20:28:53 From  Kalpana Singh gl  to  Everyone:
+	@erika 2 points in time
+20:29:47 From  [GL-TA] Maruthi Reddy  to  Everyone:
+	@Mahzabeen  Q: What should be the length of the window? What should be the size of lambda?		A: The λ can be started from 1 and can be repeated until λ=N and For each of the λ, we need to get the constant mean.
+20:33:07 From  Thanh Dang gl  to  Everyone:
+	could the professor explain the removing seasonality again? how is the regression built?
+20:33:37 From  RAVI KUMAR TOLETY gl  to  Everyone:
+	Do we conduct stationarity testing after de trending to ensure stationarity again?
+20:34:27 From  Wilberto W Montoya gl  to  Everyone:
+	about seasonality, is always the same period of time or we can have seasons with different period of time?
+20:34:31 From  Thaynara Lena DuBois gl  to  Hosts and panelists:
+	How can we remove seasonality of sales with the average mentioned?
+20:34:35 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	Since time series data has auto correlation, how to compute the variance of the time series data? Is it like autocovariance?
+20:34:39 From  Victor Chavarria gl  to  Everyone:
+	Why would we want to remove seasonality? isn’t it important for the forecast?
+20:35:26 From  Suresh Prathipati gl  to  Everyone:
+	If we detrend ..do we lose some important information from data set?
+20:35:47 From  Erika Spangler gl  to  Everyone:
+	Why does the model depend on stationarity?
+20:36:23 From  Shilpa Tyagi gl  to  Everyone:
+	i think unless data in stationary, we cant find patterns
+20:36:39 From  NING LI gl  to  Hosts and panelists:
+	Isn’t that trend time dependent itself, please?
+20:37:09 From  Kuldeep Rawat gl  to  Everyone:
+	Is there a limitation on the minimum number of observations we must have for time-series modeling to work?
+20:37:18 From  Joby Schaffer gl  to  Everyone:
+	This may be jumping ahead, but here goes - are we checking for stationarity in both outcome series and feature series? Just outcome series?
+20:37:38 From  Chris Lieberman gl  to  Hosts and panelists:
+	Can time series be used for classification?  If so, can you provide an example?
+20:37:42 From  Vera Pfeiffer gl  to  Hosts and panelists:
+	Is the starting point rather fixed, and how does that influence how we apply a fitted oscillating model like this
+20:38:05 From  Nitin Goalla gl  to  Everyone:
+	How are external factors considered into forecasting?	Like the current world situation cannot be seen in data that we have so far, if we get data points from last 2 years
+20:38:14 From  Ahsan Yousaf gl  to  Everyone:
+	can time series predict a crash
+20:39:04 From  Thanh Dang gl  to  Everyone:
+	some event like COVID (unexpected), would that break stationarity of a time series model? do we remove year 2020?
+20:39:34 From  Alvin Kuo gl  to  Everyone:
+	@Ahsan I guess it depends on what the “crash” you refer. It it’s an outlier I don’t think so. If this is a factor of “time” inside, it should be yes.
+20:39:41 From  Diljot Chhina gl  to  Hosts and panelists:
+	^ I was also interested in this and was asking in the Q&A I think the response is you use data prep techniques to de-trend
+20:39:45 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Chris Yes, you can always discretize a regression problem into classification using a threshold. For example, rather than just predicting a stock price, then bucketing that into whether or not to buy the stock or not based on whether the price is above or below the threshold
+20:41:07 From  Ahsan Yousaf gl  to  Everyone:
+	Alvin - for example the housing crash happened and now we want to predict when the next housing crash may happen .. so that is a factor of time correct and not an outlier ?
+20:42:18 From  [GL-TA] Avijit  to  Everyone:
+	@Victor  Q:Why would we want to remove seasonality? isn’t it important for the forecast?	A:The most common reason is to provide an estimate of the current trend so that judgemental short-term forecasts can be made. Alternatively, it may be applied to a large number of series which enter an economic model, as it has been found impracticable to use unadjusted data with seasonal dummies in all but the smallest models.
+20:43:07 From  FABIANA P NOVELLO gl  to  Everyone:
+	is it possible to relate/setup different events on it? like Russian war now, for sure it will impact something on global market. How do we "fix" the forecast based on it?
+20:43:12 From  [GL-TA] Maruthi Reddy  to  Everyone:
+	@Nitin  Q: How are external factors considered in forecasting?		A: In the time series we have the concept of exogenous models where we would like to include a number of external variables that will, in addition, contribute to the response such as ARIMAX.
+20:43:30 From  Alvin Kuo gl  to  Everyone:
+	@Ahsan I guess if you believe housing crash may have a trend to happen as a pattern with time factor (like every 20 years?). Then we could try. But I believe economists consider housing price crash has more other factors behind instead of time.
+20:49:47 From  Wilberto W Montoya gl  to  Everyone:
+	could be that the autocovarince decays when is bigger than the memory?
+20:50:12 From  Amar Cheema gl  to  Hosts and panelists:
+	The uploaded slides are different?
+20:50:18 From  Erika Spangler gl  to  Everyone:
+	How is memory p different from lag tau? (Sum vs. difference?)
+20:51:46 From  Wilberto W Montoya gl  to  Everyone:
+	makes sense bigger the windows of the autocovariance less the x in the pass affects the value in the future
+20:51:57 From  Wilberto W Montoya gl  to  Everyone:
+	past
+20:56:12 From  Diljot Chhina gl  to  Hosts and panelists:
+	Is moving avg a better method than removing seasonality and looking at a large time frame
+21:00:59 From  [GL-TA] Maruthi Reddy  to  Everyone:
+	@Erika  Q: How is memory p different from lag tau? (Sum vs. difference?)		A:P represents the number of lagged/previous values that should be considered while modeling. Tau is the time difference between the two time points in the time series.
+21:01:30 From  Erika Spangler gl  to  Everyone:
+	Thanks for the clarification
+21:02:15 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	If we remove the trend or seasonality, it seems that we are modeling the random part of the time series data and we put the trend or seasonality back after modeling. In that case, do we add the raw (untreated) trend or seasonality? Or we need to model the trend and seasonality part too?  Because there might not be the constant trend over time?
+21:02:39 From  Robert Gormley gl  to  Hosts and panelists:
+	These slides are different from the pdf we got before. It would be great for this presentation to be made available for us after the lecture.
+21:02:40 From  Jose Daniel Cols Matheus gl  to  Everyone:
+	What is the goal of testing if our data comes from an Auto-regressive or Moving Average model?
+21:03:48 From  Deepak Gaikwad gl  to  Everyone:
+	why there is p for AR and q for MA, shouldn't it be the same?
+21:04:43 From  [GL-TA] Jai  to  Robert Gormley gl and all panelists:
+	We have updated the content, please kindly check once.
+21:05:09 From  Alvin Kuo gl  to  Everyone:
+	@Deepak p is the lag order, q is the order of moving average (error)
+21:06:54 From  Thanh Dang gl  to  Everyone:
+	why the professor only tried tau = 5 when determining stationarity? Can we definitely conclude the time series is stationary, or we can only be confident that the times series is stationary?
+21:07:45 From  [GL-TA] Maruthi Reddy  to  Everyone:
+	@Deepak  Q:why there is p for AR and q for MA, shouldn't it be the same?		A: AR models depend on previous values whereas MA depends on previous averages. So p in AR number of previous values to consider and q says the number of past errors to be considered.
+21:07:47 From  Erika Spangler gl  to  Everyone:
+	Can you summarize the difference between AR and MA?
+21:08:59 From  Thaynara Lena DuBois gl  to  Hosts and panelists:
+	Could you please provide more examples of random walk for arma model and autoregression model?
+21:09:03 From  Vera Pfeiffer gl  to  Everyone:
+	Could you detrend with a linear model, and then apply both models?
+21:10:00 From  Erika Spangler gl  to  Everyone:
+	Is time series better for short term predictions vs. linear regression for long term trends? Is there a probability associated with each prediction in the time series?
+21:10:07 From  Vera Pfeiffer gl  to  Everyone:
+	How does the slope term function in the first (AR?) model?
+21:10:57 From  Omar Fahmy gl  to  Everyone:
+	When trying to forecast business performance, we often want to determine leading indicators that can predict performance a month in advance for example. How do we do that with time series?
+21:11:51 From  NING LI gl  to  Hosts and panelists:
+	How far in the future can time series model predict? Is there a limit?
+21:12:01 From  Joseph Tidwell gl  to  Everyone:
+	What is the difference between time series and repeated measures data?
+21:12:16 From  NING LI gl  to  Everyone:
+	How are in the future can time series predict? Is there a limit?
+21:12:17 From  Estelle Pearl Yuzicappi gl  to  Everyone:
+	Good question
+21:12:30 From  Alvin Kuo gl  to  Everyone:
+	@Omar I believe you could compare two sets of time series data to find out if A could predict B in advance, then that would be leading indicator
+21:14:13 From  Mohammed Ishaque Ibrahim gl  to  Everyone:
+	How do we include causal elements (like seasonal variances) to the model. Like forecasting the sales based on weather or season
+21:14:51 From  Mohammed Ishaque Ibrahim gl  to  Everyone:
+	Will causal data show up as noise
+21:15:52 From  Nageswara Rao Biradhar gl  to  Everyone:
+	Is it going to be a worst model if I take time as x and outcome as y and do a liner regression and forecast the value for next t?
+21:17:22 From  Chao Sun gl  to  Everyone:
+	A followup question, can we put static features ,i.e., demographic data into the time series, and how can we add those into the time series data and feed into the model?
+21:18:07 From  Erika Spangler gl  to  Everyone:
+	Is there a probability associated with each prediction or with the model as a whole?
+21:18:56 From  Mukul Mondal gl  to  Everyone:
+	If noise value is highly significant to change the average trend value -- how to handle this situation?
+21:19:04 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Nageswara Like the professor mentioned this would be similar to just plotting the trend (like the average percentage of inflation year over year) but it wouldn't help plot the immediate variations in next values, which is what time series forecasting is needed for
+21:19:52 From  Sunil Acharya gl  to  Everyone:
+	this could be a vector of X_i where I goes from 1 to n and t may go from t_0 to t_k
+21:20:12 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Chao Sun Yes, "exogenous" (X) variables can always be added to these core components of time series, for more complex models such as ARX or ARIMAX
+21:21:19 From  Wilberto W Montoya gl  to  Everyone:
+	I think the vector idea may work for weather where we have a bunch of metrics (temperature, pressure, humidity, etc) that depends each other
+21:21:27 From  Mohammed Ishaque Ibrahim gl  to  Everyone:
+	Can you please suggest some good reference for ARX and other methods for testing exogenous elements?
+21:27:59 From  Fernando Garcia Corona gl  to  Everyone:
+	what happens if one models an ARMA model as AR only?
+21:29:06 From  Chris Lieberman gl  to  Hosts and panelists:
+	What is “P”?
+21:32:20 From  [GL-TA] Maruthi Reddy  to  Everyone:
+	@Fernando  Q: what happens if one models an ARMA model as AR only?		A: You can do that. ARMA(p,0) is same as AR(p). In these cases, we are not considering MA terms.
+21:34:14 From  Fernando Garcia Corona gl  to  Everyone:
+	but data generated let's say with ARMA(p,q) if we decide to model it as AR(p), how can we notice that we should have used an ARMA and not AR
+21:36:01 From  [GL-TA] Maruthi Reddy  to  Everyone:
+	@Fernando We use ACF and PACF plots to make sure which model to use. This will be covered in few minutes.
+21:36:07 From  Thanh Dang gl  to  Everyone:
+	sounds a bit like avoiding overfitting?
+21:36:19 From  Fernando Garcia Corona gl  to  Everyone:
+	thanks
+21:42:37 From  Omar Fahmy gl  to  Everyone:
+	what is the formula for partial autocovaraince?
+21:43:26 From  Diljot Chhina gl  to  Hosts and panelists:
+	how do you interpret what model has worked best?
+21:43:34 From  Rodrigo Senra gl  to  Everyone:
+	this PACF is beautiful
+21:45:23 From  Robert Gormley gl  to  Everyone:
+	What is finite support mean
+21:47:05 From  [GL-TA] Ajith  to  Everyone:
+	@Diljot,We can use metrics like RMSE, MAE,MSE and other metrics used for regression problems
+21:47:38 From  Rodrigo Senra gl  to  Everyone:
+	@robert: I guess FS means a few peak values in the PACF
+21:54:37 From  Keith Mullen gl  to  Everyone:
+	so your test data set would be future data? or a subset of the original data?
+21:54:39 From  My Coyne gl  to  Everyone:
+	How far in the future you can forecast the future with Billion CPI dataset?
+21:55:22 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Keith Yes, the test dataset here could just be a subset of the original data but only a segment at the right end
+21:55:24 From  Keith Mullen gl  to  Everyone:
+	After finding the AR model, in order to get future predictions you would have to add again the linear trend that you detrended?
+21:55:49 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	1. Since time series data has auto correlation, the computation of the variance of the time series data is same as other random variables? 	2. If we remove the trend or seasonality, it seems that we are modeling the random part of the time series data and we put the trend or seasonality back after modeling. In that case, do we add the raw (untreated) trend or seasonality? Or we need to model the trend and seasonality part too?  Because there might not be the constant trend over time?
+21:56:15 From  Joseph Tidwell gl  to  Everyone:
+	Thank you professor!
+21:56:33 From  Raji Kandan gl  to  Everyone:
+	Thank You!!
+21:56:34 From  Prerna Mathur gl  to  Hosts and panelists:
+	Thank you Professor
+21:56:39 From  RAVI KUMAR TOLETY gl  to  Everyone:
+	Thank You  Professor!!!
+21:56:41 From  Paula Iglesias Otárola gl  to  Everyone:
+	Thank you Professor!
+21:56:45 From  Fedor Galstyan gl  to  Everyone:
+	Thank you professor!
+21:56:56 From  Keith Mullen gl  to  Everyone:
+	thanks!!
+21:57:03 From  Andy Mak gl  to  Everyone:
+	Thank you professor!
+21:57:04 From  Thaynara Lena DuBois gl  to  Everyone:
+	Thank you professor!
+21:57:07 From  Dino Cehic gl  to  Everyone:
+	thanks!
+21:57:09 From  Kuldeep Rawat gl  to  Everyone:
+	Can we get a little explanation on how exogeneous variables can be included in the time series modelling?
+21:57:13 From  Reena Choudhary gl  to  Everyone:
+	Thank you professor!
+21:57:14 From  Aditya Bandimatt gl  to  Everyone:
+	Thank you Professor!
+21:57:25 From  Shajan Thomas gl  to  Everyone:
+	Thank you professor!!!
+21:57:32 From  Kurt Borg gl  to  Everyone:
+	Thank you professor
+21:57:46 From  Juan Bermudez gl  to  Everyone:
+	Thanks professor
+21:58:13 From  xiaomei shi gl  to  Everyone:
+	How the order of D in ARIMA model can be estimated?
+21:58:30 From  Surya Gutta gl  to  Hosts and panelists:
+	How effective is ARMA models for commodity futures predictions and stock price predicgtions in real world? Are any institutions using this for this purpose?
+22:01:27 From  Mukul Mondal gl  to  Everyone:
+	Thank you professor!
+22:01:32 From  Scott Penco gl  to  Hosts and panelists:
+	Thank you professor!
+22:01:36 From  Sivakumar Visweswaran gl  to  Everyone:
+	Thank you all
+22:01:40 From  Kevin Humbles gl  to  Everyone:
+	Thank you professor.
+22:01:42 From  Chris Kaiser gl  to  Everyone:
+	with time series does complexity increase/decrease with interval size?
+22:01:42 From  Alvin Kuo gl  to  Everyone:
+	Thank you professor 🙂
+22:01:44 From  Emma Leibfried gl  to  Everyone:
+	Thank you Professor!
+22:01:46 From  Jose Daniel Cols Matheus gl  to  Everyone:
+	Thank you!
+22:01:46 From  Anita Albert gl  to  Hosts and panelists:
+	Thnak you!
+22:01:46 From  Priya Dayanand gl  to  Hosts and panelists:
+	Thank you!
+22:01:47 From  MARIA SUSANA REZZONICO gl  to  Everyone:
+	Thank youprofessor
+22:01:49 From  Govinda Villasa Lopez Garza gl  to  Everyone:
+	thank you!!!
+22:01:53 From  Vera Pfeiffer gl  to  Everyone:
+	Thank you!
+22:01:55 From  Indira R Reddy gl  to  Everyone:
+	Thank you Professor
+22:02:02 From  Zuhair Nara gl  to  Everyone:
+	يعطيك العافية
+22:02:21 From  Thanh Dang gl  to  Everyone:
+	does times series model give us point prediction? how do we derive confidence interval in times series model?
+22:02:23 From  Mohammad Nazif Faqiry gl  to  Everyone:
+	Thank you professor!
+22:03:23 From  Simon Timbillah gl  to  Everyone:
+	-
+22:03:51 From  Wilberto W Montoya gl  to  Everyone:
+	thank you professor
+22:03:52 From  Prof. Munther A Dahleh  to  Hosts and panelists:
+	System identification by L. Ljung
+22:05:04 From  Chao Sun gl  to  Everyone:
+	There are obvious benefits to introduce more complex time series model such as RNN/LSTM, but how can the model explain the features that the Arima model can explain? such as seasonality/autocovariance and how the LSTM introduce static features such demographic data into the model?
+22:05:16 From  DAVID KOMBO gl  to  Everyone:
+	Many thanks for awesome lectures, Professor!
+22:05:18 From  Thanh Dang gl  to  Everyone:
+	how many taus should we look at to determine stationarity? If we look at one tau (R=5) do we assume others are the same
+22:06:31 From  Thanh Dang gl  to  Everyone:
+	is time-series model sensitive to outliers (COVID, 2008 events, etc.) Do we remove them when building time-series model?
+22:07:53 From  Chris Lieberman gl  to  Hosts and panelists:
+	How to determine the optimal Tau?
+22:08:04 From  Chris Lieberman gl  to  Hosts and panelists:
+	Does the software do this for you?
+22:08:21 From  Chris Lieberman gl  to  Hosts and panelists:
+	I’m lost
+22:10:00 From  RAVI KUMAR TOLETY gl  to  Everyone:
+	Is the tau we are discussing the same as Kendall Tau?
+22:11:21 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Could you use these model for drug development in RWE en compare an outcome with 2 groups placebo versus treatment?
+22:11:59 From  Wilberto W Montoya gl  to  Everyone:
+	Got it Professor
+22:12:05 From  Vera Pfeiffer gl  to  Everyone:
+	If you learn an AR model, and try to apply it to another dataset - how do you determine the starting point?
+22:12:24 From  Dandan Kowarsch gl  to  Everyone:
+	power-distributed errors are considered as white noise?
+22:13:58 From  Wilberto W Montoya gl  to  Everyone:
+	Professor mentioned that ARMA model have decays in both ACF and PACF is there any similar way to difference ARMA of ARIMA?
+22:15:16 From  HARIISH UPPILI gl  to  Everyone:
+	Outliers need to be evaluated correct especially for stock prices if there is a significant development affecting the underlyng data. We can ignore noise for trivial spikes and troughs.
+22:15:29 From  HARIISH UPPILI gl  to  Everyone:
+	Fully agree
+22:17:10 From  Sunil Acharya gl  to  Everyone:
+	So if there is some new data -you just do a cross-correlation with the data you trained it on -and make a decision on wheather the model would be good?
+22:19:30 From  Keith Mullen gl  to  Everyone:
+	can you change the collection of your data over a different time interval to find less variability or steady state...like maybe instead of collecting data every hour, collect it over minutes and restrict the timeframe to minutes?
+22:21:52 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Thanks Professor
+22:22:40 From  Surya Gutta gl  to  Hosts and panelists:
+	While forecasting demand for an appliance manufacturer, if we get time series of components used in the all appliances (Same component is used in multiple appliances),  do we need to create ARMA model for each component? Or Can we create ARMA models for couple of components and average the coefficients and apply the same ARMA model for other components?
+22:22:41 From  Keith Mullen gl  to  Everyone:
+	thanks!!
+22:24:54 From  HARIISH UPPILI gl  to  Everyone:
+	for something like Bitcoin which is so unpredictable would unsupervised learning method like PCA be helpful ?
+22:25:36 From  HARIISH UPPILI gl  to  Everyone:
+	or do you recommend Aggregation like Drew mentioned
+22:27:38 From  Sunil Acharya gl  to  Everyone:
+	Drew -you mentioned working on "Machine failures" the other day- have you worked on "Digital Twins"
+22:27:40 From  Sunil Acharya gl  to  Everyone:
+	?
+22:28:15 From  Sunil Acharya gl  to  Everyone:
+	The last question was in the context of "Time-series" data from sensors
+22:29:50 From  Pallavi Kawale gl  to  Everyone:
+	Thank u all of u.. 😊
+22:29:52 From  Rodrigo Senra gl  to  Everyone:
+	Thanks a lot
+22:29:53 From  Shan Siddiqui gl  to  Everyone:
+	Thank you all!
+22:29:54 From  Prof. Munther A Dahleh  to  Hosts and panelists:
+	Thank you
+22:29:57 From  Thanh Dang gl  to  Everyone:
+	great lectures! Thank you Professor!
+22:30:00 From  Manish Kumar Srivastava gl  to  Everyone:
+	Thank your Prof. Munther
+22:30:00 From  Oktay Selcuk gl  to  Everyone:
+	thank you all
+22:30:01 From  Thaynara Lena DuBois gl  to  Everyone:
+	I made one question
+22:30:02 From  Lawrence Karongo gl  to  Hosts and panelists:
+	Thank you!!
+22:30:03 From  Mukul Mondal gl  to  Everyone:
+	Thank you professor and all
+22:30:03 From  Diallo Bocar Elimane gl  to  Everyone:
+	Thanks
+22:30:04 From  Leng Khye Sut gl  to  Everyone:
+	thank you all
+22:30:05 From  Abhay  Patel gl  to  Everyone:
+	thank you all
+22:30:05 From  Manish Kumar Srivastava gl  to  Everyone:
+	Thank you Drew
+22:30:06 From  Alvin Kuo gl  to  Everyone:
+	Thank you all 🙂
+22:30:07 From  Saradha Ravi gl  to  Hosts and panelists:
+	thank you professor!
+22:30:08 From  Dino Cehic gl  to  Everyone:
+	👍🏻
+22:30:08 From  Surya Gutta gl  to  Hosts and panelists:
+	Thanks professor, Drew and Vishnu
+22:30:10 From  Fernando Garcia Corona gl  to  Everyone:
+	thanks !
+22:30:12 From  Erica Li gl  to  Everyone:
+	Thank you Professor!
+22:30:13 From  Ruben Buaba gl  to  Everyone:
+	Thank you Prof!
+22:30:15 From  Paula Iglesias Otárola gl  to  Everyone:
+	thanks a lot! great session!
+22:30:15 From  Wilberto W Montoya gl  to  Everyone:
+	Thank you professor a honor receiving your lectures
+22:30:16 From  Reto Voegeli gl  to  Everyone:
+	Thanks Professor and Drew
+22:30:21 From  Keith Mullen gl  to  Everyone:
+	These have been great.  Thanks!!
+22:30:22 From  Michael Jeffries gl  to  Everyone:
+	Thanks

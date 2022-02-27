@@ -1,0 +1,672 @@
+19:53:23 From  neil mody gl  to  Everyone:
+	Good morning everyone
+19:53:42 From  YAN MING HU gl  to  Everyone:
+	good morning
+19:53:51 From  Sergio Bracho Argotte gl  to  Everyone:
+	Good morning!
+19:53:56 From  Chen Wei Ku gl  to  Everyone:
+	Good morning
+19:55:48 From  Fedor Galstyan gl  to  Everyone:
+	Good morning!
+19:55:54 From  Jesus Chavez gl  to  Everyone:
+	GM
+19:55:59 From  Leng Khye Sut gl  to  Everyone:
+	Good morning!
+19:56:10 From  Kevin Humbles gl  to  Everyone:
+	Good morning
+19:56:18 From  Mahesh Macharla gl  to  Everyone:
+	Good Morning!
+19:56:38 From  RAVI KUMAR TOLETY gl  to  Hosts and panelists:
+	Good Morning All!!!
+19:57:03 From  RAVI KUMAR TOLETY gl  to  Hosts and panelists:
+	I can’t hear is it the same with everyone?
+19:57:51 From  Mike Hankinson gl  to  Everyone:
+	Good morning!
+19:57:55 From  Pedro Manuel Rossi Mercado gl  to  Everyone:
+	good morning everyone
+19:58:01 From  Zuhair Nara gl  to  Everyone:
+	سلامات
+19:58:04 From  Ahsan Yousaf gl  to  Hosts and panelists:
+	Good morning
+19:58:14 From  Reena Choudhary gl  to  Everyone:
+	good morning everyone
+19:58:16 From  Craig Munnik gl  to  Everyone:
+	Good morning, afternoon, evening all
+19:58:19 From  Estelle Pearl Yuzicappi gl  to  Everyone:
+	Good Morning
+19:58:19 From  RAVI KUMAR TOLETY gl  to  Hosts and panelists:
+	I am unable to hear..is it me only?
+19:58:41 From  Jacqueline gl  to  Everyone:
+	Good morning everyone from Boston!
+19:58:45 From  Shan Siddiqui gl  to  Hosts and panelists:
+	Good morning!
+19:58:48 From  Chris Kaiser gl  to  Everyone:
+	morning
+19:58:58 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Ravi I think it may be you, can you try joining back?
+19:58:59 From  Nitin Goalla gl  to  Everyone:
+	Good morning!
+19:58:59 From  Shan Siddiqui gl  to  Everyone:
+	Good morning from Chicago!
+19:59:10 From  Michael Allerheiligen gl  to  Hosts and panelists:
+	Good morning from New Mexico
+19:59:14 From  RAVI KUMAR TOLETY gl  to  Hosts and panelists:
+	Sure thanks
+19:59:26 From  Pallavi Kawale gl  to  Hosts and panelists:
+	Good morning all
+19:59:27 From  Oktay Selcuk gl  to  Everyone:
+	hello everyone
+19:59:31 From  Lucy Edosomwan gl  to  Everyone:
+	Good morning from Atlanta 💞
+19:59:34 From  Justin Stokes gl  to  Everyone:
+	Good Morning, afternoon, evening from Columbus, Ohio
+19:59:35 From  Mukul Mondal gl  to  Everyone:
+	Good morning to all from Florida
+19:59:46 From  Michael Jeffries gl  to  Hosts and panelists:
+	Good morning from Chicago
+19:59:50 From  Dev Soor gl  to  Hosts and panelists:
+	Good morning from Arizona
+19:59:52 From  Victor Chavarria gl  to  Everyone:
+	Good Morning from Minneapolis
+20:00:03 From  Malaya Pant gl  to  Everyone:
+	Good Morning
+20:00:10 From  MARIA SUSANA REZZONICO gl  to  Everyone:
+	Good morning
+20:00:24 From  Cheslan Simpson gl  to  Everyone:
+	God morning, good afternoon, good evening from WA State, USA.
+20:00:28 From  RAVI KUMAR TOLETY gl  to  Hosts and panelists:
+	Thanks I am able to hear now..
+20:00:28 From  Paula Iglesias Otárola gl  to  Everyone:
+	Good morning from Santiago de Chile!
+20:00:48 From  Maria Isabel Rodriguez Torres gl  to  Everyone:
+	Good morning from Medellín, Colombia :)
+20:00:54 From  Aditya Bandimatt gl  to  Everyone:
+	Good Morning everyone!
+20:01:00 From  Srikanth Panchavati gl  to  Hosts and panelists:
+	Good morning!
+20:01:06 From  Kuldeep Rawat gl  to  Everyone:
+	Good morning everyone from NC.
+20:01:11 From  Srikanth Panchavati gl  to  Everyone:
+	Good morning!
+20:01:14 From  Rodrigo Senra gl  to  Everyone:
+	Hello folks
+20:01:17 From  Thanh Dang gl  to  Hosts and panelists:
+	good morning from New York City! Hi Professor Dahleh!
+20:01:19 From  Satyanarayana Reddy Karri gl  to  Everyone:
+	Good morning!
+20:01:20 From  RAVI KUMAR TOLETY gl  to  Everyone:
+	Good Morning /GA/GE All from Atlanta
+20:01:25 From  frantz verella gl  to  Hosts and panelists:
+	Good morning g to everyone
+20:01:25 From  Mariela Trigueros gl  to  Everyone:
+	Good Morning Everyone
+20:01:28 From  Chari-Jo Johnson gl  to  Everyone:
+	Good Morning
+20:01:35 From  HARIISH UPPILI gl  to  Everyone:
+	Good morning from Atanta
+20:01:39 From  George Katsriku gl  to  Everyone:
+	Good morning
+20:02:27 From  Mohammad Nazif Faqiry gl  to  Everyone:
+	Good morning from Indiana!
+20:03:06 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Good afternoon from Switzerland!
+20:03:16 From  Shajan Thomas gl  to  Everyone:
+	Good morning
+20:03:25 From  William Corwin gl  to  Everyone:
+	Morning friends!
+20:03:33 From  Ken Wise gl  to  Everyone:
+	Good morning from Providence
+20:03:54 From  frantz verella gl  to  Hosts and panelists:
+	What is the signification +ve
+20:03:55 From  Diallo Bocar Elimane gl  to  Everyone:
+	Hello everyone
+20:10:49 From  Chris Lieberman gl  to  Hosts and panelists:
+	Is a Boolean function the same as an arbitrary function?
+20:12:01 From  Jesus Chavez gl  to  Everyone:
+	Little data preparation applies for when you have nulls, outliers and all that kind of stuff that you might need to get rid of it or do something about it?
+20:13:39 From  [GL-TA] Akash  to  Everyone:
+	Hi Chris,
+20:15:04 From  Arnold Estrada gl  to  Everyone:
+	I missed definition. What does NP mean?
+20:15:07 From  [GL-TA] Akash  to  Everyone:
+	@Chris Q:Is a Boolean function the same as an arbitrary function? 
+	Boolean function is a function whose arguments and result assume values from a two-element set (usually (true, false), {0,1} or {-1,1}. An arbitrary function simply means that it is a function that you are free to define in any way you want. The simple constraint is that it should be a function.
+20:15:12 From  Arnold Estrada gl  to  Everyone:
+	NP-complete?
+20:15:21 From  Kritika Kapoor gl  to  Everyone:
+	A little explanation of "greedy" would be nice!
+20:15:41 From  Alvin Kuo gl  to  Everyone:
+	NP-complete = nondeterministic polynomial-time complete
+20:15:52 From  Thanh Dang gl  to  Hosts and panelists:
+	can you provide an example of a greedy and an example of a non-greedy algorithm?
+20:15:56 From  Arnold Estrada gl  to  Everyone:
+	thx
+20:16:08 From  [GL-TA] Jai  to  Everyone:
+	@Jesus, Q:Little data preparation applies for when you have nulls, outliers and all that kind of stuff that you might need to get rid of it or do something about it?
+	A: Yes, for linear models we need data preprocessing, whereas tree-based (non-linear) models can be able to handle implictly by its working methodology. 
+20:16:52 From  Jesus Chavez gl  to  Everyone:
+	Thank you!
+20:17:19 From  Rodrigo Senra gl  to  Everyone:
+	@Kritika:  Greedy Algorithms, which is a Computer Science term for any algorithm that tries to approximate the globally optimal solution to a problem by finding the locally optimal solution at each step of the problem instead.
+20:18:32 From  [GL-TA] Ajith  to  Everyone:
+	@Kritika - Q: A little explanation of "greedy" would be nice!		A: Greedy algorithms follow an iterative process to select the locally optimal result at each step, and hence aim to arrive at an approximation for the globally optimal result through this heuristic approach. This is naturally just an approximation however, and hence not necessarily the globally optimal solution for the problem.
+20:21:02 From  Craig Munnik gl  to  Everyone:
+	Can decision trees used for a linear regression type problem?
+20:21:14 From  Jorge A. Marty Jr. gl  to  Everyone:
+	FYI - the slides hes using is different that what was uploaded as of yesterday
+20:21:25 From  Jorge A. Marty Jr. gl  to  Everyone:
+	*than
+20:22:16 From  William Corwin gl  to  Everyone:
+	These are review slides
+20:23:14 From  [GL-TA] Ajith  to  Everyone:
+	@Craig - Q: Can decision trees used for a linear regression type problem?		A: We can use decision trees for both regression and classification problems
+20:24:03 From  Craig Munnik gl  to  Everyone:
+	👍
+20:24:03 From  [GL-TA] Jai  to  Everyone:
+	@Craig- Q:Can decision trees used for a linear regression type problem?
+	A: Decision trees supports non linearity, where LR supports only linear solutions. When there are large number of features with low noise, linear regressions may outperform than Decision trees.For categorical independent variables, decision trees are better than linear regression
+20:25:59 From  Ravi Kumar gl  to  Everyone:
+	Is classification same as clustering?
+20:26:32 From  Kritika Kapoor gl  to  Everyone:
+	How do we determine which feature/independent variable to put at the top of the tree?
+20:26:43 From  Govinda Villasa Lopez Garza gl  to  Everyone:
+	right!
+20:30:00 From  [GL-TA] Jai  to  Everyone:
+	@Kritika- Q:How do we determine which feature/independent variable to put at the top of the tree?
+	A: The node which gives the more information gain should be the root node, you will going to learn about information gain in the coming slides.
+20:30:10 From  Thanh Dang gl  to  Hosts and panelists:
+	should we “bin” the data as much as possible before running the model? Usually we deal a lot of continuous data. But binning would introduce a lot of judgment and assumptions
+20:31:05 From  [GL-TA] Ajith  to  Everyone:
+	@Kritika - Q: How do we determine which feature/independent variable to put at the top of the tree?		A:  We use either Gini Index value or Entropy values and select the top most variable
+20:31:34 From  Jacqueline gl  to  Everyone:
+	How we dealer with features that have equal importance?
+20:31:41 From  Zhentao Wang gl  to  Everyone:
+	does different variable orders from top to bottom impact  the results?
+20:32:08 From  Mike Hankinson gl  to  Everyone:
+	@Kritika -- the pre-read provides a worked out example which shows how to perform entropy and information gain calculation to determine which features are placed on top, next, etc.
+20:32:29 From  Divesh Solanki gl  to  Everyone:
+	so we can say decision tree, is a function that will always lead to value of 1 or 0
+20:32:37 From  Nageswara Rao Biradhar gl  to  Everyone:
+	Do we need to convert continuous variables to categorical for Decision Trees?
+20:32:42 From  HUBERT POUSSEU KOUATCHO gl  to  Hosts and panelists:
+	How do we determine Misclassification?
+20:32:46 From  [GL-TA] Jai  to  Everyone:
+	@Ravi- Q: Is classification the same as clustering?
+	A: Classification classifies the data based on the label and it comes under supervised learning whereas clustering is an unsupervised learning algorithm that learns the patterns from the data itself(no target label)
+20:34:06 From  Nageswara Rao Biradhar gl  to  Everyone:
+	Why would you ask customer to leave when they have reservation and no rain? Does not sound intuitive
+20:34:37 From  William Corwin gl  to  Everyone:
+	They themselves left, they weren't asked to.
+20:34:41 From  Wilberto W Montoya gl  to  Everyone:
+	I think Prof is taking a random kind of rule
+20:34:51 From  [GL-TA] Jai  to  Everyone:
+	@Zhentao- Q:does different variable orders from top to bottom impact  the results?
+	A: Yes, it will impacts the model performance.
+20:35:08 From  Wilberto W Montoya gl  to  Everyone:
+	just to calculate te performance
+20:35:09 From  Diljot Chhina gl  to  Hosts and panelists:
+	Can this be used for multivariate regression - ie. two decisions
+20:35:19 From  Zhentao Wang gl  to  Everyone:
+	ty
+20:35:34 From  Ravi Kumar gl  to  Everyone:
+	Got it. Thanks Jai
+20:35:54 From  [GL-TA] Ajith  to  Everyone:
+	@Nageswara Rao - Q: Do we need to convert continuous variables to categorical for Decision Trees?		A:  The decision trees are robust enough to handle both categorical and continuous variables
+20:35:56 From  Kenneth L. Giden gl  to  Everyone:
+	Love this example, however how many times does one get asked if they are “hungry” or not at a restaurant?
+20:36:27 From  RAVI KUMAR TOLETY gl  to  Everyone:
+	Love this example - true that
+20:36:30 From  Rodrigo Senra gl  to  Everyone:
+	@kenneth: good point. But could be a pub?
+20:37:15 From  John Rogers gl  to  Hosts and panelists:
+	Is the depth still 2 here?
+20:37:15 From  Oktay Selcuk gl  to  Everyone:
+	Is there an acceptable-threshold for misclassification error level in percentage?
+20:37:22 From  Wilberto W Montoya gl  to  Everyone:
+	interesting tree with time ranges
+20:38:29 From  [GL-TA]Debjyoti Ghosh  to  Everyone:
+	@Diljot,
+20:38:40 From  [GL-TA]Debjyoti Ghosh  to  Everyone:
+	Q:Can this be used for multivariate regression - ie. two decisions
+20:39:16 From  [GL-TA] Ajith  to  Everyone:
+	@Diljot- Q: Can this be used for multivariate regression - ie. two decisions		A:  We can use decision trees for Multiclass classification as well
+20:39:18 From  Kenneth L. Giden gl  to  Everyone:
+	@Rodrigo…could be.  I’m thinking this could be a variable that could be dropped if there is missing data (not being able to know if “everyone” is hungry or not)
+20:39:33 From  Wilberto W Montoya gl  to  Everyone:
+	Does this tree be prone to overfit because the number of leaves gets closer to the sample size?
+20:40:04 From  Yuchen Ai gl  to  Everyone:
+	How are you suppose to pick the best predictor to be on  the top of the tree to have the best outcome?
+20:40:16 From  NING LI gl  to  Everyone:
+	Is there always a ‘best’ tree?
+20:40:16 From  Jose Daniel Cols Matheus gl  to  Everyone:
+	Can the order of the feature nodes affect the outcome?
+20:40:19 From  Rodrigo Senra gl  to  Everyone:
+	@kenneth: completely agree
+20:40:26 From  HARIISH UPPILI gl  to  Everyone:
+	Example is good . Wonder though if the classifications would change over time . This is a static data set . Should we not take more than one snapshot of data to truly test the model
+20:40:28 From  Mustafa Sagir gl  to  Everyone:
+	Do we choose the tree randomly? What is the process behind?
+20:40:47 From  Dominic H. Goodall gl  to  Everyone:
+	How do we verify error for an enormous tree? I’m assuming there’s an easier way than using the diagram.
+20:40:49 From  DAVID KOMBO gl  to  Everyone:
+	Shouldn't we call it "CLassification error" or "Misclassification rate"? instead of "Missclassification error"?
+20:41:04 From  Rodrigo Senra gl  to  Everyone:
+	I guess the question was: can a tree can be used for regression?
+20:42:42 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	How to know the overfitting? Looking at the results of the test data?
+20:42:44 From  Steven Rubio gl  to  Hosts and panelists:
+	If we change the boolean question at the top of the tree, will this affect the missclassification error?
+20:42:48 From  Saradha Ravi gl  to  Hosts and panelists:
+	how are decision trees different from associative rule based system?
+20:42:49 From  Mike Hankinson gl  to  Everyone:
+	@Mustafa The pre-read and later in the slides shows that the tree is not chosen randomly.  Use both entropy and Information Gain calculations (iteratively) to determine the structure of the tree.
+20:43:32 From  Mohammad Nazif Faqiry gl  to  Everyone:
+	Can you comment on the size of data and applicability of DT?
+20:44:34 From  Mohammad Nazif Faqiry gl  to  Everyone:
+	*practical applicability
+20:44:48 From  [GL-TA] Ajith  to  Everyone:
+	@Jose- Q: Can the order of the feature nodes affect the outcome	A:  The orders of the nodes are very important. The node which is at the top is best variable which splits the data homogeneously
+20:45:00 From  Mike Hankinson gl  to  Everyone:
+	@Mohammad.  One of the earlier slides stated that DT performs well with large datasets.
+20:45:34 From  Adam Kritzman Frankel gl  to  Everyone:
+	how are the results of decision trees vs logistic regression using indicator variables for categorical features
+20:46:05 From  Jose Daniel Cols Matheus gl  to  Hosts and panelists:
+	Thank you, Ajith.
+20:46:30 From  Alvin Kuo gl  to  Everyone:
+	@Jesus Decision trees are also not sensitive to outliers since the partitioning happens based on the proportion of samples within the split ranges and not on absolute values.
+20:47:16 From  Nirupana S Natarajan gl  to  Everyone:
+	what is the order of the nodes when K-1 can be cany question
+20:47:21 From  [GL-TA] Jai  to  Everyone:
+	@MAHZABEEN RAHMAN- Q:How to know the overfitting? Looking at the results of the test data?
+	A: If the model score on testing data is far less than w.r.t training score we can say that the model get overfitted and failed to generalize on unseen data.
+20:48:52 From  Mohammad Nazif Faqiry gl  to  Everyone:
+	@Mike, I wanted to know at what size of data in practice NP-completeness becomes an issue when we want to come up with a good DT. 
+20:49:17 From  John Rogers gl  to  Hosts and panelists:
+	What again is the definition of I( f(x) != y)
+20:49:21 From  HARIISH UPPILI gl  to  Everyone:
+	Would we see different results if we checked this decision tree model of restraunt data for 1 month vs 1 day of data ? What is the recommendation here ..?
+20:49:21 From  John Rogers gl  to  Hosts and panelists:
+	?
+20:49:48 From  [GL-TA] - Rajeev  to  Everyone:
+	@joh,
+20:50:16 From  [GL-TA] - Rajeev  to  Everyone:
+	The symbol f(x)!=y is defined as the function is not equal to y.
+20:50:28 From  John Rogers gl  to  Everyone:
+	My question was about the function I
+20:50:59 From  Craig Munnik gl  to  Everyone:
+	is one test set enough to validate model or is it advisable to use multiple test sets?
+20:51:43 From  NING LI gl  to  Everyone:
+	Do you do K-fold on this, please?
+20:53:04 From  Michael Allerheiligen gl  to  Hosts and panelists:
+	If every leaf has one element, is it then deemed over fitted?
+20:54:17 From  [GL-TA] Jai  to  Everyone:
+	@john - Q: What again is the definition of I( f(x) != y)
+	A: The I() function is 1 in case of misclassification and 0 otherwise. In the I() method, the symbol f(x)!=y is defined as a function that is not equal to y.
+	
+20:54:21 From  Andy Mak gl  to  Everyone:
+	Will correlation matrix help in this case - to choose which feature to start and selection?
+20:54:22 From  [GL-TA]Debjyoti Ghosh  to  Everyone:
+	@Craig
+	Q:is one test set enough to validate model or is it advisable to use multiple test sets?
+	A:It's always better to have as many test sets as possible. but on the other hand we also have to see to it that our test sets aren't too small.
+20:54:23 From  Shilpa Tyagi gl  to  Everyone:
+	can you please explain Combinatorial Explosion?
+20:54:29 From  [GL-TA] Ajith  to  Everyone:
+	@NING- Q: Do you do K-fold on this, please?		A:  K-fold is a common technique that is used to assess how well a model is generalized on the unseen data. It can be used for Decision trees as well
+20:56:28 From  NING LI gl  to  Everyone:
+	😃
+20:57:06 From  JAGANATHAN SAMRAJ gl  to  Everyone:
+	👍
+20:57:12 From  [GL-TA]Debjyoti Ghosh  to  Everyone:
+	@Shilpa, 
+	Q:can you please explain Combinatorial Explosion?
+	A: Combinatorial explosion is the rapid growth of complexity of a problem that arises when we try to take into account all the combinations or permutations possible given all the inputs and all the constraints
+21:00:56 From  Thanh Dang gl  to  Hosts and panelists:
+	are there alternative functions to use other than entropy? Why use something like entropy vs some other simpler functions?
+21:01:34 From  [GL-TA] Manojkumar  to  Everyone:
+	@Sunil,Q:what is the "hyperparameter" in this context?
+21:02:00 From  Nikhil Kamma gl  to  Hosts and panelists:
+	Why minus sign?
+21:02:55 From  [GL-TA] Manojkumar  to  Hosts and panelists:
+	@Sunil, Ans:Hyperparameter is not learned as in the case of parameters. It is chosen accordingly to get better performance of the model. For example depth of the tree is a hyperparameter that can be chosen by us.
+21:03:37 From  [GL-TA] Ajith  to  Everyone:
+	@Thanh- Q: are there alternative functions to use other than entropy? Why use something like entropy vs some other simpler functions?		A:  We can also use Gini index which is also another most popularly used measure
+21:04:31 From  Jesus Chavez gl  to  Everyone:
+	how did you get 1/4 again? P(X|Y=0)?
+21:04:53 From  John Rogers gl  to  Everyone:
+	Can we go over the last line of conditional entropy again? i.e. H(Y|X)
+21:04:54 From  NING LI gl  to  Everyone:
+	Is the entropy different if we look at tail?
+21:05:05 From  NING LI gl  to  Everyone:
+	Is it a measure of the system?
+21:05:14 From  NING LI gl  to  Everyone:
+	Can you explain more on it?
+21:05:33 From  [GL-TA] Manojkumar  to  Everyone:
+	@Sunil, Ans:Hyperparameter is not learned as in the case of parameters. It is chosen accordingly to get better performance of the model. For example depth of the tree is a hyperparameter that can be chosen by us.
+21:08:04 From  NING LI gl  to  Everyone:
+	Could it be the same if X has no effect on Y?
+21:08:08 From  Arnold Estrada gl  to  Everyone:
+	What is base of log function for entropy.  Is it base 2 if its a yes-no question?
+21:08:20 From  Omar Fahmy gl  to  Hosts and panelists:
+	Is there a typo on the slide then?
+21:08:34 From  Mohammad Nazif Faqiry gl  to  Everyone:
+	1/8+3/8
+21:09:13 From  Jesus Chavez gl  to  Everyone:
+	thank you
+21:09:49 From  Jose Daniel Cols Matheus gl  to  Everyone:
+	Do we compute the entropy on each branch once we make a selection of the feature?
+21:10:16 From  Mohammad Nazif Faqiry gl  to  Everyone:
+	(1/8+3/8)/2, sorry
+21:11:07 From  Piyush Thakre gl  to  Hosts and panelists:
+	How can we derive entropy relation of p*logp
+21:12:06 From  Mike Hankinson gl  to  Everyone:
+	@Arnold....yes, it is binary logarithm (log base 2)
+21:12:52 From  Kritika Kapoor gl  to  Everyone:
+	Does Entropy work only for binary outcomes? Or can we apply it to multiple categories or continuous variables?
+21:14:45 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Kritika No, entropy-based decision tree may be applied to multi-class classification or regression problems as well.
+21:16:15 From  [GL-TA] Ajith  to  Everyone:
+	@Kritika- Q: Does Entropy work only for binary outcomes? Or can we apply it to multiple categories or continuous variables?		A:  we can use Entropy for multi class outcomes as well
+21:16:48 From  Alvin Kuo gl  to  Everyone:
+	@Kritika the waiting example has multiple classes of wait-estimate time
+21:21:27 From  Chao Sun gl  to  Everyone:
+	Does that mean X1 has a higher correlation with Y than X2, so that when we consider feature importance, we focus on correlation?
+21:26:08 From  Diallo Bocar Elimane gl  to  Everyone:
+	Can you please give an example?
+21:26:12 From  Piyush Thakre gl  to  Hosts and panelists:
+	Are S1 and S2 class labels?
+21:28:52 From  [GL-TA] Jai  to  Everyone:
+	@Piyush- Q: Are S1 and S2 class labels?
+	S1 and S2 are two nodes splitted based on the class, i.e
+	S1 = {(𝑦i | 𝒙i (𝑚) = 0} = Splitting outcome based on class 0 
+	S2 = {(𝑦i | 𝒙i (𝑚) = 1} = Splitting outcome based on class 1
+21:29:42 From  Rodrigo Senra gl  to  Everyone:
+	@chao: I guess in correlation you are observing directly how variable A behaves (up.down) in relation to the behavior (up/down) of variable B. In entropy/IG the relation between A & B does not need to be direct/inverse.
+21:31:08 From  Nikhil Kamma gl  to  Hosts and panelists:
+	But in case of X1 and X2 example, X1 had almost same values as Y (true/false), why we selected X1 ?
+21:31:28 From  Ticiana Beqari gl  to  Everyone:
+	i dont get where 3/5 came from
+21:31:54 From  Ticiana Beqari gl  to  Everyone:
+	oh nevermind
+21:32:01 From  Ramanan Kannan gl  to  Everyone:
+	Is H(Y) always one in calculations?
+21:32:14 From  Thanh Dang gl  to  Hosts and panelists:
+	why is H(Y) = 1?
+21:32:24 From  Paula Iglesias Otárola gl  to  Everyone:
+	No, it is just because Y has 50-50 in this case
+21:33:10 From  Ramanan Kannan gl  to  Everyone:
+	Ok, thanks
+21:33:20 From  Thanh Dang gl  to  Hosts and panelists:
+	oh okay. thx!
+21:35:06 From  Nikhil Kamma gl  to  Hosts and panelists:
+	If Alternate values exactly equals Wait values, why don’t we just use Alternate restaurants value?
+21:35:10 From  Josh Goldberg gl  to  Everyone:
+	Might change the bucketing based on potential IG
+21:35:10 From  Arnold Estrada gl  to  Everyone:
+	is more homogeneity more or less information?
+21:35:33 From  Kuldeep Rawat gl  to  Everyone:
+	Will decision trees be always binary? Are there scenarios where a non-binary tree be used instead?
+21:35:38 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Arnold That would be more information
+21:36:29 From  Lucy Edosomwan gl  to  Everyone:
+	How is bar 0 entropy?
+21:37:09 From  Arnold Estrada gl  to  Everyone:
+	so low entropy = more information?
+21:37:21 From  Thanh Dang gl  to  Hosts and panelists:
+	^yes
+21:37:25 From  Alvin Kuo gl  to  Everyone:
+	@Arnold yes
+21:37:39 From  Chris Kaiser gl  to  Everyone:
+	would that lead to overfitting for further data considering how tailored it is to get to 0?
+21:37:57 From  Paula Iglesias Otárola gl  to  Everyone:
+	@Lucy.. homogeneous subsets
+21:38:41 From  John Rogers gl  to  Everyone:
+	I’m not sure I follow the distributive property on this slide, clarification?
+21:39:09 From  Lucy Edosomwan gl  to  Everyone:
+	@Paula - thank you!
+21:39:11 From  John Rogers gl  to  Everyone:
+	(The mini index slide)
+21:39:14 From  John Rogers gl  to  Everyone:
+	*Gini
+21:39:55 From  NING LI gl  to  Everyone:
+	Do people choose to minimize some mis-classification then the rest in some applications?
+21:40:17 From  [GL-TA] Ajith  to  Everyone:
+	Kuldeep- Q- Will decision trees be always binary? Are there scenarios where a non-binary tree be used instead?		A:  We mostly use binary decision trees . But there is also CHAID Decision tree which is non-binary
+21:41:24 From  Xiaofei Gong gl  to  Everyone:
+	what is pros and cons on Entropy and information Gain?
+21:41:26 From  venkata Ratna Priya moganti gl  to  Hosts and panelists:
+	Great Lecture!
+21:41:41 From  Thanh Dang gl  to  Hosts and panelists:
+	is gini coefficient also bounded by 0 and 1
+21:43:25 From  Josh Goldberg gl  to  Everyone:
+	What do you think about using regression trees to predict values by splitting target into discrete buckets? Can this be effective?
+21:45:11 From  NING LI gl  to  Everyone:
+	Yes.
+21:45:23 From  NING LI gl  to  Everyone:
+	That is what I meant, exactly. Thanks.
+21:48:34 From  Arnold Estrada gl  to  Everyone:
+	could you use accuracy instead of entropy?
+21:50:37 From  NING LI gl  to  Everyone:
+	Is splitting some feature too finely having a cost?
+21:50:45 From  NING LI gl  to  Everyone:
+	Or we only care about the IG?
+21:52:04 From  Mukul Mondal gl  to  Everyone:
+	In decision tree, which one is better:
+	(a) if tree runs for more levels 
+	(b) if the tree has less levels by selecting mutiple 'range' type of conditions like 0-10, 10-30, ..>60
+21:52:23 From  Josh Goldberg gl  to  Everyone:
+	Sounds like it can be good for variable selection and determining how to define variables?
+21:53:07 From  Thanh Dang gl  to  Hosts and panelists:
+	is there a limit to depth of the tree? does it make sense to run PCA to reduce variables and run decision tree?
+21:53:32 From  Arnold Estrada gl  to  Everyone:
+	since minimizing entropy is same as maximizing information (ie. maximizing variance) seems like we are effectively doing a similar process to PCA but over categorical features and setting features with most variance at top of tree.
+21:53:37 From  Saradha Ravi gl  to  Hosts and panelists:
+	buckets
+21:53:42 From  Rahul Chugh gl  to  Everyone:
+	number of splits
+21:54:04 From  Arnold Estrada gl  to  Everyone:
+	Is this true?
+21:54:29 From  Kritika Kapoor gl  to  Everyone:
+	Is the concept of entropy used in decision trees only, or can it be used in other algorithms?
+21:55:06 From  Divyajyothi gl  to  Hosts and panelists:
+	Does death of tree matters in deciding if the tree is good or not ?
+21:55:17 From  Arnold Estrada gl  to  Everyone:
+	thx
+21:57:25 From  Kritika Kapoor gl  to  Everyone:
+	Like can we use it in linear/log regressions?
+21:58:06 From  Kritika Kapoor gl  to  Everyone:
+	Thank you!
+21:58:21 From  Harold Stamateris gl  to  Everyone:
+	th\ank you
+21:59:28 From  Craig Munnik gl  to  Everyone:
+	with most statistical methods there are assumptions that need to be satisfied. Is that relevant to Decision Trees?
+21:59:38 From  Yanhui  Wang gl  to  Everyone:
+	Thank you.
+21:59:40 From  Shajan Thomas gl  to  Everyone:
+	Thank you professor!!
+21:59:44 From  Maristela Monteiro gl  to  Everyone:
+	Very good, thanks!!
+21:59:47 From  Govinda Villasa Lopez Garza gl  to  Everyone:
+	thank you!!!
+21:59:47 From  Allison Chen gl  to  Hosts and panelists:
+	Thank you!
+21:59:48 From  Rodrigo Senra gl  to  Everyone:
+	Thank you Professor
+21:59:49 From  Alvin Kuo gl  to  Everyone:
+	Thank you professor 🙂
+21:59:50 From  Katherine Morgan gl  to  Hosts and panelists:
+	Thank you!
+21:59:52 From  Blessy Joy Chamaparampil gl  to  Everyone:
+	Thank you Professor
+21:59:52 From  Oktay Selcuk gl  to  Everyone:
+	Thank you very much
+21:59:53 From  Mithoon S Karam gl  to  Hosts and panelists:
+	Thanks
+21:59:54 From  Estelle Pearl Yuzicappi gl  to  Everyone:
+	Thank you
+21:59:54 From  Scott Penco gl  to  Hosts and panelists:
+	Thank you so much professor
+21:59:56 From  Jose Daniel Cols Matheus gl  to  Everyone:
+	Thank you, professor!
+21:59:56 From  Jayakumar Subramanian gl  to  Everyone:
+	thank you
+21:59:57 From  Jennifer Pye gl  to  Everyone:
+	thank you great lecture
+21:59:57 From  Juan Montalvo Godina gl  to  Hosts and panelists:
+	Thank you Professor
+21:59:57 From  Kevin Humbles gl  to  Everyone:
+	Thanks
+21:59:58 From  Lucy Edosomwan gl  to  Everyone:
+	Thank you!!!
+21:59:58 From  Josh Goldberg gl  to  Everyone:
+	Good stuff!
+21:59:59 From  Diallo Bocar Elimane gl  to  Everyone:
+	Thanks
+22:00:01 From  Mahesh salunkhe gl  to  Everyone:
+	thanks
+22:00:02 From  Kenneth L. Giden gl  to  Everyone:
+	Great session, and thanks!
+22:00:02 From  Mohammad Nazif Faqiry gl  to  Everyone:
+	Thanks Professor!
+22:00:03 From  Great Learning  to  Hosts and panelists:
+	Thank you
+22:00:05 From  JoAnna Rhoden-Plaza gl  to  Everyone:
+	Thank you professor
+22:00:06 From  Justin Stokes gl  to  Everyone:
+	Thank you Professor!
+22:00:10 From  Jesus Chavez gl  to  Everyone:
+	Thank you professor!
+22:00:12 From  Reena Choudhary gl  to  Everyone:
+	Thank you professor
+22:00:14 From  Paula Iglesias Otárola gl  to  Everyone:
+	Thank you Professor!
+22:00:14 From  Divyajyothi gl  to  Hosts and panelists:
+	Thank you professor
+22:00:18 From  Thaynara Lena DuBois gl  to  Hosts and panelists:
+	Thank you Professor!
+22:00:25 From  Vera Pfeiffer gl  to  Everyone:
+	Thanks!
+22:00:28 From  frantz verella gl  to  Hosts and panelists:
+	Very instructive …thanks a lot
+22:00:28 From  Mukul Mondal gl  to  Everyone:
+	Thank you professor
+22:00:30 From  Dino Cehic gl  to  Everyone:
+	Thanks professor
+22:00:30 From  Jesus Chavez gl  to  Everyone:
+	Really good class
+22:01:29 From  Maria Isabel Rodriguez Torres gl  to  Everyone:
+	Thank you professor, excellent lecture!
+22:01:48 From  Jian Yang gl  to  Everyone:
+	what is the general approach to deal with local optimal?
+22:03:31 From  Ravi Kumar gl  to  Everyone:
+	are all decision trees top-down type?
+22:03:34 From  William Corwin gl  to  Everyone:
+	Thanks professor, enlightening!
+22:03:47 From  Srikanth Panchavati gl  to  Everyone:
+	How do we identify if a data set is linear or non-linear?
+22:05:54 From  [GL-TA] Jai  to  Everyone:
+	@Ravi, Yes the decision trees follows top-down approach
+22:07:01 From  Lex Gidley gl  to  Everyone:
+	If you knew your data a bit could you pick your starting point then?
+22:07:16 From  Thanh Dang gl  to  Hosts and panelists:
+	a question I asked earlier, do we have an example of a non-greedy algorithm
+22:11:11 From  Srikanth Panchavati gl  to  Everyone:
+	Thank you. So in a real life example where we use tools to build these models, we could do Linear regression and also DT and them pick the best one?
+22:14:32 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	I've a basic question. Can you please explain a little bit what a regression tree is? How does it differ from a decision tree?
+22:15:06 From  Saradha Ravi gl  to  Hosts and panelists:
+	Are both kNN and DT non-parametric?
+22:15:35 From  Mohammad Nazif Faqiry gl  to  Everyone:
+	How often (and when) should a DT be retrained in practice? e.g. when new features are added to data, etc. 
+22:18:33 From  Thanh Dang gl  to  Hosts and panelists:
+	that makes sense, thank you!
+22:20:34 From  Mohammad Nazif Faqiry gl  to  Everyone:
+	Awesome, thanks Drew!
+22:21:49 From  Thanh Dang gl  to  Hosts and panelists:
+	where do you see DT most commonly used, i.e. which fields, areas, indsutries?
+22:23:32 From  Mukul Mondal gl  to  Everyone:
+	Shuffling/Sorting the data rows in the data set -- does have any effect on DT formation/creation?
+22:24:48 From  Aditi Roy Ghatak gl  to  Everyone:
+	Dim. reduction techniques are usually recommended for viz purpose only? How can they be used for reducing a wide dataset into lesser number of features?
+22:25:16 From  Diallo Bocar Elimane gl  to  Everyone:
+	can we use MAE to define if there are linearity or no?
+22:25:25 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	Can you please explain little bit about regression tree?
+22:25:50 From  Diallo Bocar Elimane gl  to  Everyone:
+	Why boolean is non linear?
+22:26:17 From  Thanh Dang gl  to  Hosts and panelists:
+	Hi Drew, could you provide an example in your professional work when you’ve used Decision Tree?
+22:26:20 From  Jose Daniel Cols Matheus gl  to  Everyone:
+	If we have a dataset with only continues features. Would that be a case where is unsuitable to use Decision Trees?
+22:26:46 From  Ravi Kumar gl  to  Everyone:
+	In general, are all decision trees are made om top-down pruning method? is there any other pruning method used?
+22:28:08 From  [GL-PO] Maitri  to  Hosts and panelists:
+	@Drew Hi Andrew, Vishnu is facing some technical issues, if you could kindly take up the questions and inform the learners to raise any support queries if they have any further queries after the session and just end the session with the closing statements in a few a minutes.
+22:28:59 From  Abhay  Patel gl  to  Everyone:
+	like LR can we use RSS for making binary splits in DTs
+22:29:27 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	Thank you, Professor
+22:29:37 From  Srikanth Panchavati gl  to  Everyone:
+	Thank you!
+22:29:38 From  Will McGuire gl  to  Everyone:
+	thank you!
+22:29:41 From  Ji Yoon Oh gl  to  Everyone:
+	Thank you both!
+22:29:43 From  Blessy Joy Chamaparampil gl  to  Everyone:
+	Thank you very much
+22:29:43 From  Divyajyothi gl  to  Hosts and panelists:
+	Thank you
+22:29:45 From  MAHZABEEN RAHMAN gl  to  Everyone:
+	Thank you!
+22:29:47 From  Oktay Selcuk gl  to  Everyone:
+	Thank you
+22:29:47 From  Priya Dayanand gl  to  Hosts and panelists:
+	Thank you
+22:29:48 From  MARIA SUSANA REZZONICO gl  to  Everyone:
+	Thank you!
+22:29:48 From  Mukul Mondal gl  to  Everyone:
+	Thanks
+22:29:48 From  Manish Kumar Srivastava gl  to  Everyone:
+	Thank you Professor & Drew
+22:29:49 From  Mariela Trigueros gl  to  Everyone:
+	thank you so much both
+22:29:50 From  Anita Albert gl  to  Everyone:
+	Thank you very much!
+22:29:51 From  Sarah Ford gl  to  Everyone:
+	Thank you!!
+22:29:52 From  FABIANA P NOVELLO gl  to  Everyone:
+	thank you
+22:29:52 From  Jose Daniel Cols Matheus gl  to  Everyone:
+	Thank you!
+22:29:53 From  Paula Iglesias Otárola gl  to  Everyone:
+	Thank you!
+22:29:54 From  Victor Chavarria gl  to  Everyone:
+	Thank you
+22:29:55 From  Abhay  Patel gl  to  Everyone:
+	thank you
+22:29:55 From  YAN MING HU gl  to  Everyone:
+	thank you
+22:29:56 From  Christopher Giacchino gl  to  Everyone:
+	Thank you!
+22:29:57 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Amazing
+22:29:57 From  Michael Jeffries gl  to  Everyone:
+	Thanks!
+22:29:57 From  Wilberto W Montoya gl  to  Everyone:
+	THANK YOU
+22:29:57 From  Jian Yang gl  to  Everyone:
+	thanks
+22:29:57 From  Great Learning  to  Hosts and panelists:
+	Thanks all.
+22:29:58 From  Juan Bermudez gl  to  Everyone:
+	Thahnsk
+22:29:58 From  Evan JAKE McGuire gl  to  Everyone:
+	Thanks!
+22:29:59 From  [GL-PO] Maitri  to  Hosts and panelists:
+	Thank you
+22:30:00 From  Pallavi Kawale gl  to  Hosts and panelists:
+	Thank u both of u
+22:30:04 From  Fedor Galstyan gl  to  Everyone:
+	Thank you!
+22:30:07 From  Lucy Edosomwan gl  to  Everyone:
+	Awesome

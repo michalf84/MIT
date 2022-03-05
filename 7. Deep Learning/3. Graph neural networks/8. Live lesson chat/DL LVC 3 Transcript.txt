@@ -1,0 +1,867 @@
+19:54:48 Hello everyone.
+19:54:50 Good morning, good afternoon, good evening, hope you're all doing well.
+19:55:09 Yes, Hi Betsy Hi, Andy.
+19:58:20 Hi professor, good morning.
+19:58:35 Okay.
+19:58:36 Yes, seem to be having trouble hearing.
+19:58:41 Professor I think you may be on mute or.
+19:58:51 Okay, great I can see the screen as well.
+19:59:01 Hi, Professor Good morning.
+19:59:03 Okay. Well,
+19:59:08 Thank you.
+19:59:10 So, yes, we have it scheduled start.
+19:59:14 I know we have a lot to cover today professors so in the interest of time, we can begin.
+19:59:19 Hello everyone. Good morning, good afternoon, good evening.
+19:59:25 Wherever you're from in the world of course, a very warm welcome to the final lecture of the week, we will be covering a topic we touched upon yesterday which is transfer learning.
+19:59:35 And from there we'll also move on to one of the hot research topics in deep learning, which is essentially graph neural networks or neural networks applied to networks and graphical models.
+19:59:49 The, the engagement and the interactivity in the, in the session has been a highlight throughout the whole program so definitely keep that going. Please let us know if you have any questions or any comments, we're all enjoying it.
+20:00:01 I'm sure that professors enjoying it as well. So, it was, it's great to great to see that, and we will of course try to answer any questions you have either during the session or in the optional half an hour section after where drew will be joining us
+20:00:16 to try and answer a few questions.
+20:00:19 With that said, over to your professor.
+20:00:23 Okay, thank you, Regional as. Hello everyone.
+20:00:27 So yes, today, we have good grounds to cover but I think we're all set from the past to lecture so today to talk about transfer learning, and graph neural networks.
+20:00:40 So, this is the all done for today.
+20:00:44 So we'll first continue with a technique that has been used a lot in computer vision and natural language processing and sort of that is one of the techniques that leads to the state of the art results.
+20:00:58 these days.
+20:01:01 So what's the issue with that so if we see that like neural networks have really lead to amazing results in many different areas especially in computer vision and lt for example, but to achieve these results, we actually need a lot of data.
+20:01:22 So for example, this image net challenge where neural networks have performed. This has 1.2 million labeled images. So, that's a lot of images and with so much training data you can achieve a whole lot.
+20:01:38 However, what if we do not have the luxury of having 1 million labeled training examples because from somewhere Someone must have actually labeled those examples.
+20:01:48 So, walk them. And that's sort of the regime where maybe other techniques could be more successful than your networks. So if you look at sort of the regime of this smaller number of legal data so this is not something where you put like a specific number
+20:02:06 here, people have asked me this a lot. This is a more of a schematic block sort of if your data is smaller. That tends to be a region for especially deep neural networks don't have enough data to actually learn all the many many parameters that this model
+20:02:20 model has versus if you have non neural network methods so you're talking about decision trees, you talked like random forest you talked about classes, other linear or non bonding your classification and regression methods.
+20:02:34 Those actually perform better in those small data regimes often, and the regime where the deep neural networks really shine. Very you can actually really explode their power is very you have a lot of data.
+20:02:48 But now, the truth is like not in all applications do we have a lot of data. So if you think back about this medical image application where you want to read for medical images they're an expert has to legal this, this is not something that I couldn't
+20:03:02 legal.
+20:03:04 So, it's very unlikely that you're going to have a million labeled images for this class.
+20:03:16 So what can we do, like, ideally, this is image data. For example, we like to use on your network and a powerful in your network, but we don't really have so much data.
+20:03:27 So what can we do.
+20:03:30 And that's essentially the question here and this is now leading to ideas that benefit, even the cases when you have a lot of data.
+20:03:40 So what can we do, and to sort of think about what can we do let's think again about this picture of the neural network that I showed you from the beginning and sort of was going through my story here, and that was that we have some input data let's say
+20:03:54 an image and but then your network actually does is it first find support encoding of that image so instead of pixels, but it's actually giving you a something like, These are the edges of the image.
+20:04:07 These are the little patterns that you have with the image maybe it has some things that look like wheels or eyes or hands or something like that. And that is what is now in your feature vector in your input vector representation backdrop the data.
+20:04:21 But what that actually really means is that you have a much better encoding of your data after rich like even a linear classifier may actually do a pretty good job, if you run a linear classifier on an image, image with a pixel size input, it's likely
+20:04:36 not going to do such a good job. So basically we are from encoding where the classes are better separated in this encoding in this new representation of these images.
+20:04:48 That's what we saw also in the first lecture when I talked about the sort of the what a neural network can do after even one or two layers.
+20:04:57 So now the data is much better separable, and now I'm simple classifier maybe a linear or maybe like a one, two layer neural network or something with do the job.
+20:05:09 And so that's what the neural network is doing and sort of a lot of the energy and a lot of the data goes into this part, because finding a meaningful encoding of your data is not easy.
+20:05:22 That requires having seen a lot of data and having seen a lot of the regularities in the data.
+20:05:30 Now, what, given that locked. If we use additional data to leverage to just find a better representation of our data.
+20:05:43 This stage, the simple classifier on top I can train this with less data I can find that with my medical image data set. But, this part is more this part needs a lot of data.
+20:05:56 And now, when caught this idea of work that we learned that encoding from other data, where somehow I want that encoding to be useful for. So if I do medical in the medical imaging prospect should still be an encoding that somehow helps me to solve this
+20:06:14 solve this task of for example finding tumors in this image or something like that.
+20:06:18 So, how could I get that.
+20:06:22 And now if you think back what we talked about last lecture, what are the first layers of the convolution neural network doing.
+20:06:41 They're learning things like edge detectors texture detectors, etc etc little shape detectors curve detectors circle detectors and things like that.
+20:06:43 So, now this is something that is definitely useful for recognizing monkeys but it is probably also useful to recognize patterns in medical image, because that also relates essentially on some kinds of texture some kinds of boundaries of tech.
+20:07:00 So, actually, for many different classes that we want to solve with neural networks, this. The first stage is off those neural networks what they learned are actually similar, so the same kinds of encoding actually work for multiple tasks and a similar
+20:07:16 thing happens with sentiment analysis essentially give more and like understand what is in this sentence you already have done one step towards analyzing the feelings behind it.
+20:07:27 So that's the idea that even if this representation will come from a different data from a different task.
+20:07:35 Because I'm just using sort of the first part of my pipeline that actually can be shared and I can reuse that in something.
+20:07:45 So how can we really reduce it.
+20:07:47 So this looks weird, I don't know what happened to my slide let's use this one.
+20:07:52 So, this is the idea of free training. So now what we have is we have our small data set, let's say this is my medical medical imaging data set.
+20:08:03 And that has a small number of data. So this is what I actually want to solve this is what I really care about.
+20:08:12 And now, know.
+20:08:18 However, I don't have enough data to solve this task, but what I can possibly do is once I have a good encoding, I can solve that class based on a better encoding of my data.
+20:08:28 So where does this information come from that comes from different tasks so now I look at a different task, and I'm going to show you what this task is so I'm looking at a bigger data set and this bigger data said well it's probably going to be images,
+20:08:41 but it could be clearly different images, like maybe I could even try this image in a data set, which has actually portal portal center.
+20:08:50 So what I do is I first trained and neural network on that three texts tax, maybe classifying monkeys or something like that.
+20:09:01 And that gives me now my state, my pipeline. This is the fully trained calm promotional network so now what I do is I chop it up and I chopped off the top layers towards the output I don't really care about classifying animals right now.
+20:09:17 I care about the medical images, so I take this part off this is sort of the last layers of your neural network.
+20:09:25 And I keep the rest, so that rest, the last layer of the rest essentially gives me a better representation of my images, so that gives me the representation in terms of the shapes that are there it's like right so I'd rather textures, the edges and so
+20:09:42 on. So I take this and by freeze it so now I just take the neural network to fix the weights I don't frame it anymore and like ported.
+20:09:51 And I just use that neural network, as a first fixed encoding of my data. And then I just learned the last part, the classifier on pop up essentially and that classifier don't need a lot of data to train.
+20:10:05 So that's feasible.
+20:10:07 Sometimes I may update this one a little bit, but updating is easier than starting from scratch.
+20:10:14 So that's the idea of pre trading I just trained manual network first on a different data set on a different task.
+20:10:22 And then I just take the neural network, and my transport it, and I reuse it online.
+20:10:30 So, the question of course is when will this work. I'm watching should be the free text class. So you think that okay like there should be at least something that these tasks have to do with each other.
+20:10:46 And the idea is valid. Yes. So basically, if the free text task. The first task, and my actual task rely on similar representation that work for them, then I'm good.
+20:11:01 So let me show you a few examples of this.
+20:11:06 And then I'm going to answer some of the questions in the chat.
+20:11:10 So what could be this pretext task. So the first thing would be well I have this 1 million labeled images from this image net data set and here you see some examples and also the labels of these images.
+20:11:24 I could just use that so I'm going to train my neural network on this image net data set so that allows to train a fairly big neural network so you can train your hundred 50 layer resume, if you want on that.
+20:11:39 And then I'm going to chop off basically the last few layers so basically those fully connected layers of that classifier and then going to reuse that network.
+20:11:50 So this is with supervised data that still relies on the fact that somewhere in the back, I have some big data set, on which I have a lot of labels. So that's good.
+20:12:01 But what we actually have is we have even more images on the internet somewhere does not have any labels that nobody has actually labeled. So can we somehow leverage those images, and that's led to the idea well, yes, maybe I could also use those.
+20:12:19 But now the question is, if I now take arbitrary other images, what should be the task because I don't have labels.
+20:12:29 So that's the challenge now I take I spread some scrape some images from the internet and I hope I want to use thought. So what should be the labels on this what should be the task because I don't want to label them by hand, I'm not going to do more than
+20:12:43 my 1 million and.
+20:12:45 So, the idea is, instead of a human, having a human label those let's just create a class let's create a game for the network and traded with a game like children, they learn by playing, and this is called self supervised learning so we create those labels
+20:13:01 automatically. Let them your networks off that path and use that as the free training class, and after that report.
+20:13:09 And now this idea actually of the free training has a lot of benefits. In addition to being able to leverage this bigger data, is that what if I have a really big data I said it's actually very expensive to train my neural network if it costs a lot of
+20:13:27 money. We have all this compute like it's gonna run so image let me run for a week so this may run for longer even if you have a really big data set.
+20:13:37 So
+20:13:40 I do this once.
+20:13:44 And then I have my pre train your network. And now I can just reuse it on many different applications so that actually now solves me saves me resources I don't have to strain it from scratch on all of these applications like pregnant moms, and I find
+20:13:57 you on it a little bit I updated a little bit and I trained basically the top layers of it. And that's it. And that's much cheaper. I don't need as much data I don't need as much compute resources.
+20:14:09 so that's a big game.
+20:14:11 So that's the other game of using pre trained.
+20:14:15 So, what could be the unsupervised task I said well we create a game for the neural network we create some, some labels automatically essentially so now, how would I do that.
+20:14:29 So, let me show you two examples of this there's many and people have been very creative with this.
+20:14:37 So the first one is a jigsaw puzzle. So let's say you have your image, it happens to have a cat you've done all that you don't have a label, so you have that image, and what you do is you chop that image into nine squares.
+20:14:51 That's something you can do without any human saying something specific, you could just have a computer do this. So what you do is you keep the middle piece and then you randomly randomly select one of the other pieces.
+20:15:05 And now you ask the neural network so this part is what the neural network gets, if the input.
+20:15:11 And you ask the neural network.
+20:15:16 Where does this right peaceful.
+20:15:19 So you have basically eight different positions here. Out of these eight positions where do you think this piece circle.
+20:15:28 And the tool. One is that upper left, well how can you decide that this is the upper left. Maybe you actually have recognized that this looks like a face like an enemy face and this looks like an ear, it looks like a left you, so it should go up to the
+20:15:43 left, or it is actually the right year of the cat or the up from the left so it's basically that year that goes on that left part, top left, but to actually solve this past you have to have recognized something that's in the image you have to recognize
+20:15:58 maybe I knows and you have to have sort of learned that if this looks like a face and there are something that looks like an ear. In some relative position of that so you actually learn shapes you learn textures you learn edges and you learn configurations.
+20:16:16 That's how you can solve this task. So the quarterback the output is basically the position of this but of course bonds to a position in the image. So that's one way I can do this up supervised us.
+20:16:31 Another one is filling the hole. So yesterday I talked a little bit about generating images so this is a cost like this. I have an image I just checked out a piece.
+20:16:41 And I say no network Please tell me what was in that window that I chopped out, and this is what it feels in so it's actually pretty good. I think I'm filling it in.
+20:16:51 So how can you fill it in when you learn the regularities you learn shapes, and you learn that the shapes repeat those originals. And then you learn that maybe there's textures and edges and this this continuous etc etc and you can generate basically
+20:17:06 according to that.
+20:17:08 So all of this uses the CNN, and here you're basically training with a so called generative model so you have this encoding and part and then you have to some part that actually generates an image and that part that generative part to chop off later and
+20:17:23 you've just use the encoded part as the IC input for your mom.
+20:17:30 So these are some, and there's others, and before I go into the others. Let me just see some of the questions in the chat and try to answer some of those questions.
+20:17:49 Yes, no perfect one question was around the complete the image task seems like the same process that the brain does with the blind spot of the human eye.
+20:18:00 Is that a fair takeaway.
+20:18:03 So that is the same thing that the human but it does basically a lot of unsupervised recognition. It was that the question.
+20:18:11 Yes, yes.
+20:18:14 Yeah, and sometimes the human also does get a lot of data without supervision, and this is something that's or, Well, maybe that's something that's the distinguishes neural networks and she wants to spend two months get a lot of data, just like that and
+20:18:30 and a little bit of supervision and then we learn, and then you will not work, typically need like a specific task and a specific label for yeah maybe it's a little bit more like that so i automate this analogy so here you are creating a game for the
+20:18:44 neural network, and that the neural network essentially play this jigsaw puzzle thing. And that's how we learn. So in some sense, you have to be humans also train ourselves on some other tasks and then we transfer that.
+20:18:56 So that transfer part is actually something that we do a lot, and that machine learning methods, otherwise we don't explain it enough maybe.
+20:19:05 Yeah, so there's some analogies here.
+20:19:10 Right. The question from our son is our generative models. The same as CNN or do they maybe operate on the same principle preventive how, you know, what is the junk from CNN to to generate a model.
+20:19:22 Yeah, so what this generative model does is, it does some encoding part but then you have to have a decode, in part, so that's sort of the inverse of the encoding.
+20:19:34 So basically if you think of the CNN what it does is it takes those image off pixels and they transport it sort of it transfers it into a representation of these features these patterns, essentially.
+20:19:47 So now what I essentially have is I take a representation that's based on patterns and by regenerate the image from it so I will start off the inverse step off that and that's what the generative model is doing.
+20:20:00 Now there's various ways you can actually implement this this becomes a bit more complicated but this encoding card is based on a CNN so it's essentially again like based on a CNN.
+20:20:10 Yes. So the ideas are the same.
+20:20:15 One question from a quick clarification from Fernando, I still don't see where the labels are generated in the song. Yeah, well, we're very good labels.
+20:20:28 So here, let me say this is a task. So, This is my input x i.
+20:20:33 So xi is actually appear
+20:20:38 like this. So, x is appear have two images.
+20:20:43 The first and a second I mentioned the first image, you'll notice the center and the second image you will have two positions somewhere, and then the output would be a number so here we could say this is maybe what number 12345678.
+20:21:02 So it's some number between one and eight so in this case to label would be a lot.
+20:21:09 So this is out. So, so these numbers correspond to the position so this is your task so now what data point is two images. These two patches from an image that's, that's what you auto generated and the output label is the position variables, but now you
+20:21:26 you see you don't need a human to create those labels because you created that task, you put us the original image, and you chopped it up and you're not which Patrick book so you randomly pick one of these.
+20:21:38 And you'll take that to be the x.
+20:21:42 So, this is all you can do this with a computer program to take your image chop it up and that creates you a data point. So you don't need a human to tell you that this is the one because the computer, like, pick that piece, so it knows where it comes
+20:21:59 from. So this is the top in the second one, it's a bit harder because the actual label would be the true image that is sitting in that text out. So this, this guy is sort of the.
+20:22:15 This part is the input and the output in some sense is sort of what in your network fit in here.
+20:22:24 So, and there's the actual patch, I'm not going to drive but there's sort of that true patch with these windows etc. And so what the loss function does in this case it compares these two.
+20:22:35 So this is more complicated, and this is also harder to train because it's harder to generate that full image then for just generate a number, and I'll put a number.
+20:22:45 So that one is actually harder. And that's why people actually so they started with these generative models and then they sort of got away from it and in fact that's still one good thing is to actually generate a model who need to encode a lot of inflammation
+20:22:58 forget this right. But on the other hand it's harder to get these working together, actually, because it needs a lot more machinery, but this generation than just this guy here.
+20:23:10 The first one is more like a classification problem, in some sense, maybe a regression problem because there's an order between the patches and you know that and you put also a cold out in your loss function.
+20:23:24 But, in the second one, it's actually more complex so people have been shifted from this more complicated tasks to say, Can we don't create training with a simpler task, like just some classification level class, and it turned out, it actually worked
+20:23:38 and I'm next gonna show you a one technique that sort of normalcy the state of the art for doing, which is closed,
+20:23:55 where she bought.
+20:23:58 Okay.
+20:24:00 Apologies for that.
+20:24:02 Let me just see if there's a technical issue with I think we should be good to proceed.
+20:24:19 Actually, sorry, sorry Professor I think you're on mute. for unfortunately.
+20:24:30 Alright, so the main idea really is office self supervised training is that we leverage other images that we have.
+20:24:39 And we automatically create a task from it, where we can create the labels automatically you don't need a human to do it so it's much cheaper.
+20:24:50 And then we have to computer slot then your network solve it and that hits the neural network learn relevant features to represent those images. And the same thing you can also do for other types of data so I'm showing it with images because we talked
+20:25:05 about cnn so we're going to continue the story with images you can do the same with language data where instead of this jigsaw why'd you do is you ask it.
+20:25:15 Maybe what this be a word like you take out of Berkeley say yes to your network will this be a word that fits into that sentence in this position, and things like that, or does this sentence make sense, the sentence like that so there's various ways you
+20:25:29 can create tasks.
+20:25:32 By knowing like your original sentence.
+20:25:36 So, the one other self supervised technique, I want to show you is one that actually was the first one where self supervised learning was speaking the supervised learning so so far like with those tasks that I'm showing you here, but what's happening
+20:25:53 is they're good they're cheap cheaper than having a human label but free training on image that sort of was still performing better than when.
+20:26:03 But then people started using what's called contrast, learning and contrast if learning was the first basically completely automated pre training tasks that actually was better than using a labeled a hand labeled pre training data.
+20:26:22 So, what is contrast is learning, essentially, it's giving the neural network information about rich, images, our clothes are sort of similar have the same meaning and rich images have different meanings and now a good representation would put basically
+20:26:43 the representation vectors off these images that have the same meaning close to each other because they are presumably in the same class. So you want them all close together in your representation space.
+20:26:57 And then there are these that are different both sides, they should be far away so that it's easy to separate between them with some kind of classifier.
+20:27:05 So that's a.
+20:27:09 So, that's the main idea.
+20:27:12 So you get the neural network feedback in terms of pairs of images so you say those two images, really have the same content. So essentially here they both have a dog.
+20:27:24 So they should be closed so put them whatever representation, you're going to put them close. So what the new neural network has to now basically reason implicitly is that where these images are definitely different in some respects, but the way in which
+20:27:39 they're different doesn't matter. so basically here you have the dog and you have parts of the dog so whether you're just new parts of the dog or the Florida shouldn't be decisive for its category, essentially, and now you get these and then you have
+20:27:55 pairs very detailed in your network. These are pairs of different images so they have different content. So like the monkey and the dog. And now the near my forecast will figure out okay there's something different about them.
+20:28:08 It doesn't know about a monkey or a dog so it has to say okay, on which access, are they different.
+20:28:14 So here these are actually not very different in the back room their colors, but there are some differences in their shapes in their other types of descriptors maybe in their texture a little bit in their position, etc.
+20:28:28 So that's something that you could use so now you don't have to basically learn.
+20:28:32 Okay, there's.
+20:28:37 Out of all the possible ways I could distinguish images, some of them are relevant and some are not like the view is not so relevant, but the shape is relevant for example etc etc so that's essentially what you're learning with this technique.
+20:28:51 And this technique, as I said has actually essentially left for the state of the art results on many of the images of the image benchmarks.
+20:29:05 So, how do we actually do this, so how, let me just show you a little bit more detail about this method, because it's very widely used. So the idea is as follows I have these positive pairs and good negative pairs.
+20:29:22 And now, the positive peers. I want to bring them close together in my representation space. And so the way I measure closeness here is by the inner product of the, so each of these has a vector representing it and that's the inner product so the inner
+20:29:37 product tells me that angle of the vectors, the vectors pointing in the same direction then it's like, if they're pointing in different directions, then they are far away, and here you are actually all the vectors have the same length was actually living
+20:29:51 in some big ball in a high dimensional space. So really the angle tells you all about how different they are.
+20:30:00 And now in my last function, I want to basically make the inner product of the similar points large, and I want to make the inner product of the this similar point small so there you're down here so I want to make them smart and I want to make this entire
+20:30:18 thing large, because I have a minus, and I've been in life. So I want to make this this fraction here essentially an arch. And essentially what this is implementing is a classifier between my point x, and it's the similar Peters.
+20:30:38 So the way it works is that you have an anchor point x. So this is a dog image year. And for this anchor point to create positive and negative partners in something so walk you essentially what's under the hood is that you're classifying basically the
+20:30:56 x point and it's positive partners, versus the neck partners, so that's really sort of implicitly the classification problem I switch this is great.
+20:31:09 And now the only question is, I am talking about pairs of images that have both a dog in both the same content, the same meaning. And I talking about pairs of images that have different animals in it they're different things.
+20:31:27 But
+20:31:30 how do you know that there's a dog me.
+20:31:34 What I said is, this is something that's created automatically and we do not use a human.
+20:31:40 So I would ask the machine know which images have the same content and which images have different content with out a human candidate that this is and this is also at all.
+20:31:55 so we don't want that human labels. So, how do we create those positive and negative examples.
+20:32:00 And how can we do it without any human supervision so I just give you sort of a set of images, and that's essentially a black box you are not allowed to look at it, how do you know which ones I just say, have the same content on different content that's
+20:32:13 basically the challenge, if I know this, then I can run this method, and it's all good.
+20:32:18 So that's basically the creative challenge and and how do we get those.
+20:32:26 And, well, if you think about what do you actually want to teach that method, rather, you vomit teach it that with a positive peer so what you're essentially teaching it.
+20:32:36 What does not matter to distinguish between classes.
+20:32:40 So for example the viewer doesn't matter to distinguish between classes, and where the negative ones you just want to teach it. what matters to distinguish between class.
+20:32:52 So, well if you think about what does not matter, we can generate images were with modifications that short half the same content.
+20:33:04 Those are modifications that should not matter for the classification.
+20:33:08 And these are also called like data augmentation so what you can for example do is I take a dog image.
+20:33:16 And now I crop it or I make it the grayscale image or I run some of these blurring filters or so on it or I rotated. I didn't know that this is done at all.
+20:33:28 Even if I don't know that there's a dog in the image I know it's the less the same content.
+20:33:33 So, that's a way I can automatically generate positive Paris because if I have the dog I just create two random of these modifications this transformation.
+20:33:46 And then I say that's a positive here so any two of these would be a positive peer to have the same content.
+20:33:53 So that's how you actually get positive person, and know that there are truly positive peers, at least in. In almost all cases.
+20:34:03 How do you then get the negative peer so how do you get an image that's not a doc, that basically as a different content.
+20:34:09 So that one is harder, there's, it's hard to make a modification to an image that leads to a different object without even knowing what the objects in the image are.
+20:34:21 And basically what you do in practice as you're just randomly sample some of my, some of the other data points.
+20:34:28 And so there will be some collisions you will either some probability that one of these images is going to be a dot but most of them are not going to be a doc so that's why it still works.
+20:34:39 And you'll see some of them actually look fairly similar and color.
+20:34:44 And even in somewhat shape but those are my negative partners. And that's how this is typically run.
+20:34:53 And then I can do improvements.
+20:34:56 But I think there has been some questions let me just see two. Okay, I think there's one question about the background. What if the backgrounds of dog and monkey are the same.
+20:35:09 So, that can happen. So it's the same actually as here I have this force, and I have the dog, and I tell them you'll never.
+20:35:17 These are different objects.
+20:35:21 Now then your network knows that probably a green background is not a very good discriminate feature for telling me that this is basically a this, these are different.
+20:35:36 So, that means it shouldn't be it learns that it shouldn't be focusing on the background there can be other types of animals on a green background. So it learns to not use the grass so that's actually a very good thing that it learns the green background
+20:35:50 putting up all sorts of objects on it and I shouldn't actually be using it to classify that is this at all.
+20:35:57 So that's actually a very good thing. So it will learn to basically not include the background color as a discriminate feature between classes or at least not as the sole one but there's other ones that are actually more important so it doesn't just go
+20:36:15 by the green color for example or the blue sky that to clarify my car so I will see sample from yesterday so that's actually a very good thing here.
+20:36:27 And the other thing I've learned is like you can teach it but rotations, should not matter for your classification so then a dog is still a doc if you rotate it.
+20:36:36 So that's also a good thing.
+20:36:39 So overall, this makes it a bit more robust, and it can exactly teach it to some extent, to avoid some of these shortcuts that could be happening.
+20:36:50 You cannot prevent them with the pre trade the more data, you see, the better you basically get with this.
+20:37:00 Okay.
+20:37:14 I'm kind of the model be evolving like our brain does in principle you could keep evolving from modeling tool. So the thing is the hard part is to get it started from scratch.
+20:37:25 And if you evolve the model. One important part is to not forget what you have learned so you if you start off that and focus on just a small set of images and always like look at those and updated with those it may just focus a lot on those images, and
+20:37:42 forget some of the other things that has emerged so that's something to keep in mind when you evolve the model that it may forget some of the things that.
+20:38:02 so okay I think there's a few more questions.
+20:38:07 Is there a balance between positive and negative pairs in terms of the numbers so typically for each positive pair Do you use multiple negatives here so if you actually look at the loss function.
+20:38:23 They're sort of one x plus year x is my dog first dog image so I generate some modification of it and then I have x plus, that's one positive, and I have negative example so I typically take multiple negative examples and one positive example, this is
+20:38:36 just something that turns out to work better.
+20:38:44 So,
+20:38:49 okay, let's see.
+20:38:51 Questions.
+20:38:58 How does it learn that this is a doc because beyond just saying, These are the same, so it doesn't still actually know this is a doc. And in fact, even so it cannot output the label, Doc, but even on your network that you've trained with labels so that
+20:39:13 let me repeat the question so if you start from scratch, how does it learn that this is a dog because beyond just saying, These are the same. So in principle and your network that you've changed with labels also just says, These are the same labels the
+20:39:28 second level one and level two. It doesn't really understand what is a dog or a cat or so it just says these are not like this label that you call a dog.
+20:39:38 So in some sense here it says these all look the same. I don't know what the label is but these look the same, but now if you would show it like a few dogs and say this is the doc.
+20:39:49 Then it already knows that the other ones look like this. So, it knows that all of these should be dogs. So that's how it basically has learned that this is some category, it doesn't know what it is but this is something that's close to each other so
+20:40:03 they should all be the same and now you give it a few data points that where you actually can at the labels now it says that essentially this group of things, looks the same.
+20:40:13 So if they don't probably all have that label, so that you can then do with much fewer label so that's essentially what the classification on top is the way.
+20:40:26 okay and But typically, so this is basically just this contrast with learning, the way we to pass in that case is that we have a classification on top so we all of us evaluated with the class it's some kind of classifier on top so we basically evaluated
+20:40:51 how does it work for classification so there is because there is no ground rules, otherwise. So, Okay, I think that was the rest of the questions I want to answer.
+20:40:58 Afterwards, so let me just make a few final comments on this. So, this is sort of the basic idea of self supervised learning, and pre training.
+20:41:10 There's improvements, you can go for example you can create better and better data augmentation make a richer data augmentation, the more variation you have there, the better it is because the more it learns what kinds of things, it should not use for
+20:41:26 discriminating between classes so that's a good thing.
+20:41:30 The other improvements that people have done is finding better negative example so for example, here we are choosing those randomly, but really what we could do.
+20:41:42 So one thing is, you will have those thoughts of negative examples which are actually in the same class, so you can actually correct for that. Other things you can do is you can focus on points that are really difficult like this course here so that maybe
+20:41:57 the ship and the dog they look so different, it would have anyways not put them close in any way but by the horse and the dog that's really difficult so, like, use examples, focus on examples like this that are actually harder that are more telling from
+20:42:13 which the model can learn more.
+20:42:25 So focus on those kinds of things. And, and so on so there's improvements in Kindle, um, let me just show you one block, so the Sinclair method, these are two of the state of the art self supervised learning techniques, in particular, simply are here.
+20:42:33 And what this shows is the decrease of accuracy, if you use less and less variation in your data augmentation. So this is sort of different types of the documentation, you can do.
+20:42:46 And now you say, maybe you use all of them, or you just, you don't do the grayscale or you don't do some color changes, or you only cropping. And so, if you do only cropping you lose a lot of accuracy so lower is worth more is more loss.
+20:43:04 And, like if you use all of them you actually gain a lot, so the more variation you have in your day augmentation, the better your model will work that's essentially what this plot is saying.
+20:43:17 So I'm, there's some more information here but I'm going to skip this. In the interest of time, I'm, and I'm just going to see if there's any final questions.
+20:43:31 And then we'll move on to graph learning.
+20:43:38 Yes. Now, Professor one question on the q&a box is around. Can this also maybe work for the organizing sentence structure in in an application like the chalkboard, which is of course the nlb application but with a similar principles apply there.
+20:43:56 Yeah, so, NLP you also use technical wrestler. Right, techniques, they have been used a lot so you can use it. I don't know, like, how he would use it with a chat box essentially if you do recognition, like, we basically understanding the text in the
+20:44:15 chat box that is that the machinery you need for this basically you can do is itself supervised learning and then facts and people have asked for and if you let me show you one extra layer they had in the very end.
+20:44:30 These are some example class that you will do in NLP.
+20:44:35 So, here is your sentence and you know what goes in here. And you ask the neural network what should be the word in here. So that's one of the services always pass here.
+20:44:48 It's not exactly a chat box maybe you could somehow creative obstacle best tasked with it like interaction you just have to give it some feedback that you did a good job or a bad job.
+20:45:00 The other one is basically
+20:45:03 something where you have two sentences sentence and sentence B and you can draw them randomly from your text. So this is like the man went to the store, you bought a gallon of milk, and you ask them your network.
+20:45:18 Is this like is be likely. The next sentence, following a.
+20:45:22 So in this case you would probably say yes. In this case, the men went to the store and next sentence penguins are flightless, maybe not that has a totally different meaning.
+20:45:33 So these are examples how you, that you can easily generate by just taking some sentences from your text and putting them together. So, yeah, that maybe chat box you can also do but these are, these are some of the ones that are used in like some of the
+20:45:50 seed of your models language models. So it's the same idea.
+20:45:58 One sort of conceptual question Professor RR neural networks used only for supervised, you know, learning or can they be used in the unsupervised context.
+20:46:12 Yeah, so they can be used for unsupervised learning as well. I'm just looking searching for my slide again.
+20:46:20 So, the way you can use them for unsupervised learning.
+20:46:27 So you can essentially for learning similarities. So intentionally like a classroom thing it just gives you like a better embedding so once you have your self supervised embedding.
+20:46:40 That's essentially an unsupervised learning class. And now you could use this also to just say basically that's what representation now I want to do something like similarity search.
+20:46:53 Like, you have some search engine or some someone puts like give me an image that images that look like this one, and then you can basically use the similarity measures that you learn, basically this inner product with yourself supervision.
+20:47:06 To give it, images, you could use it to obtain a clustering of your data, maybe, things like that so you can definitely use image neural networks for unsupervised learning to similar to supervise techniques, all those sort of most of those breakthrough
+20:47:27 results were supervised learning paths, like this image and that image
+20:47:38 think we should be able to see a few more questions here which maybe a little bit outside the scope but there's a question about what is GFP Gan professor.
+20:47:52 He has a peek.
+20:47:52 I'm not fully sure so I can tell you what is again, again, is the is an adversary of generative adversarial network. And the idea of that one is to basically, That's something that also generated stayed on like the one that generates images, and the way
+20:48:09 right. The reason why it's called adversarial network is that he was actually up to neural networks. One of them tries to generate data, and the other one tries to discriminate between the generated data, and the true input data so let's say you have
+20:48:25 a image data set your generator generates images, and the disagreement neighbor has to say. All those come from the real data set and these are the fake ones and face and now they start off train each other and again, the discriminate or becomes better
+20:48:44 but basically you are if you have to fool to discriminate or you have to be really good at look like the two images. So this actually is a pretty successful task with generating very realistic looking data.
+20:48:55 So these are the gaps, and there's a whole slew of different gangs. In fact, if you google there's like the games when there's like lots of different types of cancer this GFP again.
+20:49:08 If probably not all of the variations but that's the main idea is it's a generative model that is trained in this adversarial way and then there's many variations of critical how exactly he was the method, but it's also going to be based on a contribution
+20:49:25 on that work.
+20:49:28 Okay, I think we should be good to proceed.
+20:49:33 All right, good. So now let's switch years, and in the last part of today's lecture talk about how to represent graphs with neural networks. So it's the same thing as with the images but now, our input is may be a molecule, and I'll show you other applications.
+20:49:52 So what we'll do is we'll talk about what is the graph mail network and then I'll show you briefly an example of real world application about from pharmacy and predicting side effects of drugs.
+20:50:08 So, This is all about neural networks that take graphs or networks as input. So what is a graph graph is something that has nodes and edges so you can think maybe have a social network or each node is a user, and each edge is a link between the users
+20:50:26 maybe because they are friends, or they have exchanged messages, etc.
+20:50:31 And there is many examples of graphs in this world there's social networks, you could think of traffic networks where the notes are cities and the edges are roads between them.
+20:50:44 Interaction networks of people of proteins in the body, etc, etc. So there's many, many of these networks, and for many of them we would like to do learn.
+20:50:54 So let me just show you a few of these learning tasks and let's just look at some of these one that has become very important in the recent past is property prediction of molecules.
+20:51:07 So what is this path, it's basically you have a molecule, and you're trying to predict, given that molecule, how valid, for example work as a drug or how well it would react with a certain other molecule or how well it would work in your new material
+20:51:23 that you want to design, in terms of giving it's the ability or so.
+20:51:28 So that's a very important problem, if you want to do drug design, or if you want to design new materials because typically how this works is that the expert thinks of many different variations of molecules, or like in draft design it's often just testing
+20:51:46 many many different substances and doing essentially a search, and eventually you might find one that actually does the job, hopefully, and then you can go on and we'll go through different trials, etc.
+20:52:00 What it's going to read out many more. So that's a very expensive process. Greetings to all of them. So if you have a neural network that can predict this would likely work as the drop in this one.
+20:52:11 Well, this would actually save you a lot of money then you only test before what you're testing on those that the neural network predicted to be likely effective as a drug, and then you can actually go and test them in the lab and see which of these actually
+20:52:24 work.
+20:52:26 So this is of course, has become very relevant for people searching for medications against Corbett and drugs and vaccines also by the tech also been effective for other types of businesses.
+20:52:42 So one example of this year is an article from last year from my colleague next door, managed to find a new antibiotic using the graphing your networks and property prediction for molecules.
+20:53:00 Another example is predictions and social networks where maybe you don't want to make a prediction on before graph, but just on a note in the graph, are you given like information about the other users you may want to predict what is the users, interests,
+20:53:16 or something like that profession, some property something use.
+20:53:22 Another example is recommender system so in this case you have a graph that has a specific structure, you have two types of notes you have users and items, and now you have all the links between users and items.
+20:53:37 So sort of cross category, and there's a link between the user and the item. If the user has chosen that
+20:53:47 and and now what you want to predict this what other items for the user like that's the recommendation so you're actually predicting new links and this network.
+20:53:57 So that's the prediction task so now we've had three different types of tasks one was given a graph given a molecule.
+20:54:05 I want to predict something.
+20:54:08 Given that social network, I want to make a prediction about the node in the network so prediction about the graph prediction about the node or prediction about an edge in the graph.
+20:54:25 So basically, a pair of nodes, whether they would connect or not.
+20:54:25 This here's another example that's also a lead prediction problem, which we are going to avoid for detail later. So the idea is it's again, a drug example.
+20:54:36 In many cases, people actually are treated like severe diseases are treated with multiple drugs. But now what can happen is that each of these drugs taken by itself, you're doing fine, but if you take them together, you get bad side effects that only
+20:54:51 happens if you take them together so there's some interaction happening.
+20:54:56 And now that's a very difficult, it's actually a very relevant problem with it's a very difficult problem to find these interactions because now you have to check basically all possible pairs of drugs.
+20:55:06 So, what the learning task here is given a network that has drugs and human proteins in it.
+20:55:15 What, Which of these drugs what interact so a link in this network means and interaction between the drug so you can now predict different types of links in the network.
+20:55:29 And here we haven't yet talked about the new neural network so these are networks, these are input graphs I should probably call them, graphs, yeah I haven't yet told you anything about neural networks and so just the learning tasks.
+20:55:42 These are just the learning tasks and other one would be to sink, to learn for the sciences, for simulations. So, even though the, you don't actually have a graph even here so what you have is a collection of particles, and you want to predict how they
+20:55:57 will move, how they will interact. So you're observing that system for some steps, and then you want to predict the next step, what happens in this, so basically you're sort of learning a simulator physics simulator.
+20:56:11 And the way you can actually use graph representation for that is that you encode these particles with a graph so you connect all the ones that are next to each other.
+20:56:21 And then you send it through your neural network that takes us input as a graph and that predicts the next thing.
+20:56:28 So this is also being used.
+20:56:32 And a final example I want to show you is Google Maps, which many of you will have probably use. So what that predicts is traffic times if you tell it I want to go to this target.
+20:56:43 And it says, well, it computes the relics and it tells you it's an estimated whatever 15 minutes to get there. So how does it actually get that prediction, and it's adapting to traffic times.
+20:56:55 So what it does is if you can see it. It takes the streets and it sort of chops them up into segments.
+20:57:03 And then these segments are a graph where the each of these segments is an old in the graph and now they're connected. And now use a graph neural network to make a prediction about the travel time on these segments.
+20:57:19 And then they use that to basically do your routing computation.
+20:57:24 So that's how within the hook you also use graph representation line.
+20:57:31 And there's many, many more applications office.
+20:57:34 So in all of these applications what I showed me so far was that our data is actually in the form of a graph.
+20:57:42 And often like rap is some information about the notes in the graph edges in the graph.
+20:57:49 And what you want is some kind of prediction about that graph.
+20:57:56 And the venue get this is by using a neural network to encode that graph or something. Each node in the graph by a good representation and then you can essentially have your classification.
+20:58:16 So the question is, how does this work.
+20:58:21 And how do we actually input the graph into a neural network so we have our graph. And then we have some kind of neural network and that gives us the prediction, or a good representation and based on that we can make the prediction.
+20:58:36 So how does that actually
+20:58:40 and. Okay, so now that's a challenge because now we have basically sort of a description for each node and then they're connected and somehow what you actually want to represent is something about the information we have about each note maybe the atom,
+20:58:57 that's the atom and some kind of chemical physical properties of that atom, or this is a user in a new social network we want to represent something about the user whatever we know.
+20:59:08 And we want to also represent somehow the connectivity structure was connected to him, because that's presumably very important.
+20:59:17 So, how do we do that.
+20:59:21 Now let's go back to something that we have seen before. So last lecture we talked about convolution on your map.
+20:59:32 And, well, you could argue that you could also represent an image as a graph. So you could say each pixel in the image is an old in the graph.
+20:59:42 And then you connect to note if they're lying next to each other in the image.
+20:59:48 And that's something you could do. And now what convolution neural network will do is, it looks at these patches in the graph, if you remember I was running my detectors my filters on those patches.
+21:00:00 So what it actually looks at it is sort of its centers it's filters around a note and it looks at sort of some local neighborhood in the graph.
+21:00:11 So, that work quite well we know that CNN, have been very successful. So this local processing and local processing and then doing some kind of hierarchical thing is actually very useful in terms of images.
+21:00:26 But maybe so maybe this is something we could port, Russ but the question is, how would we do that for graphs.
+21:00:40 So, what would be the equivalent of that patch in the image so maybe I have a square.
+21:00:49 But, and that's where it's maybe all the notes that are whatever within a one hop neighborhood, or something off the middle node. if I wouldn't make diagonal lines.
+21:01:00 But what would this be in the graph in the graph I don't have squares, I don't really have a geometric layout of this thing off a social network.
+21:01:09 So if I am like user in a social network then they don't really have a top neighbor in the bottom neighbor or something, I have some friends, and I have five friends I called him 100 friends.
+21:01:22 But what I have is I could say well I could just use all my friends and that's my local patch so everyone was connected to me, or everyone was connected to me within two hops.
+21:01:35 So my friends and my friends friends or something like that. So that is called a local neighborhood and now we could do something like importing running something on that local neighborhood.
+21:01:47 And then proceeding, then sort of taking all that information and processing them, just like we do with a CNN.
+21:01:56 So that's the analogy that's what we could do. And the thing is, how do we actually do it, and we already saw there's a few differences for example in the graph, I don't have this geometric information about left and right and top and bottom.
+21:02:11 I don't have an ordering of my friends, there's just.
+21:02:15 I have just that set of friends in this case it's for, and there's no other ordering between them.
+21:02:21 So we have to do some things differently but some of the ideas will remain so what will remain is that we do some local processing on our graphs.
+21:02:30 Before we go global. And then what will change is that we have to, we don't, we can't have a square patch, we have our patches now have different sizes, essentially.
+21:02:42 So, how do we do this and let me first show the big picture.
+21:02:48 So the big picture of the graph new network is that, first we compute a representation for each node and what this essentially does is, it represents the node and its neighborhood together.
+21:03:05 So all the information I have about the name, some of the information I have about the neighbors, and its connectivity.
+21:03:13 And I do this for all nodes. And for each node i get a vector that is a good representation of that node.
+21:03:20 So now I can do something like if I want to make predictions on notes and basically that I can just use that representation. If I want a prediction on the entire graph like this molecule classification or regression problem.
+21:03:37 Then what I do is I collect all of these vectors into a collection of factors and I do what's called the readout. So I encode that collection of vectors by a single vector.
+21:03:50 And the way I do is that I use a learned function that goes from several factors to a single vector to a graph representation vector, and it could be as simple as just the sun and or an average, or it could be something more complicated, like applying
+21:04:05 some function transformation to each of these factors and then some.
+21:04:10 And then maybe doing another transformation or classification.
+21:04:18 And this is called an aggregation. Also, this week.
+21:04:22 This week. And so, next I'll show you how you actually do this neighborhood encoding.
+21:04:29 Before we go there that's the big picture, and I haven't told you yet how this relates to your networks and how we actually do this in coding. But just to make sure we are all okay let me see if there's any questions before we go on.
+21:04:51 So the first one question from Paula is the the parts of the graph, are they just going to be fast separately in, in as backers is that, I think that's the question from Paula.
+21:05:03 I yeah so typically what you input is the fall. So you can represent your graph. I have two things now so you have the, Jason see matrix. So what that does is if you have say three nodes, it's a three by three matrix.
+21:05:19 And then if no, this is 123123 and basically if no one is connected, not two, then it's going to have a one here and if it's not one, not one is not connected to know three it's going to have a zero here so it's basically this connectivity pattern.
+21:05:35 And this is the metrics on one after zero and one.
+21:05:39 So you can feel this entire matrix this is the adjacent see matrix.
+21:05:44 So this represents the connectivity pattern of the graph and typically so typically you input the entire thing and I don't know the what you're going to do this local processing and yes if you want to distribute something you'll have to chop it up but
+21:06:02 that's more complicated so from the moment we'll assume that you're inputting the fall, Jason see matrix and I'm not the one doing this local.
+21:06:10 in the beginning, so you get a big matrix X, with all of these vectors in essentially.
+21:06:26 So this is an n number of data points by some dimension of those sectors matrix. So what's your method that gets us input is both this matrix.
+21:06:39 And this thing, and if you have some information on the edges year, then you would also get a matrix with like all of the information on those edges.
+21:06:50 So that, like me, you know how these correspond to the, what they correspond.
+21:06:56 So and I show you how you actually do the local processing, we have for that you only really need the local connectivity structure.
+21:07:19 But it's a little bit hard to like now, chop it up in that way. So under doing what you're doing, but for the moment we'll just assume we have
+21:07:15 the question from Nicholas Can you make an example of what you typically try to predict or learn in this context professor, or is it just to predict connection or causation between.
+21:07:27 Yeah, so the examples are all examples I showed in the beginning so maybe a graph is a molecule, and you want to predict whether this would bind to something whether it would react with something etc properties, basically, or this could be a social network
+21:07:49 where you're predicting some properties of a user, or it could be a recommender system where your graph is basically links between your session items and you're predicting links.
+21:07:58 Or it could be something like Google Maps where it's a traffic network essentially and you're predicting traffic time so the applications are very lots of different applications.
+21:08:09 So it could be predicting properties offer nor would have an edge off the entire graph essentially or predicting links or something like that.
+21:08:21 There's a question from Dr Vincent, Professor on how does the model take into account the evolution of the network. Does it have to be stable over time which may not be the case.
+21:08:32 Ah, yes. Here I've kind of assume that the graph is stable, and I look at one snapshot at a time.
+21:08:41 There are methods also that look at graphs that evolved over time but in that case actually got your representation will depend on the connectivity of the graph so that representation has also evolved.
+21:08:55 So this is a bit more complicated now you have basically the graph and time so we have another dimension, and you can generalize these models to also work with the dynamics of the graph, and maybe predicting the dynamics for taking into account the dynamics
+21:09:11 and the representation. So here for the moment for simplicity, because it's probably already complicated enough, I just assume a static network that it doesn't change.
+21:09:25 We should be good to go with the question.
+21:09:28 Okay.
+21:09:31 So, um.
+21:09:33 So now the question is, okay, maybe this thing, we can learn. This is going to be some kind of some maybe you're so over those vectors, but how do we actually get an encoding of some neighborhood, how do we actually represent this local neighborhood.
+21:09:54 So let's look at that.
+21:09:57 And this is typically done with what is called message.
+21:10:02 So, here is an illustration of my graph and let's say I look at this local neighborhood. This node in the middle here and its neighbors.
+21:10:13 So what is actually happening to find a good representation of this north, what is going to happen is that is not send messages to each other, they exchange their current representations.
+21:10:26 So this guy is going to collect messages from all its neighbors, and update its own representation based on that.
+21:10:34 And the way you do this processing of the neighbors information is that there's actually a little neural network sitting in there. So each of these nodes actually has sort of a local processing unit, a local small neural network, and that is process.
+21:10:50 Getting a message from a neighbor processing it, and all putting something and then you're actually aggregating essentially the outputs of the neighbors and like sort of process versions of the neighbors messages that's how it's going to work.
+21:11:07 So,
+21:11:10 How do we do this, so this is the message crossing part so the message passing is synchronized so it works in rounds and then each round, each note sends its current representation for the neighbor so you start out with whatever information you have about
+21:11:28 those notes so maybe that's some information about the atoms and molecules muscle.
+21:11:35 And in each round, each node sense that information to its neighbor so let's say this red note here that collects the information from all its your neighbors.
+21:11:47 And now what it does is it does this processing with its neural network. So this is called an aggregation operation so it basically takes in this case three vectors as input, and it outputs.
+21:11:59 Some aggregated version of those vectors, some process version, and then it combines it with its own representation and this combination could really just be a weighted average of those two vectors.
+21:12:14 So what are these operations this aggregation and combine operations, those are essentially the parts that we learned and this is actually they're basically small neural networks are sitting.
+21:12:27 So this guy is actually a small neural network this guy could be a small known rapper, or just some weighted combination where you learn.
+21:12:37 And now, as you go on. If, after two around, because at the same time everyone exchange information with its neighbor so now if I'm asking my friends again.
+21:12:48 They have collected in the meanwhile information from their friends so I'm getting information from a poor neighborhood.
+21:12:53 And so if I go basically and Kairos I gather information from a K hop neighborhood.
+21:12:59 So the longer I go the more information I get about the Empire.
+21:13:04 And now the question is what does this aggregation thing actually look like.
+21:13:10 So let's look at a few options of how I could take say three vectors and process them to get out a single vector.
+21:13:21 Now, think a little bit what could you do, even without learning, if I give you three different numbers, how could you process them to get out the single number that there's some kind of representation of these numbers.
+21:13:35 So you could probably think of a few of them.
+21:13:40 So someone says LSTM that's already a pretty complex thing that you have to learn about something simpler.
+21:13:52 So yeah, I see addition, multiplication, concatenation averaging.
+21:14:00 So you could just add them up with put average them.
+21:14:05 You could multiply them in some way.
+21:14:07 And then there's the concatenation. So if I go conquer the nation. I may have run into one problem so what I want is that each of the nodes, essentially runs the same program.
+21:14:18 So if I concatenate the information of my neighbors, all the other nodes are also going to do that.
+21:14:26 And now the. Now the thing is I have neighbor One, two and three.
+21:14:32 And I could label them arbitrarily so I would like say this isn't a one to one.
+21:14:38 And now I say okay I need it so I do 123, these are the three records.
+21:14:45 But really what I want is, if I have labeled them differently. If I had put this is number two and this is not football.
+21:14:53 I actually get a different permutation of those of that concatenation.
+21:15:00 And so what I want this month, no matter how, in what order, I put the neighbors, I always want the same output, because otherwise it's going to be hard for me to do the processing just because I relabelled my neighbors, and because that how I number
+21:15:15 them was pretty arbitrary. I don't want to think that it's different information it's not, I know I have one neighbor that test.
+21:15:25 This feature one neighborhood has this representation and one that has this, and that's all I really know. So the content nation is a little bit hairier because of that.
+21:15:34 So the averaging and some is fine because no matter what is the order if you take the average, it doesn't matter.
+21:15:42 So other people say okay min and max the also, you already have lots of suggestions. So indeed, this is something that, especially some of the early graph meal networks, they just did an average or they just did a song.
+21:15:58 So that's the simplest you can do and it's actually useful to do that.
+21:16:03 And you can also do men or a Mac so if you have factors what we would listen would do it coordinate by so what's the smallest thing you've seen all the first coordinates, what's the smallest thing you're doing all the second coordinates, etc.
+21:16:17 So that is possible.
+21:16:20 But so far we haven't used any learning.
+21:16:24 And how could you bring in learning so what you could possibly do is to put trends for each of these guests so you could learn a transformation of each of these neighbors information, or even run a classifier and each of them, and average the results
+21:16:38 or something like that, so watch you in the most general form what you can do with you apply a nonlinear function as manual network to each neighbor individually, because they have no order and there's no, it, it has to be an operation that works on three
+21:16:58 neighbors and on hundred meters. So, you will learn basically this small neural network once and you apply the same neural network to our neighbors in each node, the same thing, always.
+21:17:09 So you also have to learn it only once, and this is the same that we did with the filters in the CNN, we learned that filter rocks and we applied it to every patch.
+21:17:18 So here we learn this aggregation function once, and we apply it to every note to every neighbor.
+21:17:24 So, we have this manual network and then we sum up.
+21:17:29 And with that you can actually do much more and if you want you can do another processing and afterwards.
+21:17:34 So you learn one or two small your networks and these are typically smaller like two layers three layers for layer, something like that, for is already quite a bit.
+21:17:46 So they are fairly small.
+21:17:51 Um, and and that's the most general form, you can have so that's basically the most general form.
+21:17:56 This middle one.
+21:17:59 Now what about this update operation so now I have processed my neighbors information I have sent them through my small neural network and average them, or just something up.
+21:18:11 And now I have to combine it with my own representation and I could just do this with a weighted average so here these weights are matrices. So these are again with matrices we were.
+21:18:23 And maybe I have some nonlinear function like again or Randall or a sigmoid are still sitting there.
+21:18:31 And this is sort of most of the graph new metrics that use this message passing framework we can basically represent with a variation of the so they were very in terms of whether they use thing or a neural networks and then you will not work is over the
+21:18:55 neural network etc but basically it's variations of that kind of scheme. So now I see a question, what is the goal of aggregation, what are we actually learning with this.
+21:19:03 So, what. So, what I'm basically doing.
+21:19:09 I'm, I'm getting basically a summary of my neighbors representation. So what are the neighbors representations, they tell me something about the states often like the properties of those neighbors.
+21:19:23 And so when is this useful when basically in my task, it is useful to know about the neighbors so for example if I'm in a social network and I want to predict something about someone's interest.
+21:19:35 If you know something about the interests of their friends, that may be an indicator of, you know, because maybe some of these friends share their interests that's why they are friends.
+21:19:46 So you can tell something about that so what for example this first thing would be doing it would be telling you what fraction of your friends has which have which interests or rich professions or whatever, and so on.
+21:20:02 So it tells you something about sort of the statistics of the properties of your friends.
+21:20:07 Now, what can you do if you do this MSRP in there, you could actually already learned to focus on some of these properties maybe not really all of the properties of your friends are important for knowing about your interests.
+21:20:24 So maybe you want to just sort of filter out some of those interests that's what you could do, or you could say, maybe I have friends that come from my workplace and I have friends that come from the hobbies that I'm doing.
+21:20:39 So maybe if they share, okay hobbies or interests but basically if they are my work friends, I want to download that if they are if they work in the same place but if I have connections with them but they don't work in the same place I want to upgrade
+21:20:56 their for something like that so this is something you could do with this MLT so you could focus on that. Or you could already run some kind of mini class if you classification of different things with it so if you for example, predict how likely, how
+21:21:12 someone is for specific disease you could look at the people they are in contact with how likely are they to get that disease or likely or they may be to contract Kobe dorsal and that would give you something about the risk of that person.
+21:21:29 But maybe there is actually more it's like more information you could do actually maybe doing some kinds of classifications of your friends about, given their entire profile how likely are they going to be interacting maybe when they have a disease, or
+21:21:45 how likely are they going to get the disease at all based on their profession their into their interactions or something so you actually ran a set of small pacifiers on your friends, and the output of this classifier is actually what you're aggregating.
+21:22:00 So this could be some examples.
+21:22:10 A final example is what could you do with the men or the max you could say something about sort of what exists in your neighborhood. You could also use this actually to encode graph algorithms so what you can also do with this graph, your networks what
+21:22:19 I didn't tell you is, learn optimization algorithms over a graphs like learn what is the shortest path or something like that. And if you actually know what the shortest path algorithm do does is it takes some minimum.
+21:22:32 So basically it looks at what's the best distance I can get from my neighbor so it looks like a min over the neighbors the men distance over the neighbors in terms of reaching a goal so that's where for example you need a min and that's for people that
+21:22:47 want to use them.
+21:22:48 So these are things you can encode so typically some statistics of your local neighborhood, and this MLT just allows you to be more precise about it to learn, maybe multiple little pacifiers on it or something, or just a transformation that brings out
+21:23:05 basically the relevant features more.
+21:23:12 So, if we. There's another question if we apply this nonlinear aggregation to each neighbor intuitively that's the neighbor would have trouble converging.
+21:23:23 So that's basically the question how many iterations do we run, we run this to some kind of until nothing changes or so.
+21:23:48 word you have to make more assumptions about what the nonlinear functions are That's exactly right. So typically, what you do is you fix the number of iterations and typically you don't run too many, you would typically run just a few like three four,
+21:24:04 maybe eight or so. So why do you actually not run more iterations of this message possum. So, basically what happens is that in the first iteration they get information from a one off neighborhoods in the second iteration I get information from my friends,
+21:24:13 friends, and so on. But now, if what I want to predict about the Nazis actually still a relatively local thing, like if I want to predict something about someone's interest, maybe I don't really need to know what are the interests of the friends like
+21:24:31 10 hops away, because those guys have liked it so much interaction there's no direct connection that that those are not very relevant for what I want to predict So in those cases, it's sort of just washes out the information you're averaging over a lot
+21:24:46 of people but many of those people. 10 hops away, are not actually that relevant to what I want to predict about that specific notes or you don't even want to include them.
+21:24:56 And if I would run 10 iterations I would be including that.
+21:25:00 So it depends a bit on the class in some class you want it in some possible, but it turns out that for many tasks actually the local thing is actually, it's CRISPR information you want more than the single note but you want less than IE and Firefox, you
+21:25:15 don't want to average over the entire block. So that's why typically be run. Just a few iterations, and then we stop.
+21:25:25 And yes MSRP means multi layer precept from sorry about this so this is just our fully connected network.
+21:25:33 This is mi lingo, so this is just the fully connected
+21:25:40 neural network so this is lecture one.
+21:25:44 So the lecture one network is basically what the sitting.
+21:25:50 Okay, so this is how we can define this graph, you'll never by doing local processing. With this message passing and then the final aggregation of our all the notes, if I wonder representation of the graph is essentially the same as the neighborhood aggregation
+21:26:08 so it's exactly the same so on this slide.
+21:26:12 So we've seen that they can have a neural network inside but vital actually called the full thing in your network. And to give you an illustration of that let me just give you a different representation of the same message passing thing.
+21:26:26 So let's say we are computing a representation of this target note.
+21:26:32 Now what I'll do is, I'm rolled a message passing operation I just write it out, essentially. So, in this operation this guy gets information from its neighbors, and it is processed with this aggregation function that's just my gray box here that's my
+21:26:49 small neural network essentially.
+21:26:49 Now in the previous iteration, those neighbors collected information from their neighbors, because that's what the message passing did. So I'm going to look, what did they collect from their neighbors so be collected information from AMC, and the others
+21:27:08 collected information from their neighbors. So what I'm getting is this sort of branching out thing so that's called a complication tree, and what the gray boxes are our main functions.
+21:27:22 So that's just illustrating the same procedure. Now you see which is often confusing for people as I get the note, a here and I get the note at here so how can that happen.
+21:27:33 So what is really happening this very right side that's my input.
+21:27:39 And this input is sort of stage, zero so this is my representation of my note, eight in stage zero Indian.
+21:27:48 So it comes up a few times, just like in the CNN or pixel as part of multiple inputs to filters multiple windows so that's the same thing.
+21:27:58 And then this is here. The first one is layer one. So this looks like layer so this is layer one layer after layer one I have representation, not for layer one.
+21:28:10 I'll be here and able also have some representation. And here it is next one is representation after layer two.
+21:28:17 So these are representation that's different stages in my compensation.
+21:28:22 So sort of the right and.
+21:28:25 After having sent it through the pipeline.
+21:28:37 So now this looks actually like a neural network. I already called it a layer so this guy's layer two layer two layer and then layer I do my aggregation operation and it has a small neural network sitting in it so these are sort of the super layers.
+21:28:54 And now what we have is just like what cnn said was in a layer we are using the same aggregation function the same parameters for that aggregation function it can change across layers, it doesn't have to read within a layer, we have to only learn that
+21:29:10 aggregation page, function one so that's like one filter in our CNN, only that typically you only use one aggregation in each layer. So we do this way children.
+21:29:23 So, that is.
+21:29:26 So that's another way I can represent my graph new network and that way it looks a bit more like a neural network, because it's more later.
+21:29:39 Okay, so, and these are the aggregation functions.
+21:29:44 So really here what I'm applying it's your I'm applying the mo p to each of them.
+21:29:50 And then I'm summing it up over here.
+21:30:00 Okay, so let's look at what is how to actually train that referral network. So what's the data point.
+21:30:10 That depends a little bit whether I want to classify the photograph or I want to classify or not in the graph.
+21:30:16 If I classify the photograph the input is the photograph.
+21:30:23 If that's one data point and then I have a label for that data.
+21:30:29 If I classify a note the input is basically an old and its neighborhood, so it's it's essentially.
+21:30:37 That part is my input the in the the best. The two hot neighborhood of that note so in this case before crap.
+21:30:47 So I get snippets of neighborhoods and labels and so I get multiple snippets of the same graph, those are my data points.
+21:30:55 So once I have the data up and if this is a photograph my data set will have multiple graphs, you the details that could be a single graph.
+21:31:05 And so what do I have to specify what are essentially my hyper parameters I have to specify what kind of aggregation i want to i just want to some, or do I want to some with a little neural networks in it.
+21:31:18 And what loss function waves and loss function is the same as always if I want to do classification I'm going to lose the cross entropy, or negative law, like you.
+21:31:28 If I want to do regression I'm going to use squared loss. So those are the most common ones and then I train it with STD just like other neural networks.
+21:31:38 So it's basically the same.
+21:31:41 And so the specifying the aggregation is a bit like specifying and CNN, what size of filters you want.
+21:31:49 How many filters.
+21:31:53 So STDs Stochastic gradient descent, and back propagation the same thing that we did before.
+21:32:03 So that's the summary of the graph Neo network model so it works, in some sense, similar to CNN is that I encode local neighborhoods, just that my patch is not a look a bit different.
+21:32:15 And then I aggregate them. And the way I compute the representation of these neighborhoods is also by essentially fancy fight averaging by this aggregation operation that I'm wearing.
+21:32:27 And I'm training similarly to all other notes.
+21:32:33 So, if you want to play around with graph me on networks there's two boxes, there may be more in the mean by what those were some of the earliest, where you can get the code for all of this, you don't have implemented and you can start playing around
+21:32:50 with it.
+21:32:52 And they also have some examples of codes and introductory examples for graph classification or classification.
+21:33:03 So now I'm the final part of this lecture.
+21:33:09 I just like to give you a real example of an application of how you could potentially use a graph in your network. So this is already, not a toy application, this is on a big graph, but I was thinking that this actually also illustrates a few other points
+21:33:27 that are useful event, running machine like like designing machine learning models so it's useful. It has multiple benefits and the task is the polypharmacy prediction so polypharmacy means you're having to take more than one drug at the same time.
+21:33:44 that is treating some severe disease.
+21:33:48 And in some cases, what can happen is that if you take those two drugs together or more than two, but here it appears, you get bad side effects.
+21:33:59 And this is actually a severe problem and the problem, and the difficulty with this is that it's already hard to find side effects for single drops you have to run these clinical trials.
+21:34:12 Now you have to run these for all possible pairs of drugs. And that's a lot.
+21:34:18 So even if I had 10 racks this would already be essentially on the order of hundred pairs. So now I have many more drugs and which peers are likely to have side effects.
+21:34:28 So the idea is, can I have a machine learning model that will predict those big because I there's not a lot of those are the challenges, there's not a lot of data on this, because, well, you have to have enough people who will have taken that combination
+21:34:50 of drugs and not with all people those side effects may occur only with some people, etc. So it's hard to find it and there's just not a lot of data, but if we had a machine learning model that would predict that it's likely that this paragraph may have
+21:35:10 a side effect and we can use that to do more targeted screening. And that's much better than having to check for all possible pairs which is quite expensive.
+21:35:16 And so what I'm showing you is coming from a paper. This is the title of the paper from Stanford, and you can Google for the paper if you want it's publicly available if you want all the details of the money.
+21:35:33 So, if we want to solve this task.
+21:35:39 Given a pair of drugs, what side effects could occur. So basically the input to my writing model is a pair of drugs, with whatever information I have about them.
+21:35:50 So the question is What information do I have, and the output would be basically the prediction for a list of different side effects. What's the probability of them occurring.
+21:36:03 So now it doesn't have to sum up to one one it's not that one of them has to occur. It's for each side effect, what would be the probability and this could be like side effects like a better stomach ache a bit nicer you'll get fever, you'll get anxiety
+21:36:19 it's some something.
+21:36:23 So how would we set this up. So it's essentially some kind of classification pipe problem.
+21:36:34 Um, what what information could we use.
+21:36:37 So that's something to think about.
+21:36:43 And I would like you to think about it for a minute what information could we use to make this prediction. If we wanted to predict how likely it is that poor drugs, interact in a certain way to cause a certain side effect.
+21:37:06 So, I already gave you two examples here so we have data on drug drug interactions whatever we have observed so far. And we have maybe side effects of individual drops but is there something else we could potentially use.
+21:37:30 So I see a lot of interesting ideas in the chat so I see the symptoms records or symptoms of a patient, maybe it has to do with what symptoms the patient has some kind of like it's a little bit personal life, the composition of the drug yes what is actually
+21:37:50 the reactive part in the drug, the receptor for the drug so we're in the body does the drug actually act. How strong and the dose right dropped targets and direction at work so that has to do with like, what the hell does the drug actually react in the,
+21:38:09 in the body, like what does it target in the body which proteins in the body.
+21:38:15 How the molecules react with each other so maybe some general information about that.
+21:38:22 How are the drugs process that similar.
+21:38:27 Some kinds of enzymes and proteins in the body inhibitors, how do they work exactly so there's a lot of some demographic information age, gender, etc so some more information about the patient, which may affect this probability.
+21:38:46 Other some things that the patient may have right
+21:38:53 data from animals study, and so on.
+21:38:57 Gene Expression data so you already came up with a lot of different ideas that's actually great.
+21:39:04 So, essentially what you're already hinting at is that what that actually have to use if I use all of this information, I have to use a lot of different sources of data so there is no single data set that has all of that information.
+21:39:20 I have to get creative and I have to now pull data from different sources and combine it in some way.
+21:39:27 So that's clearly what comes out from your idea so even if I had a data set on black black interactions. That's probably not enough. So, the key question is how do I integrate all of that information, how can I integrate all of that.
+21:39:43 So, what this study does is it doesn't integrate all of what you are suggesting so what we're suggesting you could probably get even better. So what is left out here is the personalization to the patient various say the patient actually has a personal
+21:39:57 profile of gene expression and other comorbidities etc so we're actually leaving that out here, because maybe that data wasn't available, but that would probably have to make actually even better and personalized predictions.
+21:40:18 So, um, as I said side effects or rear so you can use actually other types of data as you said.
+21:40:25 So, we can first have a look at Okay, what kinds of drugs are actually typically prescribed together.
+21:40:33 And what are the target proteins of this drug so basically there, how do they act in the body.
+21:40:39 And now, they tend to have some kind of target for beads in common, but many drugs do not have a target for being in common. So this target for the inside prison will be important.
+21:40:52 So we want to take them into a call.
+21:40:54 But just the single target protein would work for some drugs but not for all. But what could also happen is that they have different target proteins, but those target proteins interact and so you can wait so there's many complicated pathways in the body.
+21:41:10 And we want to capture that so we want also these Protein Protein interaction, so we want dragon Jordan interactions and protein and protein interactions, in addition to dr Brock and direction information.
+21:41:24 So again if you need multiple data sources.
+21:41:27 And then what you can also start looking at is the side effects are there side effects that tend to occur together are the side effects that tend to not occur together so that could also do help you in making predictions and saying that if I predict this
+21:41:43 side effect it's likely that I would also be predicting this other one, or not this one. So for example, I think, fever and hypertension do not typically cool occur but anxiety and hypertension to worse, things like that.
+21:42:01 So the way I can actually take this into account is by predicting them jointly, so I have, I basically take all my input information I process it with some new member.
+21:42:15 And they do the output prediction jointly so I do not learn for the separate classifier so I somehow, take into account those correlations.
+21:42:25 So, that's a lot of quite a mouthful if we think about how to put all of this into a machine learning model.
+21:42:31 So let's go step by step.
+21:42:34 And the first thing is so we have the data so the data. Let's first look at, not so much the prediction but the data itself so the data that we have about the inputs that description is drug drug interactions track proteins and proteins proteins and some
+21:42:51 interaction about the individual graph.
+21:42:54 So, those are entities and they have interaction so we can create the graph from that. So this graph is no different types of notes, it has brought a note so that's sort of in the body.
+21:43:06 These are my drugs, and you get the link between them if the drug X on that protein. You have a link between proteins if the proteins incorrect somehow.
+21:43:16 And then I have a link between drugs. If there is a bad side effects if I take them together and all this link has a label so that's the type of side effects of this could be fever.
+21:43:28 This could be some hard problem, etc.
+21:43:31 And now the task is given to drugs and whatever neighborhood staff predict whether they would interact.
+21:43:41 And in this study they actually collected a lot of data from different sources so they had 964 types of quality farming decide effects of the side effects of drugs.
+21:43:56 645 nodes, and then 19,000 Productions, and lots of it type different types of ages. So it's a pretty big graph and we have a single graph, as an input here.
+21:44:08 So now, what are we going to do. We are going to input that information, and we just learned about graph neural network so we're going to use graph, you know network with that.
+21:44:21 So, how do we do this, each drug is a note, we don't actually encode the molecule that would be even better, maybe, each drop us a note is protein is unknown.
+21:44:34 And we have these connections.
+21:44:37 So, we are going to send it through a graph neural network, and we get some encoding for each node in the graph.
+21:44:45 And then what we actually want to do for the prediction classes we take a pair of notes, meaning a pair of encode northern coatings, and send it through that prediction model.
+21:45:02 So that's called the decoder here so it takes to note embedding will no representations and predict the probability of these different side effects so each of these is a different side effects.
+21:45:16 take them together they have that side. And this is done jointly and I'm not going to tell you in detail today how this is done, it's related to matrix factorization methods and you're going to talk about those next week, so I'm going to defer this to
+21:45:28 next week.
+21:45:29 But we did talk about is that part, the graph meal network.
+21:45:34 And you're actually learning all of this at one shot. This is all learn joined together with back propagation.
+21:45:44 So, now, we can basically run our message passing on this graph, and there's just one thing that's a bit special about this graph.
+21:45:54 And this is
+21:45:57 that it actually has different types of notes and different types of edges, and potentially an edge between rocks means something different from an edge between drugs and proteins, for example.
+21:46:11 So what we'll do is we will do the this aggregation this message passing separately on each type of edge so we basically learn now. One aggregation functions or the neighbor or production function for each type of edge.
+21:46:28 So this guy is going to have three green neighbors to blue neighbors and one red neighbor so it's gonna get a blue aggregation aggregated information from but no neighbors aggregation information from the red neighbor, and from the green labor so it has
+21:46:42 it has three, and after processing them individually then it puts them all together.
+21:46:54 So that's the only difference but it's using the same thing so each of these different neighbors is going to get its own aggregation. We learn a different aggregation for each type of edge.
+21:47:00 So you process these three different type of neighbors independently. So there's two types, two neighbors that are different side effects. So this is some stomach side effect this is Bread.
+21:47:15 Bread courtyard. Don't know what exactly this maybe something related to the heart. And then you have to drop targets relation, and after you've done your aggregation on them separately you put them together into the representation of this month.
+21:47:31 So this is really just about this formula says.
+21:47:35 And this is what you're doing each iteration of your message.
+21:47:39 So now we have our graph new neural network and retrain it.
+21:47:44 What is the training point here so this is the case where we have a single big network is the input, but each data point essentially for my task is just to drugs, so they're trading data point is to drugs, and a relation, and the output is basically.
+21:48:04 Do they have that relation or not, they have that scientific or not if you take them together.
+21:48:12 So that's one data point and now I have a collection of data points for this.
+21:48:18 Now, in this problem, we have another challenge and that is that there's many more nose than yeses so I said, The side effects are rare so for many more drug players, a no it's a no than a yes.
+21:48:31 Uh no, it's a normal than a yes. And if you train with an average training loss as we typically do you could get a pretty good accuracy by just always saying no.
+21:48:43 And that's sort of the stupidest model we don't want that because it doesn't give any information.
+21:48:45 So,
+21:48:49 we remove some of the notes, we've had we have roughly similar amounts of yeses and noes, And then we just do training like that.
+21:49:02 Um, so I see some questions in the chat, let me just briefly answer them so what's the meaning of protein off track. And so basically a protein off track see connected to body enough drugs.
+21:49:18 and so that tracks the letter C or just the names of the drugs.
+21:49:23 And then you have a connection between a drug and a protein, if the drug interacts with a protein so that's how it acts in the body but now the proteins in the body interact.
+21:49:33 So there's connections between proteins of the projects and correct.
+21:49:37 So if, for example, this guy excellent this protein a disconnect on this protein there may be a connection between the two because the proteins in the body bind together one inhibits the other or something like that.
+21:49:49 So that's what essentially these links me until you can trace and if there's a connection between, maybe like this guy and this guy there, they are not directly connected but there's a pretty close path between their product so maybe if I take them together
+21:50:06 they would actually also interact.
+21:50:10 So, that, that, what the order of processing the neighbors affect the output.
+21:50:18 It does not because I do it in parallel, so I i said i process. The neighbors separately for each type of edge.
+21:50:27 But then I take all of that together so I do this separately, and if I have for neighbors. I basically sum them up. So the order doesn't matter. Like I process them and I sum them up and it doesn't matter.
+21:50:43 Some is some.
+21:50:44 And then for these guys I do it separately in parallel, and I just sum it up again. So this is just the summit we're just types of neighbors here. I'm just summing it up again so the order doesn't matter if it doesn't matter, and each notice this in parallel.
+21:51:01 So before we update again we update all the notes in parallel.
+21:51:05 So there is no order dependence here.
+21:51:11 Okay. So, can you explain how you remove some of the no labels. So you're basically just ignore them. So I said, sometimes we have this problem in our learning problem and that's not specific to this one, that there's many more no labels than yesterday.
+21:51:27 The same happens for say object detection if I get, it's important patch there's many more patches that don't have an object, and those that have an object.
+21:51:38 So I just have like say 80% of my labels are annoying 20% of our Yes.
+21:51:46 So that's back from a learning perspective. So what I can do is I can successful, then also just randomly pick from the knows that of course reduces my number of training points, but it's still okay ish in the number that may still be a better idea.
+21:52:03 Another thing you can do is you can update the yes so if you make an error on the yes you get a more penalty that if you make an error on and so in your loss function, instead of taking the average.
+21:52:17 You're, like, operating the yeses by maybe effect or five.
+21:52:27 Um,
+21:52:27 okay.
+21:52:28 So, let me finish with my last slide, and then we can answer more questions after that.
+21:52:36 So the final question is, now we have this big graph neural network and we have trained it and we have also created the prediction part.
+21:52:47 So hopefully we know that we've done a good job. So how do we evaluate this.
+21:52:53 So how could we evaluate that model.
+21:52:56 And there are some obvious answers and there is some other answers so I just want you to think for a minute. How could you know that you have done a good job with predicting those drug interactions.
+21:53:11 What could you, what could you look at to evaluate the model.
+21:53:31 So, for David says you could do a training and test set so you could look at test error.
+21:53:29 So you're looking at accuracy on the test set right so that's the first thing you can do with the machine learning model is look at the test set.
+21:53:40 And look at the stats the prediction performance and you see actually that it's better than competing methods, in this case.
+21:53:49 So Fernando says cross check with the data type of Nolan interactions, so that's a bit similar to the test set.
+21:53:59 In the sense that if you have that data set you started with, you'll kind of see okay the white which one of these so that actually predict right.
+21:54:09 You can actually do even more you can say does it predict some that we don't know yet so what the truth is with these medical and also biological data sets often is that many of the interactions are just unknown, just because I haven't observed that interaction
+21:54:23 doesn't mean it's not there.
+21:54:25 So walk you can also do is you can say, Well, what interactions, does it predict that are not in my data set, and see Are there new research studies that may be point to that this is happening or maybe we can now run a lab study or a clinical trial and
+21:54:41 see by those actually exist, maybe it predicted something new that we don't know about yet.
+21:55:01 And this is another thing you can do.
+21:54:53 So this is actually what they did in this study and they found new interactions that hadn't been in their data, and they look for new research studies, and these are the research studies so for many of the predictions that were new, not in their data
+21:55:09 set, they were not wrong predictions, they just hadn't been discovered yet at the time they were training, but they were actually there in other studies there was evidence that this is actually exists.
+21:55:22 And another thing you could do it you could actually try it in a clinical trial.
+21:55:27 And a final thing you could do is you could look at on what kinds of peers are you performing well and then what kinds of fears are you love performing well.
+21:55:38 And there may be several reasons for these interactions and it was performing particularly well for those that actually were relying on those protein interactions that's not surprising because that's what you're capturing.
+21:55:51 So that's, again, just like for the face recognition that's a good thing to look at what are you what where is it working well and versus not working.
+21:56:02 So those are a few things someone says robustness yes you could also check for robustness.
+21:56:10 It's a bit of a question how you would check it. In this case, hollywood chicken all your data perturb your data by that. It's in general.
+21:56:23 A good thing to check, maybe by not showing it new director said it's ever seen before.
+21:56:32 So that's it.
+21:56:35 Today we learned a lot of things we learned about social provision and graph neural networks, and I'm going to now just open it up for more questions, and try to answer the remaining questions that I missed in the chat, I'm sure there are some,
+21:56:52 man. Thank you all for these three Greg lectures and lots of questions.
+21:56:57 Right, thank you so much as a professor, it's been extremely interesting and insightful series of lectures this week.
+21:57:06 And I know some you know some of us do need to jump up so for those of us who do.
+21:57:20 Thank you so much for all your questions and all your comments as well. It's been a lot of fun, even for me just to read all of that. And for those who didn't need to drop off we will see you next week for the final week of live lectures with Professor
+21:57:27 day workshop, and that week will be about recommender system.
+21:57:33 Okay.
+21:57:42 Yes. And for those who do want to say that we have the additional half an hour of course hydropower hope you're doing well forget later to see you.
+21:57:44 Great way to see as well.
+21:57:46 So, there are a couple of questions in the q amp a box Professor around.
+21:57:50 And this is probably relating to the fact that graph neural networks are an extremely new and upcoming area of research and there's probably not a lot of textbook literature or a lot of, you know, online material available so in terms of like resources
+21:58:06 courses or projects, or just basically hands on material.
+21:58:10 What would be your suggestions for for those who want to read up on it.
+21:58:15 Later upside.
+21:58:17 Right. So in terms of hands on exercises, I would recommend looking at these top boxes, somewhere in my slides, I have this link to the tool boxes. And those have many introductory material.
+21:58:34 So for example here there's like an introductory code examples here and you can just look at it as a sort of guide you through how you would use it and start playing with it there's simple data sets very simple examples and you can start playing around
+21:58:47 with this and getting familiar with it, and then also implement, most of the main models and graph representation.
+21:59:05 In addition, some tutorials, mostly for the machine learning community there's not a lot. I don't have them in my slides yet but what I can do is I can collect them and then have them sent to you will share some links to tutorials that will be like one
+21:59:15 or two or more our tutorials on some specific details going into more of the theory or some more application social, so you can also have a look at those.
+21:59:31 Couple of things as well. You know, there is a small case study be released. At least we are going to release, at the end of the session and that's around graph neural networks applied to movie recommendation system right so that's that's a great way
+21:59:44 to also see how graphs are actually used in a recommender system context which is of course something you get more context about next week.
+21:59:53 And I think you know one of the libraries that's also been getting a lot of traction professor is stellar graph. I think that may be a new part of, I think that's, that's another library, I guess, in addition to this, that, you know, for those who are
+22:00:05 interested you can probably look up stellar graph is now being used. There's a, I think there's also a popular data set called the Core Data Set professor, which has been used to show graph neural networks in terms of the citation network between academic
+22:00:18 research papers, so I guess that's, that's another great resource, I think, for those who want to read up on it the core data set that care.
+22:00:27 Yeah.
+22:00:30 Yeah. Okay. Thanks for sure. That's great. There's also like if you want to play around with bigger graphs, there's the Open Graph library also hosted by Stanford and I'm on the advisory board of this thing.
+22:00:42 So that has bigger graph learning.
+22:00:47 Once you have like gone for the introductory examples and you want to try something bigger and more challenging.
+22:00:58 Okay. So another question was around.
+22:01:03 Okay, can I see the gene expression as a neural network model, I'm imagining all the interactions that occur between genes proteins and other by Mark and I guess that's a similar example to the one we just discussed.
+22:01:16 That'd be perfect.
+22:01:18 Yeah, so seeing gene expression is a neural network. So in some sense, you could say okay gene expression is playing some kind of computation.
+22:01:28 I'd hope maybe see it more as a complex interaction system.
+22:01:33 Yeah, there's some input output happening, but it's a little bit different in bed, it's not so much strain so if you say your DNA is maybe the input and the output is the proteins that generates, and there's if that depends on multiple other factors.
+22:01:50 So I would say the workings of this is a bit different from on your network in the sense that now which parts you read out depends on which proteins are currently there in your body and then like which of them survive and how they get processed it's very
+22:02:03 complicated, and then like those bodies affect what other fruits are being read with some feedback thing until it's, I think that a bit different from some of this stuff the neural networks, we've been talking about but you could do with a some kind of
+22:02:24 system and interaction graph and try to model it that way. I think
+22:02:30 the.
+22:02:31 I think the question is around how computationally heavy, are these neural networks professor. Is it possible to maybe compare them to the CNN, or the transfer learning or late, maybe even more computationally evident that the graph networks.
+22:02:47 Yeah. So it really depends on your task and your breath. So some of the graphs are relatively small like molecules are so that it depends how many you have.
+22:03:00 And, in fact, some of the earlier graph learning class had just a few hundred data points if they are actually not that big. The new ones are bigger. So then you take time.
+22:03:12 So in those cases, it doesn't take that much time so what takes time. So, the thing, in which GNS are more and more expensive than convolution on app works is the following.
+22:03:26 If you ever convolution neural network to all of us have those career patches so this is basically matrix operations, each of these filters is the matrix multiplication, and you can run this on a GPU and it's very fast, it's like made for this parallel
+22:03:42 processing made for GPUs. It's great. If you have a graph, we have these different neighborhood sizes so some are large, some are small, and then that's not as nice with a matrix multiplication that's one thing.
+22:03:57 The other thing is that how expensive this becomes depends, essentially on How big does this computation graph, get that I showed you in the beginning so so yeah yeah I'm rolling and then you have like this.
+22:04:10 Three thing this this this branching out thing. So if you have if your notes at large degree so lots of neighbors, then this becomes a very big and you're processing actually a large set of notes and that's what becomes expensive, especially in large
+22:04:26 graph so then sort of if you have these large degrees and large graph this becomes expensive and people have started thinking about how to make it more scalable in this case so there's techniques like dropping some notes, trying to paralyze it in different
+22:04:41 ways so there's an empire sort of sub thread of research in trying to make them more scalable. You can get it to run to Pinterest for example that example I showed you with a recommender system that's actually running, and Pinterest is using this graph
+22:04:58 networks, and Google is also using a lot of profit works, but you have to do more engineering to get it to scale for these really big graphs. So the answer is always depends if you have only a few hundred graphs and relatively small graph met small degrees,
+22:05:16 it's going to be okay and if you have to really big networks. You have to basically do more engineering and approximations to make it scale.
+22:05:29 And they're very good papers and blogs out there from groups like deep mind about using this for say traffic prediction and optimization and things like that.
+22:05:38 And to your point, those are good at case studies if you want to read about what people have done with really really really big data sets.
+22:05:46 Yeah, in fact self my illustrations are from deep my soul that one actually with Google Maps and the traffic rap artist. The pictures are from the planet, the cast the middle link inside in there so you can.
+22:05:59 Perfect. Absolutely.
+22:06:06 I wanted to cycle back to some of the questions we got from the, from the self supervised learning and transfer learning segment as well professor. One question was, can you elaborate a little bit more on self supervised learning for sentiment analysis
+22:06:20 since that's one application.
+22:06:22 Yeah. So essentially, the thing is that sentiment analysis you could see it in analogy for my medical imaging example, it's an example where you have little supervision, because it's hard, like it's a bit tedious to label that, so you don't have that
+22:06:38 much information but it's something that's not easy.
+22:06:41 Like getting the sentiment from a sentence of something that's a bit tricky. Forget, so you need enough data. So what do you do with.
+22:06:51 But what will you actually need to make that analysis like sentiment analysis to understand something about what that sentence is saying something about the relations, and so on.
+22:07:00 So what you do is you use these self supervised tasks that I showed you like things like these ones for example, and you create train your network with that so what does the network learn and learn something about the meaning of sentences.
+22:07:19 It's learned something about the relationship learned something with walk relates to walk and what is sort of the meaning, only the otherwise you cannot predict what is the next sentence social so that way, that's the same kind of information that you
+22:07:33 need to make the sentiment analysis so you use that for free training.
+22:07:38 And then you do the same thing as with the images to basically to the last layer like you change essentially the classification path.
+22:07:46 So that's how you how you use it and the rest is analogous to the example.
+22:07:53 I would also like to add a word of caution for practice with the broadly with text analytics with the six. Examples specifically, just like he, we talked about on yesterday when you can take an image out of context, and it doesn't necessarily generalize
+22:08:06 to a new area, same is true with text analytics, so if you say generate a sense a sentiment model for Amazon or online product review comments, that's going to not translate well to sentiment in say a scholarly article or a news article, the way we speak
+22:08:22 in those contexts is very, very different. So, something to keep in mind when you explore the world of text analytics.
+22:08:33 I don't know how to deal with sarcasm easily. That's a very good question.
+22:08:39 That's a really hard one.
+22:08:51 One other question I think from the, from the transfer learning part Professor before we come back to the graph part is, is it common to maybe stack multiple pre trained architectures to sort of do transfer learning averaging them out or is that not really
+22:09:08 necessary and, and usually one sort of famous architecture is enough to sort of reclaiming and get the predictions.
+22:09:17 So basically to multiple printing tasks in parallel.
+22:09:23 Since you typically run them on big data I think it's typically you do only one you're trained one big network on one big thing.
+22:09:36 And you just use that. And it's so big that it should be hopefully working well.
+22:09:39 So that's what I am aware of that this commonly done because it's already pretty expensive, if you have a large data set and you generate all this data.
+22:10:01 So you save the expensive labeling tasks, but you don't save the expense of computation.
+22:09:56 So, I will take typically you're just creating one model and it was it
+22:10:04 I see a good question here from here. Professor we've spoken about NLP in the context of text.
+22:10:10 Do the same principles also apply for computer code.
+22:10:13 Is that also a form of texts data and you know, I guess for prediction, you know, maybe autocomplete are some kinds of applications like that would be the same principles apply.
+22:10:25 Yeah, so in fact people do use machine learning for programming, also for programming languages for checking code and verification let's have rather, learn, using machine learning to understand.
+22:10:38 and so forth, code. So it's the same. I mean it's limited NLP in the sense that the vocabulary is much more limited, But you have to understand like the relation parse trees essentially for understand what this is the meaning so it's a bit more restrictive
+22:10:59 than actually an Rp.
+22:11:02 Then the other thing is if you want to do quote generations, so if that's also more restrictive people are like looking into actually directly generating for this machine learning and also there you typically use sort of pre code it like a library of
+22:11:17 and something that you can plug into you don't have to generate your fall leg and learn that this has to like whatever like you have to open it and you end up sort of you know there's there's like some things that commonly occur so you can use a library
+22:11:31 of these things and put them together rather than having to learn all the details.
+22:11:38 Yeah, and one of the famous ones for this is a, is a product called co pilot that was co developed by GitHub and open API. So they use me millions of open repost deterring that model.
+22:11:52 I think that was the example I just sort of recently read about I think copilot or it may have been another model competed in an actual hackathon or a code competition and it was actually it performed decently well.
+22:12:10 So, so I guess you know it's it's just amazing. the kind of applications that are
+22:12:23 was that using convolution neural nets or graph congregational nuts.
+22:12:29 Not sure if you had any insights into that.
+22:12:36 Yeah. Um, I think they were originally announcing they're using a piano.
+22:12:42 I haven't actually have to admit I haven't looked into the paper in detail to fully be able to answer this question.
+22:12:53 True. Do you know what exactly like what model. Exactly.
+22:13:01 They are for you.
+22:12:59 Yeah, I only read about the the application I didn't read about the, the actual architecture in that one. So, yeah, I probably use a some combination of ideas of both so initially they said there, it's based on a piano.
+22:13:13 But then also the results, it must be some kind of structure. So I mean I don't exactly know how to how exactly it works.
+22:13:31 Okay. Just a clarification question professor from Nicole. Can we basically covering over the concept of message passing again. How was it sort of center past
+22:13:43 a message passing so yeah so message passing is actually an old algorithmic concept in that basically all distributed algorithms like the local app have them start based on the message passing so yeah processors that are connected by by something and
+22:14:02 then like to a network and then they said they could do some computation locally and they send the results to each other they share the results with their neighbors and that's how they finally do the computation.
+22:14:13 How does this work in a graph meal network essentially you know was connected to who.
+22:14:20 So you basically look at each node by itself, and look at order the neighbor so you just implement this averaging operation, over the neighbors, so it's like distributed computing set up in some sense.
+22:14:34 So that's how the message popping is doing so you basically, I mean, each node sort of has their information stored and you can access it so you just like average that locally and you use that Jason's information for that.
+22:14:48 So, essentially message passing refers to this notion that you have a bunch of computational units, and only like not everyone is connected to everyone they're only connected to some, but there's a way to get from each one from each other one, typically,
+22:15:06 but not directly. So then, each of them but some local computation, and then they exchange like with their neighbors the results, and then they come up again.
+22:15:16 Having received the results of their neighbors, and with that so there's questions about what kinds of things can you can you compute with that. What information do you need, because you don't have the information about the global network, the only information
+22:15:29 information about your local neighbors, but that kind of type of computing variable and rounds and you do some local computation you exchange with the processors you are connected to your computer again you exchange information with their neighbors etc
+22:15:44 that's called a message passing so graph new networks follow that framework in the way you compute the northern balance.
+22:15:57 There were a couple of questions Professor about the possibility of applying graph neural networks to sort of certain domains. I believe the this question from Javier about maybe applying it to cyber security.
+22:16:08 There was a question about applying it to communication networks, and also earlier I think about applying it to maybe organizational workflows supply chain.
+22:16:19 Are these good examples are good areas for applying graph neural networks mainly because of the complexity of the note the interaction in these use cases.
+22:16:30 Yeah. So basically, anytime you have data that comes that can be represented as a graph, and he would think that the connectivity information that's important.
+22:16:41 That's where you can use graph, your network so for example in the cyber security if you think about like, on the one hand, something that is being attacked you could encode it that way or also the attacker is maybe connected with others and sort of that
+22:16:56 kind of connectivity.
+22:16:59 You could also predict and then you could predict maybe vulnerabilities in your network like edges or notes or something like that.
+22:17:06 Based on that connectivity information for supply chains for sure to that maybe in south of similar for the traffic networks.
+22:17:15 You have supply and demand and that's very often modeled with graphs you have some, some chains, or you have like a chain of the supplier just processing this processing until you reach the end product, depending on what exactly you want a model that
+22:17:31 you can also model as a graph, and then you can learn maybe you want predict demand forecasting mons predict costs of something, etc etc I predict maybe the stability of the thing.
+22:17:44 If someone fails will will be affected, things like that.
+22:17:49 So yes, I think all of these are good examples where you quote, apply gravity own efforts. The other one was communication networks, it's similar yeah connectivity.
+22:18:01 You could predict.
+22:18:04 Maybe routing things. So people have you said, Indeed for routing to so like for predicting how you should route etc so that relates to the communication network predicting loads, things like that, you can definitely do, there and there I think the specific
+22:18:20 question was maybe predict failure mode upon introducing a note or a link into the network I think I guess that's also a good, good example of maybe a plan Janet's right.
+22:18:32 Yeah, so there is a prediction about a link.
+22:18:36 Yeah, some kind of prediction.
+22:18:39 Yeah, the only thing I can speak to there's the only time I've tried even as a to play with these as an application and business setting my last project is working on maritime data, so we had to ship transponders and were able to aggregate those journeys
+22:18:51 from point A to point B for every muscle. And the question was can we use this to do a prediction of Port congestion. So, very hot topic nowadays. And to your point, Professor maybe that could be expanded further What if there's another blockage in the
+22:19:04 Suez Canal, what does that do what knock on impacts the app to congestion to various ports. Right.
+22:19:12 Yeah. Yeah, that's a good example. Another one.
+22:19:18 Mentioning chips is actually like the design of chips themselves like the chip layout, people have started using graph metrics for that using machine learning and optimizing that which is very very tricky, it's very hard to do that.
+22:19:32 Yeah, so chip define
+22:19:39 great examples and there's one have another question from cynical about.
+22:19:42 We showed the example of modeling physics using graph neural networks professor.
+22:19:49 Are there any specific resources you can you can recommend in that direction.
+22:19:55 I know of a few papers so I could send you the links of those papers so there's some on the simulations.
+22:20:04 So I in general for machine learning for physics there's a few different approaches a lot of this actually this learning of simulations that I showed you where you have a collection of particles are planets or something and you're trying to learn their
+22:20:16 interactions essentially so learning physics law.
+22:20:21 I'm learning something about cosmology so there's a few papers from.
+22:20:25 I think these are from Google or so and from NYU about this in learning simulations learning physical laws of physics essentially with graphical metrics are essential to learning the interactions, learning basically how does that position.
+22:20:49 How is the position, a function of the function of the other planets, for example, and there were lots of people TechCrunch.
+22:20:48 And the other thing that people are doing is connecting neural networks with differential equations so these are called the physics inspired real networks.
+22:20:59 So where you're sort of actually not even putting the differential equation itself with an internal network learning targets. Okay, so there's another like upcoming area of research, I'd say in this area.
+22:21:15 So there's various ways you could use learning for physics. And the main thing with all of these scientific applications is that often it's a combination of machine learning and the prior knowledge about the domain.
+22:21:28 What's the structure of the problem and what would this be I know this is kind of some kind of interaction This is some kind of differential equation and now it knowing that I should put it somewhere in the model and the question is, of course, how to
+22:21:41 do it. And this is where most of the thinking goals and how can I put my prior knowledge into my machine learning model to restrict it more to make it learn better.
+22:21:56 I think that is that is the key and data science it's, it's not just they don't do a model and then predictions, there's a lot of thinking about the domain knowledge that goes into goes into that and I think like you mentioned Professor specifically in
+22:22:09 scientific applications that it's a very key part of the process.
+22:22:21 There was a question about the, the aggregation function from earlier Professor while applying nonlinear aggregation functions to each neighbor it randomly.
+22:22:34 Does the neighborhood have any trouble converging. Yeah. So, if you would basically apply it infinitely many times, under some mathematical conditions, it would actually be converging meaning if you update again, it doesn't actually change that much anymore.
+22:22:52 If you do it, essentially infinitely many times that needs some mathematical conditions on those nonlinear function so basically what it has to be. It's called mathematically a contraction operation, which is not guaranteed to hold, and only the sort
+22:23:10 of the very early graph neural networks were using the idea of doing this essentially infinitely many times.
+22:23:20 What we do nowadays is because we only run it for a few iterations, it doesn't matter if it converges or not because we stop it, we stop it. After a few iterations and typically this is just like between two and maybe six iteration social off this message
+22:23:35 box and we do we don't do that much to stay local, but keep the information local and then it doesn't matter, so you're right that if you would actually run it for very long you won't have to be careful about what mundane your functions here learning
+22:23:48 that this is actually. So it depends then on the rates of your learning by this actually will converge or not but since we stop it. It doesn't matter.
+22:24:05 I see a question here from Sydney, do people use the off diagonal elements, false negatives and positives to tune the neural nets, or CNN cnn send an algorithmic way.
+22:24:18 So this look.
+22:24:20 So if I understand this question correctly, the question is if I train a model and I make predictions and I see or basically I look at the errors it's making and then specifically giving it the errors and say, correct these are show.
+22:24:38 So, there is a technique and computer vision that people have used a lot in that.
+22:24:45 And that's called hard negative sampling and this is related to the thing I mentioned about removing the nose, where you have basically many you have a positive and a negative plus and you have lots of negatives and now you're basically it's too many
+22:25:15 you're just sampling, but which wants to be subsample so you want to focus on the ones that are actually informative, not the ones that you would anyways get right so then actually in those cases you can go in iterations and you can say that you're first
+22:25:19 learning some classifier and then you're seeing what you're getting wrong and you're sort of picking Mel from those and your training or demo, and to correct it essentially.
+22:25:25 So that can be done. Similarly for the self supervised learning via randomly selecting so I talked about contrasting learning and be randomly selecting negative peer so say like these are different, like the other ones like more like targeted.
+22:25:44 So, some of them may be different anyways I a little bit to that and now what you can do is you can sort of instead of just taking random ones you can focus on some that are actually harder for the model that are like where the model is currently essentially
+22:25:58 making mistakes in that it places them close to your anchor point, even though it's shortened, and you can focus on that, it's a little bit trickier to do this if you don't have labels.
+22:26:09 But you can do something like that. So we have a paper on that.
+22:26:15 So if you're interested you can email me and I'll send you that paper but basically that's what you can also do so you can focus on these hard examples, eventually, and then it'll turn better.
+22:26:29 That's, like, in a nutshell, and then I can go into a call actually becomes more complicated.
+22:26:37 Most the scene and a much, much simpler approach just simple algorithmic methodology applied to the probability of classes from your outputs from CNN for example so like, you can use that as a metric of models certainty, I think, the way that it most
+22:27:01 libraries will most machine learning my virtual work is they'll just say whatever library has the highest or whatever output classes, the highest probability, we're going to say it's bad. And if it's 1100 classes and that highest probability is 5% it's going to guess it with 5% rate.
+22:27:07 going to guess it with 5% rate. So you there's lots of logic that can be put on those as well to, especially if you have the flexibility in your business problem for the algorithm to respond with essentially I don't know if that's an okay answer then
+22:27:19 you can do a lot of interesting logic there.
+22:27:32 There's another question about the possibility of these graph neural networks being applied to time series problems professor. I know those are, you know, quite more complex than just the graph neural networks that we have learned but I guess, is you
+22:27:48 is you know or did that does that operate on this, on the same principles that we learned about graph neural networks in today's lecture.
+22:27:57 Yeah, so there I think that question has multiple answer so one is you could have yeah I guess you do have a graph evolving over time.
+22:28:06 So now you have the time component so the time component itself is not really a graph, it's just like a one dimensional thing.
+22:28:15 But what you can for example two ways so I showed you this simulation, very a set of particles and you observe it a bit so you observe these interactions of particles and then you're trying to predict what's the next day so you're essentially learning
+22:28:30 how you go from one state to the next. And this is according to physics laws, because they're like interacting in certain ways there's a correction repulsion they like, or they're just philosophies they're going following that until they hit each other,
+22:28:44 etc whatever the dynamics are so that process of going from one step to the next it's like a discrete time series model so but many times he was models do is they actually learn how to go from one state to the next or how to go from like a small set of
+22:29:02 the path.
+22:29:04 So that part of the graph network if it's a involving graph so you basically learn how to go from one graph or a collection of grass in the past to the next step until you can embed them with her GMM and learn how, like how it will change in the, in the
+22:29:20 the future so you're what you're actually learning is maybe how the notes, and now you can see like that's an interaction between notes and their neighbors, if I'm attracted by some neighbors that's simple.
+22:29:32 I mean not so simple but update function you know from physics how that attraction basically affects where you're born and combined with your philosophies etc so that's one possibility how you could learn this with the neural network and that's what they
+22:29:45 do when they learn simulations, essentially, that's also an evolving thing and it's not really a graph, but it's a collection of particles.
+22:29:58 So it involves.
+22:29:58 Okay, with that, we are at scheduled stuff.

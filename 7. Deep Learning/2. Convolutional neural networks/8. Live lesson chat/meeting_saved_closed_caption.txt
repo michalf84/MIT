@@ -1,0 +1,866 @@
+19:58:08 Hello everyone.
+19:58:22 Hi professor, good morning.
+19:58:41 Hope everyone is doing well.
+19:58:47 Yes, I'll go to decide hope you are as well Professor hope all is well with you as well.
+19:59:09 Thank you.
+20:00:00 Okay, so we are scheduled start professor in the interest of time, i think it's it's good to begin.
+20:00:05 Hello everyone. Good morning, good afternoon, good evening. Welcome to the second lecture of the week, which will be about applying deep learning to images, and those are essentially convolution neural networks.
+20:00:19 We have a great back then interesting lecture ahead of us before handing over to Professor Stephanie. I would like to, once again, encourage you to use the chat and the q amp a box to interact with this session as much as possible.
+20:00:31 Please feel free to leave any comments or any questions. And also remember to use the app you know the everyone button, so there's on the zoom chat, you can set, set the chat to everyone so that, you know, we can all see your comments and not just the
+20:00:45 host and the panelists.
+20:00:47 As always, we'll also have the additional half an hour section where drew and I will attempt to sort of answer some of the questions that may not have been answered during the session.
+20:00:55 Without further ado over to your professor.
+20:00:59 Thank you, Michelle, and thanks everyone for joining.
+20:01:03 So, as we are. Today we're going to talk about deep learning for images so we're going to continue our journey into neural networks, I'm going to talk about more specific architectures today for images.
+20:01:17 So just to recap what we heard about on Monday boss called us a fully connected neural network work. So we talked about what does one unit two and that one unit is actually sort of just a simple linear classifier, or a simple pattern detector, by putting
+20:01:39 them together we can really achieve much more and we can take much more complicated decisions. And so what we have to have a boss parameter is, is that there's some weights and a bias firm so those are the ones who you're actually learning, these are
+20:01:50 the parts of your learning these WC several weeks.
+20:01:54 And this offset. And then we have some non linearity so this could be a rectified linear unit of revenue or a sigmoid function or it can make for example.
+20:02:04 So this is a single from it. And then we train those we find those good ways by doing Stochastic gradient descent. So today we'll use actually the same concept, we're just going to make a few small but important modifications that will help us process
+20:02:21 images much better.
+20:02:25 So, for the big picture, what I have shown you also on Monday was that well. One power of your networks is that they can take different types of data and encode them in vectors.
+20:02:37 So we have this vector also called an embedding, which is very meaningful for the task at hand, and this is essentially what we're going to do today to encode an image into a representation that is better than just pixels for costs that we typically vomit.
+20:02:59 So, water, CNN, we're going to talk about our convolution on your networks and First, we have start by talking about what are sort of the essential operations in a convolutional neural network, they will be building on the fully, fully connected networks
+20:03:15 and the simple classifier is just in a bit of a different way. so these will be convolutions and things which are very important ideas actually for processing images for processing.
+20:03:26 Also, speech and audio etc.
+20:03:31 And then we will actually look a little bit about what did the convolution on your network actually learn so what these units in the neural network learn because for CNN, it's a little bit easier to understand.
+20:03:43 And then we'll look at a few things that cnn can and cannot do and a few caveats that are just put to be available.
+20:03:53 So, let's start with a data that we have so today we look at learning tasks on images, and there's many, many applications for learning with images. So you see a few here bonus autonomous driving where you have a camera you actually want to recognize
+20:04:07 pedestrians and other cars, and street signs and the street itself, etc etc. Another one could be medical imaging, where we actually want to better recognize certain patterns maybe tomorrow.
+20:04:27 Maybe other anomalies in human tissue in medical images or things like image search or via live monitoring and many, many other applications of image data, and this could be images, this could be video so the idea that I want to talk about today.
+20:04:45 They actually also hold for video data, and we can talk a little bit about that later but that's essentially the same idea, the same types of models.
+20:04:58 So, let's look at what cnn actually are all about.
+20:05:04 And the first thing to think about.
+20:05:09 revenue.
+20:05:12 Like just see sorry
+20:05:19 disabling some transmit button so I'm actually not, I'm just a co host.
+20:05:24 Some people.
+20:05:42 Yes.
+20:05:46 We sort of the standard. I think
+20:05:50 it's possible to hide the transcript button basically so essentially that can be hidden. So, it's just as, just as an ounce right.
+20:05:59 Okay, good. Yeah, so let's go on.
+20:06:03 Sorry about that.
+20:06:04 So let's think about how would we even input, an image into an your network because so far what we talked about was that a neural network takes a vector as an input basically a sequence of numbers, which we feed into our unit so now we have a matrix and
+20:06:20 image is really a matrix of numbers, especially a grayscale image, it's just basically some number between zero and one that says the intensity of that pixel.
+20:06:32 So one easy idea would be well why don't we just flatten it. So that's what we did. So we just flatten the image that's what you did with a with a passion beta.
+20:06:47 And then we feed it into a fully connected network that's what you played with, and four simple images, this is actually Okay, this can already work fairly well.
+20:06:58 But now, in general images that are more complicated more complicated tasks or data that is very large, if we want to make the model very large, that can actually have several drawbacks.
+20:07:14 For example that we have a lot of parameters here in our model because typically this, say, recognizing objects and images, It's a fairly complicated class.
+20:07:25 So, what else do we know about images so whenever you process data in machine learning, it's good to not only think of it as a black box, but to actually think about, what do we know about the data.
+20:07:38 What kinds of properties is that data have, what may be useful for our prediction method and Is this something we can somehow put into the architecture of our learning model, or choose the learning model accordingly.
+20:07:53 So that's always a good thing to think about. So here we are treating this image sort of as a generic factory.
+20:08:01 But now, what we actually want to do that is let's say recognize objects in images so not an arbitrary task that's a very specific path.
+20:08:11 So, what do we know about this task.
+20:08:14 So let's just take a simple example let's say this is our training data set here we have these images. And what we want to learn is a detector for a cup so basically a neural network that when we give it the image says yes there's a cup in the image.
+20:08:32 So that's just one example of a detector of equipment.
+20:08:36 So now, what is specific about objects in images so not necessarily on the cops that's just an example.
+20:08:47 But if you look at the cop in those images, what is specific about this object and that holds Of course for other objects more general.
+20:08:55 So I just let you think about this a little bit. What do we know what generally holds for just cancel.
+20:09:24 Okay, I see lots of answers that's great so many people say kind of sandals, you have a shade on edges of this cup. That's right. So if you think about these features, more generally, okay this close to people often not always so this one, you don't necessarily
+20:09:42 know, but often yes there is a hand with it.
+20:09:48 There may be some liquid in it. Right.
+20:09:51 And so if you think about other types of objects that you may want to recognize what holds for Daniel kind of said it implicitly already there's something about shakes edges, something about context to That's right.
+20:10:05 But it's also important.
+20:10:12 So for example, if we now take our image and we make it like we flatten it we do this operation where we take the image and replay columns of pixels in the image and put them into a very long vector, like, is this sort of.
+20:10:29 It's probably not the best possible representation, if we want to find the cups in the image or say people or cars or something like that. But why not or like walk would be different, what do we know about objects.
+20:10:47 So, see many answers of the context.
+20:10:52 You have the liquids.
+20:10:56 The perspective. So sometimes the handle of the cup is on one side, sometimes on the other side. Sometimes you may not see it sometimes part of it may be occluded sometimes it's tilted.
+20:11:08 So there's some kind of positioning of the object the perspective, the object may be in one corner it may be in the other corner of the image.
+20:11:19 And that shouldn't matter. Like, if I if I just took the cup from one side to the other. it's still a cop that children that actually matter. So there's some kind of interference going on that, whatever wherever this cup appears, it's still a car, if
+20:11:39 position should matter. So that's one other thing that's right. Um, there's all yeah there's a lot about the context. The other thing is, like, Is it reasonable that a cat would be one pixel here and one pixel here and one pixel here and nothing in between.
+20:12:01 So
+20:12:04 one other feature of objects, is that they're somehow coherent in space, typically, so it's not that you have like one piece here and one piece here you may have occlusion but typically it's like most of your pieces it's coherent in space, and it doesn't
+20:12:22 matter where it is, it's still that same object. And then you have two other variations about context, often there are two people not always so the question is do you want to take the people to give you more confidence that this is a couple or not.
+20:12:39 That's going to be a little bit based on the training data that you have, out of the machine will use this or not. And then there's these other things like positioning rotations, etc etc that the cup actually is not always like, straightforward in the
+20:12:53 middle in the same position.
+20:12:57 So they can have different colors as well. So here we mostly have white ones actually there's also one in there.
+20:13:05 But there could be different colors and patterns when you may or may not want to use the color as an indicator.
+20:13:13 And this depends again on your data. Walk they'll be used as an indicator.
+20:13:31 So, I love it that you are like, we're very active and putting in lots of thoughts about what is like specific about these cups, and I want to sort of right now, go on the two of these.
+20:13:48 etc and sizes. It's a little bit later and I want to come back to all of these different colors and how your network would actually treat them. So for the moment I want to pull those two things.
+20:13:52 The first one is the spatial locality that objects, typically occur in some local patch so there's like some patch and your image where this object is located.
+20:14:01 And the next one is translation in variants on what that means is that when I shift my object around, it's still the same object. So that doesn't change the meaning of the object.
+20:14:15 So what this really means actually for your neural network what it should actually be doing is it took longer patches.
+20:14:23 Often the object is not the full image often it's just a part of the initial look at patches.
+20:14:30 And now, run the detector on this patch, but now it shouldn't matter we are in the image live so you actually want to run the same detector on each possible patch in the image.
+20:14:42 So one strategy that would work for this is to have sort of a sliding window detector. So we take a patch at off the image, and we say we just did tech, is there something that looks like a cup in there.
+20:14:57 And in fact, maybe what we even want to do is we want to do this hierarchically and say there is like a piece of crap there's like a handful, many of you mentioned that it has a handle many of you mentioned to test this round shape.
+20:15:08 So maybe what they actually want to detect and sort of pieces that look like parts of the cup and later, put them together.
+20:15:16 So that is actually what's going going to happen. So we have some detector and now I'll be running the same detector on all patches in the image.
+20:15:25 And in some positions, it may actually say yes so that's sort of the firing that's when your detector will be active and say I have detected something that looks like a cop.
+20:15:36 Go and like sort of take more evidence of that.
+20:15:39 So that's what's going to happen. And now the insight is that we actually need only one detector. For all these different patches because it's the same thing.
+20:15:52 It doesn't matter where we are so we can run the same detector every year.
+20:15:56 And this is what we can exploit because now it has a smaller it would actually have fewer number of ways to process input so that's actually a big advantage that's going to be a big advantage.
+20:16:08 And so that's going to take care of the spatial locality, and the invariance talk shift and lock the log will also do is we'll do this in a hierarchical way so we're not going to detect the compass line but we will actually piece it together, he'll say
+20:16:24 Chris will detect edges, and then we put those edges together to make a shape like the shape of a handle maybe some round shape car and some MK shape here and then we say, Well, if I have this candle somewhere close to a machine, then that looks like
+20:16:40 a cup so then I say it's a capsule, this is actually hierarchical decision.
+20:16:48 So that's going to be our strategy and this is really sort of behind the idea of promotional networks is that we have this detector that we fly. And we say yes sort of if it fires, anywhere and we don't care so much about the location, right now, or in
+20:17:09 like a local location, and we do it hierarchy.
+20:17:15 So, how do we actually implement this strategy in a neural network. So, hopefully makes a lot of sense it's politically but the question is, how do we actually put this internal network.
+20:17:29 So, here is my example image, and now what we do is we left the hierarchical set of detectors. So let's say we have maybe one detector.
+20:17:41 for a handle.
+20:17:55 Okay. Um, so we have one detector for him.
+20:18:02 I know we slide that detector across our image and what we're gonna do is we're gonna keep track of wearing the image it actually found something that looks like a handle.
+20:18:13 And the way we're going to do this is we are going to keep sort of this table and this table is just a people off location so you couldn't think of it as a small version of your image.
+20:18:22 So it has one entry for each of the positions in the image that you can have your window, you're sliding window, and, sort of, if you detect saw here for this position, there's a corresponding field here and basically the output of the detector for this
+20:18:40 position is going to be recorded here. So for each position I'm going to record a number, and here the number will be higher because here we actually found a handle here we didn't find a handle so this will all be low.
+20:18:54 So what I will get in the end is sort of the output of the detector that test, high numbers there I found something that looks like a handling to test more numbers every girl or a zero everywhere else.
+20:19:05 And now this is called a filter. So this detector is called a filter for CNN.
+20:19:15 And usually we don't have one we have multiple of them that work in parallel.
+20:19:19 So, this is going to be one of them and maybe another one would be detecting something like a jar shape or a mock shape. And again, this, this, like, a window of our image and with the same thing, just with a different detector and then we keep track
+20:19:34 of the output productive.
+20:19:37 So this is, this is going to be our filters and all those together will form one layer in our neural network so these two. The all of these filters together are the units in one layer of the network.
+20:19:50 But the important thing is they all look just at local pieces. And here we have to learn only one detector and one detector here so just small number of detectors and this is going to be much easier to learn, then the fully connected network.
+20:20:05 So, this is called a convolution operation, and I'm going to go into detail about this convolution but at a high level that's sort of what it is now what we have is we have these outputs of the handle and the charge detector and whatever maybe some other
+20:20:22 circle or square detectors or something like that.
+20:20:26 And now what we want, what do we want this a mug of coffee. So basically what we need is something that's a handle detection and a jar detection and they are next to each other, and that will tell us this is evidence that there's a month.
+20:20:42 So the way we will do this as we will take the output of those two detectors and put it together and say well wherever this guy has something. This guy should have something next door shut off next to that.
+20:20:57 And this is what we are going to do. So we want a Josh I'm very the handle somewhere in that vicinity. And if that occurs together. Then I'm going to say okay I detected.
+20:21:11 So now, that's sort of that's a hierarchy so we're going to essentially do another convolution on top, another pattern detector. And this program detect mouse a little bit harder to interpret it says something I want to handle as a jar next to each other
+20:21:26 other and I'm going to scan my image for a handle and a jar next to each other. So that's what it's going to do so it's gonna scan sort of these output tables here.
+20:21:36 And now, There's one more tweak that we are going to do and this is as you recognize is that the handle is not always exactly the same position so some cups of smaller larger ones and they can vary a little bit very effectively it is and like position
+20:21:51 relative to the cup. So what they may be one is something that for gets a little bit about the exact location. So just like roughly in this area but not exactly there.
+20:22:02 That's good enough.
+20:22:04 So this is what we are going to achieve with polling to start off as an awareness within API detective handle. So this is like pulling the polling operation is going to do so.
+20:22:15 Usually you enter leave some contributions and a polling operation in the CNN, and then we do more confidence.
+20:22:25 So, this is the main operations are these convolution and cooling operations and then you just put this all together. So, here's your input image, and this is actually from a real see.
+20:22:39 Then you have convolutions and now this looks like this queue. So, one, one filter would be giving you one of these images and now you have many filters for each filter orange detector gives you one slice sort of one image in this big block, and then
+20:23:00 you build a pooling, and you forget some of the locality then you do the convolutions where you put the hand will send the max together, and you'll do more polling etc for a few rounds.
+20:23:11 And after that, what you do is you do exactly what you did on what we talked about on Monday, you take the output of this and you put it into a big factor.
+20:23:22 And then you just put a fully connected network on.
+20:23:25 But at this stage what this vector contains is not this pixel is a point five this pixel is a point for it so prototype robot it contains something like here I detected something that looks like a mock year I detected something that looks like a wheel,
+20:23:58 And then I have our my my other class.
+20:24:01 So now what we typically the way we typically think about this and machine learning is that this first stage where I take my image and by trend form it sort of into these tables essentially off detective patterns.
+20:24:16 This is called feature learning so this is learning a new representation of the image. And then there's this last stage which is just sort of the classifier that is using this new features.
+20:24:29 And this is typically then just a few layers, this is fairly small this is not topic.
+20:24:34 So that's the big picture of a convolution on network.
+20:24:39 Let me stop here and see if there's any questions I don't see a lot of activity in the chat. I know it's a mouthful and we'll go through these operations one by one and hopefully that's going to become clear about sort of the big picture is clear off.
+20:24:54 What's the main idea behind all.
+20:24:58 Yes. So Professor dinner a few questions about the the cup, the idea of the cup, and you know what stays invariant. So, one of the, one of the questions was about.
+20:25:11 What if it's blocked in some way basically if only a part of the markets visible, or maybe if there's some something else in front of the mug and it's not fully visible is, you know, or the cup is that is that something that that might cause problems
+20:25:25 for for this kind of logic in terms of detecting cups.
+20:25:30 Yeah, so that's actually a good question and as we saw in those images often like maybe a handful, that commercial.
+20:25:37 So, this actually this sort of shows you that maybe going by part is not a bad idea because you say maybe part of this cup are occluded but other parts are there and not what your patent detectors are actually doing their sort of piecing together the
+20:25:55 pieces of evidence like there is something that looks like around, top, and there's maybe this round size, shape, and there's maybe a color that's typical off a cup or there is a handle something that looks like a piece of her handle or so.
+20:26:11 together these pieces of evidence and now if your notion still shows, enough of those pieces of evidence, you may still be able to recognize this as a cop, maybe you'll say it with more confidence, you're like okay i'm not asked for, but it has enough
+20:26:27 pieces of evidence that piece of said look like pieces so I don't say yes.
+20:26:31 If you would have a full cup detector that needs all of these together and can only do that, it doesn't do this piece right thing, that would maybe be harder to do so, if of course if you only show a very very small piece that may be really hard, unless
+20:26:47 you're framing data has lots of these highly occluded cups, but if it has a head and it shows enough off the handle and the top, etc so that may be a good enough number of pieces of evidence to say that this is a car.
+20:27:05 Right. And there are also questions Professor about the size of this moving, moving window with respect to the size of the cup I think there are a couple of questions in that direction about what if the cups, maybe have different sizes right I already
+20:27:18 know if the size of the sliding window is not in tune with the size of the car. What would be the way to think about that, professor.
+20:27:27 Yeah, that's also a good question. So I was a little bit vague about that here in my illustration so these are schematic of course, the cup sort of fit into that image.
+20:27:39 So, in truth what you typically do is you start very small so typically the first stage is just edge detection, and that'll just detect edges at different angles so this is typically much smaller than your cup.
+20:27:51 But then what you're actually doing is you're sort of quoting edits together so this would be putting sort of parts of this and parts of this together.
+20:28:02 So here you see what if you say, sort of, I want the handbook and the jar, you're actually putting together two windows. You're saying sort of I want to Windows next to each other, that have those two patterns so you're actually already looking at the
+20:28:19 larger part of your image, because you say I want this and this together and they should be just looking like this would be a handle and disappear, the body of the cup essentially.
+20:28:31 And so, likewise, it would be with the edges. if you want the curve right you have like an edge here in the next year. The next year, the next year so you have sort of this pattern of edges are looking at multiple venues simultaneously.
+20:28:40 So effectively, you're now looking actually if you go higher in your neural network or, like deeper basically the next few layers.
+20:28:50 You will actually be effectively looking at larger catches in your image. Likewise, what is pointing actually will be doing is it sort of looking at maybe four of these patches together and say, I'm just not summarizing those patches and I'm taking the
+20:29:05 maximum off those patches so you're actually know, sort of have increased your size that often looking like the one we're sort of like for for renewals at once.
+20:29:34 compared to a typical image sizes, but sort of you're going to look the larger and larger that's how you can piece together that cap, there is still of course this thing that if the crop has very different sizes.
+20:29:47 So here, like that. The model per se may actually not take care of that.
+20:29:53 Because here I'm still sort of expecting that they had sort of a certain size, there's some variation about the certain size, but if it's suddenly much larger.
+20:30:03 I would actually need sort of a much larger window. So in those cases you have usually enough variety in your training data for the model to learn this size variance to which is not in built into the model.
+20:30:17 And we can get back to that in the end of the lecture when we talk about what the CNN learns, and what it doesn't learn and very, there may be cases of failure that can happen.
+20:30:39 Once we understand the exact works this is going to become pretty rough. I think
+20:30:34 there was one other question Professor about the the idea behind bully and, you know, for example, we're seeing cooling heads forget the exact locations.
+20:30:43 Question is basically around the intuition behind that how exactly this is pulling achievement.
+20:30:54 Yeah How exactly it's going to be achieved. Um, we want to talk about that. After we talked about combination.
+20:30:59 So it's mostly sort of like taking a maximum in a bigger window off magical catches essentially that's what it's going to do, and it's going to allow you to be a bit flexible in the sense that it maybe doesn't really matter where exactly that is as long
+20:31:17 as it's somewhere in this vicinity. So this is sort of an intuition. The big advantage that it has is it reduces the size of your input. So you saw you have these like stacks of outputs of your detectors.
+20:31:32 That's a lot already in terms of input. So if you do the pool and you see the polling always reduces the size of these things. And now, the size of these things is going to determine, like, how many parameters you will need to process that thing in the
+20:31:46 next stage, so it's going to reduce the number of parameters for health learning, as well, because of that.
+20:31:57 Yeah, I think we should be good to proceed professor, you can try to address some of the specific questions after we've been through contribution and.
+20:32:05 Okay, so let's move on and talk about convolutions.
+20:32:14 So that's going to be the first thing and then we'll talk about next week. So, how do we actually do this convolution What is this detector.
+20:32:24 and in some sense that detectors really just like a single unit in your neural network that we've talked about before.
+20:32:31 So to make it simpler here, I have a one the image, just because that's easier for the moment for illustration. So this slide is my image, and what now a window in this image corresponds to basically some interval, like basically some window like this
+20:33:03 Something like this, that's going to be my way. Okay.
+20:32:56 So I'm looking at this part and then I'm going to run my pattern detector on this. So what is the problem detector it's actually just sort of hoping that this thing will match my calculate, and the way you're doing this is by essentially doing a linear
+20:33:12 classification again.
+20:33:14 So what you do is you take a weighted combination of those input pixels. So this is what is depicted here plus maybe some offset, which is zero here, but you can make it something else.
+20:33:29 And these are the weights you're ultimately going to learn so this is my pattern detector. And so I take this weighted combination I call this output ci so this is the same that we did yesterday, or like a Monday.
+20:33:42 If you remember we take a weighted combination of the inputs just that now I'm not looking at the Empire, what I'm just looking at a small patch in mind.
+20:33:51 So, this is the window I'm looking at, and now I'm taking the rated combination and let's see my rates or minus one one and minus one.
+20:34:01 I'll go learn these later but let's say this is whatever.
+20:34:10 So what's the output it's minus one time zero, this post is plus one time zero plus minus one times one, so this is going to be minus one, if you do the math.
+20:34:20 So this is the going to be the output here, of that linear operation.
+20:34:27 And now what I'll do is I'll
+20:34:32 watch about this actually actually started off.
+20:34:37 First of all, this is just doing a pattern matching, so you'll see, because what it actually, if you think about it.
+20:34:45 When will this number be very large.
+20:34:49 So what would be if I have, if I can choose numbers between zero and one year, when will the output of this thing be as large as possible.
+20:35:00 Well if there's a minus one here you want this to be zero if you want to make it large, so you'll have a zero or one and to zero. So this let's start off make the output of this thing as large as possible.
+20:35:12 And now you see what you actually are looking for something that no high low.
+20:35:24 If your input is low, high, low in terms of numbers, then this is going to have a very large output. Because sort of you get a penalty for the site pixels and you get a reward for the middle.
+20:35:29 So what this thing is actually looking for is a pattern is no high low, and this is similar to an edge detector, there is something like a change going on in the image that's sort of like an edge or line here.
+20:35:43 So as detectors will look something like this just including.
+20:35:47 So, this thing is just looking at how much. Well do you actually fit this template of that filter essentially.
+20:35:56 And then we move on we ship and look at the next window, and we do the same thing. The inner product or the weighted combination of the input so zero times minus one and zero to x minus one.
+20:36:10 So this is actually the law handle pattern. So the output is plus one.
+20:36:15 So this one actually fits it much better.
+20:36:18 And now the slide, and we go we're going to the next patch, etc.
+20:36:26 And now there's one parameter, I have to think about and that is how much do I slide in each step so here is the sliding by one pixel, but sometimes if you're enrichment yes very high resolution one pixel is really small so you want to slide a little
+20:36:42 bit more.
+20:36:44 more. So you that's called the stride so you can slide by one or you can pick shift that by more than one in each. The thing is you obviously by the same amount.
+20:36:54 So I could have shifted by cool then I shifted by every time.
+20:37:01 And now, one other interesting thing is that now I'm processing, essentially that entire street near, but I'm only using three ways. So if you think of a fully connected network.
+20:37:15 Whatever if you have 10 inputs, and then you have 10 hidden neurons you have essentially 10 times 10 right so that's already 100 ways. Here we only have three and however large that images and you're just going to use I was three weeks and shift them
+20:37:30 through so that much fewer parameters so it's actually is useful so typically learning if you have your parameters that's actually a good thing.
+20:37:41 And then I continue, and I move on and so I get my fall out of here.
+20:37:47 And again I did this with only three weeks.
+20:37:52 So now what happens then then I have sort of this linear.
+20:37:57 I saw the, the way that some of my inputs for each of these outputs and I see you see this is sort of my cable that kept track of wearing the image I had like a good detection or a bad detection so some of these are negative, they didn't actually fit
+20:38:18 pattern at all. This is sort of the opposite of low, high, low, and this one fitted well. So now we actually sharpen this by doing a non linearity sauce washing operation so here we are using a reboot operation.
+20:38:30 And what does railroad do it takes it basically makes all the negative numbers into levels, that's what the real does.
+20:38:39 So what is that, if you remember last lecture, it was that function that looks sort of fear is zero, this is my favorite combination z would look like this.
+20:38:48 So if you're a smaller than zero, you're just going to be zeroed out and otherwise to keep that month.
+20:38:55 So, the only number that is really going to be kept here is that one, all other numbers of zero negative. And that one corresponds to this input. So here what this tells me that was one location and the image very detected this pattern law Halo.
+20:39:18 And this is very this, so I can keep track of what location that correspond it. So now I have the output of my detector so now I know there's a lot that one position where my detector detected something.
+20:39:31 So, now this is great I have my, my filter or my detector, with a parameters w one w one w three just three weeks, and maybe an offset that bias term.
+20:39:45 That's three to four parameters, and I could process the Empire image.
+20:39:50 Now there is one more thing for this, and that is that if you actually look at it closely the output is smaller than the input, even though actually I shifted sort of just by one pixel.
+20:40:03 So why is that
+20:40:08 why is the output now smaller than the input.
+20:40:12 So I just want you to think about this for a second. Why is sort of this thing.
+20:40:22 Smaller than this thing with the operations that I get with that chick thing.
+20:40:34 I see so yeah so you're.
+20:40:38 Yeah, you're very already very, you're very alert so I see lots of answers in the chat. This is because the edges are not properly processed in the sense that I'm not to actually sort of have a corresponding of this pixel them you, I would have to put
+20:40:56 my filter sort of like this, and.
+20:41:01 Sorry.
+20:41:03 Grace and everything so, but I'm not going to do this so to the image. So how can I get them out what that looks the same size of the input.
+20:41:13 I can do what's called padding. So if I want the output to have the same size of the input I just add zeros to the ends. And now I start with the end.
+20:41:24 Now I'm going to move sort of that one but I don't care about that one anyway.
+20:41:28 So, I'm going to just add that and that is going to add one more pixel to my out.
+20:41:37 And that would be fine.
+20:41:39 So this is called padding so you have in the CNN you have sort of a few different things to choose one is the size of that window one is the stride and wellness whether you want padding or not.
+20:41:53 And those are some things you can play with a little bit to see what works better for the particular problem.
+20:42:02 And so this was the convolution in one D. So now let's look at the convolution what it looks like in 2d.
+20:42:11 So this is really the same thing but now I have two dimensions. So here's my image, and my window is now going to be actually a square.
+20:42:20 And I, this is the output. so this is actually going to be the next level.
+20:42:26 So, what I do now is I, my filter now is to 2d. So instead of having these three ways I have basically one with corresponding to each pixel and my window so I'm going to have a detector that it was rates are essentially four by four so that's going to
+20:42:46 be my template pattern.
+20:42:48 And that's what I want to search for.
+20:42:50 So I have now here four by four so I have 16 parameters, last one.
+20:42:57 That's the offset.
+20:42:59 And I'm wonderful the same linear combination thing in your way to suck.
+20:43:04 And then I'm going to shoot.
+20:43:08 And now, in this case I put the striker to so now I want to shift by two pixels and I want to do the same thing, and I'm going to ship by cool pixels, and I want to do the same thing until I reached the end.
+20:43:19 And then I want to shift down by pixel. And I'm gonna sort of to this one.
+20:43:29 So, this is gonna be then like once I have done the role then I go down and go down to down to all this to this jumps off.
+20:43:39 And that's going to give me the output and you see again, if the straightest large, the output is actually smaller so the output is smaller than the input but the output is sort of that process information here I call those patterns
+20:43:58 and convolutions are actually not a new thing in image processing. So, they are also used in your image processing programs. So for example, here are some examples of filters, when you apply them to images so this is the input image here.
+20:44:16 And this is the output.
+20:44:19 These are all output images, and you see you can actually use this also to sharpen image to detect edges. So, you see here actually it's probably light so the highlights are the ones where the detector found something, it found certain edges of a certain
+20:44:35 direction and you'll see actually this law, this is sort of like a low Middle High normal i, this is what this filter is looking for.
+20:44:45 For edges.
+20:44:47 So that's already been used in image processing already.
+20:44:53 Now what to these detectors these templates actually look like in a real comfortable social network. So here are some examples.
+20:45:03 This is from a famous paper of one of those. You're on CNN.
+20:45:11 And so here the patches are enough invited them.
+20:45:14 And you see many of them look like the zebra stripes, so they're basically the edge detectors they are hoping for it. Yes, this is exactly the low, high, low or high life pattern in different directions.
+20:45:26 So they're trying to detect edges of different angles, and then you have some that go for colors, so some of these other ones just are looking for specific colors or combinations gradient of colors, etc.
+20:45:40 So that's what these are looking for very simple pattern detectors and you can just take off it's looking for something that matches that filter, essentially, something like that so these are their hopes of some texture fear, etc.
+20:45:53 Now these are colored because they actually using color images so there, they sort of have like, not only an intensity but they also have the color in there so that's the third dimension here of users.
+20:46:09 And that brings me to one more comment sort of that if you have a color image, you're actually not only going to have a matrix you actually have three matrices RGB of your image three layers and something and you're going to process them in parallel by
+20:46:31 looking at sort of cutting through all of them at the same time so you're looking at this queue. and your filter also want to be 3d in this case, so it's going to look like this.
+20:46:36 You have your image and then your filter sort of going to look like patterns will look for patterns in the art channel to channel and the channel.
+20:46:46 But it's otherwise the same thing and then you slide for that image.
+20:46:52 So before I talk about combining the output of those conclusions. Let me again stop and see if I can answer any questions about the contribution operation itself, and this sliding and the outputs.
+20:47:06 Yes. So there's, there's a few questions around.
+20:47:12 Basically what is the significance of the strike number and the final output that is two verses three verses four strikes.
+20:47:21 So essentially, if you look at the strides.
+20:47:25 If I have made the stripe even larger, I can sort of fit, fewer of these patches right. So if I would say, make a sprite or four, I can fit one here.
+20:47:43 color. I really go here I can, I will just pick one here, one here, one here and that's kind of it, so only three, and actually these would go on process so that's not so good, maybe I wouldn't put one here with Perry Marshall.
+20:47:57 But then I would have fit only four, and you see here actually with a strike to you can fit anymore. So, if I said only for the output image would be like a format for smaller thing.
+20:48:10 So the larger you strike the smaller is the output.
+20:48:14 So that's the effect of the stripe.
+20:48:18 And it's sort of law versus higher resolution of essentially you're sliding window and the outputs of that slightly.
+20:48:26 You of course you may not want to jump beyond the size of the filter that's kind of weird then you their sub pixels you're completely missing so that you don't want to do and you probably want to have some overlap between the filters.
+20:48:38 So that's that that's something to think about.
+20:48:44 Yes.
+20:48:46 Right. And this question about filters, Professor because they appear to be a combination of a hyper parameter as well as the learned value. So is it correct to say that the size of the filter is a hyper parameter that we decide while the values are the
+20:49:00 most vulnerable parameters which the neural network will eventually decide.
+20:49:04 Exactly. So the size of the filter as well as the strike.
+20:49:09 Just like the number of layers we decide that ahead of time so these are all hyper parameters of your model.
+20:49:15 And you can kill them but to decide them ahead of time and then you do your STD training so then you do this podcast the gradient descent and you train and what the training does is it only adjusts the week.
+20:49:26 So the training cannot change the size of the filters, the changing can only change the rates, and the offsets the bias serves. So it really only changes basically walk your filters are actually looking for and adapt to the data, and typically what, like
+20:49:41 you're in the first layer. Your friends are going to look like this so these are going to be the weeds that you're learning for most image tasks that it's going to look something like that.
+20:49:51 But these are the things we're learning so late right rates are the parameters for learning and the stride and the size of the filter. And just like the number of layers, is going to be what we said.
+20:50:09 Right. So there's also a question by Stephen in the q amp a box Professor about it does it make sense to maybe apply filters before you even pass the, the image to the neural net so that maybe some features are sharpened, and then you can run the same
+20:50:24 convolution and Boolean logic, and maybe that helps protect some features better is that is that also done in terms of pre processing.
+20:50:32 Yeah that's I that's also interesting So in some sense, you could pre process the image with some filters, you have to decide what those filters would be.
+20:50:41 So you have to basically decide what would help the new member. It's tough.
+20:50:48 So that's why usually people do not apply filters.
+20:50:54 Again, sometimes you may apply filters for robustness purposes. So I mentioned those adversarial examples I want to mention them later, which often really sort of essentially what they're gonna do is they're gonna trick some of these, like, filters if
+20:51:14 the neural network goes by some kind of just textures weird textures, very low level of patterns. And if you smooth it out so use a filter like is the opposite of sharpening, then those are going to be destroyed.
+20:51:29 So then the neural network cannot be fooled by this or it shouldn't even be using those so then it is going to be more robust to these attacks, so that's sometimes look people who again for robustness, in general, I'm not a very lucky What do this process
+20:51:44 processing by filters. But essentially, in some sense, if you look at those filters they actually look very close to what people in image processing have been using for a long time when they wanted to do, say, run the classifier on an image or so they
+20:52:01 would start with some filters like that they were just hard coded. And it was interesting to see that what the neural network was learning was actually something or said look very close to what people have been using all the time.
+20:52:12 So it's turned off like if you've never told them you're on that note that this is what it should do, but it's still learning these kinds of x detectors etc so it's very interesting that this happened.
+20:52:23 So it typically doesn't by itself but this is something that emerges.
+20:52:29 If you may want to do it for a specific data sets, if there's something in your data so if you want to remove the other thing, where people sometimes do processing it for data augmentation.
+20:52:41 So we're going to talk about their documentation when we talk about transfer learning. So that's also when you actually do pre process.
+20:52:51 Right. I think that covers the questions Professor so we should be good to proceed.
+20:52:57 All right, good.
+20:52:59 So, these are now we started off, hopefully if I understood the workings of one layer so basically one set of these filters or detectors.
+20:53:12 But now what we typically want is not only detect those edges, but we actually want to go further we want to piece those edges together into shapes and into parts of objects, etc etc.
+20:53:25 So how would we do that. And this is essentially done with my layer, so that's why I need multiple layers in my CNN.
+20:53:34 And so, let me just give you an intuition of how this could work. So this slide usually takes a bit of time to process. So I'm going to go slowly here.
+20:53:44 So, let so what do we want to do, let's say we want to learn a detector four squares. so for the square shape.
+20:53:55 Now, a square shape is basically a line here a line here line here a line here so it has these four different edges.
+20:54:04 And let's say if you have an input image like this one here so this is my input image.
+20:54:09 And what we have our detectors for edges for orientations of edges. So we have one that goes for horizontal edges and we have one that goes for vertical edges.
+20:54:21 So now we run those detectors over our image and these are the outputs what we get. So this basically says there was three detections of a horizontal image, and three detections of software vertical lines, three horizontal horizontal lines and three vertical
+20:54:37 lines. If we fall, and you see actually lemurs there's three horizontal and vertical lines that you have.
+20:54:45 So, but now what we actually want the same as the cup with the handle, we want the square so we want horizontal and vertical in a specific configuration and specifically what we want is a horizontal one here are horizontal one here, and we want a vertical
+20:55:07 here and the vertical here right so this would correspond to basically some kind of vertical detections here and some kind of
+20:55:18 horizontal detection so these are the horizontal axis of the vertical.
+20:55:23 So these are the kinds of detections we will be looking for.
+20:55:27 This is what we actually need.
+20:55:30 And then we have the square.
+20:55:32 So they have to be in this configuration so now the thing is this actually requires us to look at the output of both of these filters because we need both horizontal and vertical edges to put them together.
+20:55:44 So we have to look at both of them.
+20:55:47 So now what we are actually looking for is essentially a pattern like this in the outputs of those filters. So if I actually make this
+20:56:00 something like this.
+20:56:01 I want two verticals, and two horizontal like this, this is the kind of thing that I'm looking for. But now, this new one actually sort of becoming
+20:56:14 from the horizontal one and the magenta ones should be coming from the other one so what I actually need this I cannot do this in one platform I actually need this, I need to actually divide this up.
+20:56:30 And what I actually need. And now I'm going to erase this so that I can try it again. So what I actually need really because I cannot do them simultaneously from one output image that's not there.
+20:56:44 I actually need to sort of
+20:57:03 have something that looks
+20:56:54 at something like this here and then I need something that looks at
+20:57:01 something that gets here and so I want this plus this together, I want this fourth. So I actually have now two different slices if you wish and I need this add this I need both of these together, like, one detection in the upper one and one detection
+20:57:17 in the lower right in the same location so I know their locations correspond. So I want those two together so I'm actually going to have sort of this two dimensional thing now, so I'm going to have actually tour
+20:57:32 together so this is it today.
+20:57:34 So this is how you can think of it.
+20:57:36 So now this is essentially what we do here. So, you see, now I actually have this filter that has two different slices and one slice applies to the vertical one and one slice applies to the horizontal one so this was the back one is applied to this guy,
+20:57:55 and the front one is applied to this guy.
+20:58:02 And once we do that.
+20:58:05 Then once we look for patterns so basically now we look at windows, like this, I want a window, and a corresponding location to see that I'm actually drawing the corresponding location basically we're looking at the same location and both of them together.
+20:58:21 And now we are looking whether we have that pattern that we're looking for. And we're sliding through, and now it turns out if I slide through those two in parallel.
+20:58:32 So I'm sliding them parallel, there's going to be only one location where I have exactly two vertical and horizontal the the configuration I'm looking for, and this is this one.
+20:58:43 And this is exactly corresponding to the input location of that square. So, This is how we actually can put together the outputs of these multiple filters to get a more complicated detection, by saying I want to adjust your influences here and of course
+20:59:00 now you can generalize this you could have a curved shape right I want this edge this kind of different orientations etc etc so you could make this more complicated by putting together outputs of more different detectors.
+20:59:16 So that's the multi channel convolution.
+20:59:21 Before I go to pooling is, are there any other questions about this let me see in the chat, there's any questions. So the question Professor I think here from Fernando is instead of trying to just detect edges, could we have just used the filter that
+20:59:39 detected the square itself.
+20:59:43 In principle, your quota. Yes.
+20:59:46 Um, so what what. So, for this clear it's still relatively simple, but if it's a more complicated shape maybe it would be going out of the size of the filter or you have this thing with the occlusion.
+21:00:00 So maybe for this field or if now like parts of it were gone. You would not actually detect the full square versus the horizontal edge detector if you have two out of these three maybe it will still give you a partial detection.
+21:00:15 That's possible.
+21:00:17 So, you may actually still have enough pieces of evidence. And the other thing is, and this is actually also important this man maybe I could have learned the square detector but maybe I'll don't only want to detect squares.
+21:00:32 I want to detect triangles and whatever rectangles longer rectangles etc So now, let's say I just wanted squares and rectangles of different sizes. So now I would have to learn basically a full detector for each of these rectangles versus if I have the
+21:00:50 horizontal and vertical x detectors in the first layer that those are enough in the first layer because from those horizontal and vertical edges I can piece together many different shapes, and I don't need to learn that from scratch.
+21:01:07 So, that is actually going to help me to generalize to more shapes, and represent more shapes by just like putting pieces together it's like puzzle pieces, essentially.
+21:01:15 So that's another reason why this is possibly preferable or this is what happens. And the last thing is that these edge detectors are sort of the easiest thing to learn in some, like they're easier than more complicated case because we have more examples
+21:01:34 in your training images of just edge pieces than the more complicated shapes so that also helps.
+21:01:44 And I think the couple of questions are also in that direction professor that if we actually just learned these edges, you know, horizontal or vertical edges.
+21:01:55 And then we combine this with the hierarchical sort of approach that actually allows us to learn any complex shape, we want right so that's that's the way this generalized as well to any sort of shape we wanted that a fair takeaway.
+21:02:09 Yeah, so this is basically you have sort of the space pieces and then it's easier to put those together and learn the shape from scratch, essentially because usually there's not that many examples of the more complicated shape.
+21:02:24 And you will see this later.
+21:02:27 I'm so basically you'll see this also in the trading speed. So if you see which unit sort of have learned first. So these are all like all these horizontal and vertical edges is nothing be pre-specified.
+21:02:38 That's something we actually learn and I see there's a question in the chat exactly about this so all of this, whether it should be those edges is what the network learns by itself I don't specify anything, but we have learned these now, then it's much
+21:02:52 easier based on these to learn these complex patterns so they can actually share data. So we have the data sharing, like the way cheering and that actually not so long and it will also have our transfer learning so when we talk about the learning my fight
+21:03:12 on Thursday, Mo vs. That actually these first layers are sort of what is shared with many many image tasks so you cannot only share within a data set across different images, but you can actually share those patterns across different data sets and across
+21:03:24 different tasks and everyone will need these edge detector so you can learn them much more robustly and much better.
+21:03:33 Just one quick clarification question from Erica, Professor about the term channel in the context here this channel only refer to our G and B as in the sort of color channels.
+21:03:46 Is that is that the case because there's this word channel So indeed, RGB color channels, and if you think about what these actually already have basically multiple versions of the same image on the right information the green information in the blue
+21:04:02 information. And now, these filters that are in parallel here.
+21:04:08 So these in within one layer, they are also caught, so the outputs of these are called channels. So these are two channels here. And it's sort of the same thing it's not that usually they don't capture the red and green information they caught if they
+21:04:21 will just fall for that color. So that's sort of the horizontal channel and the vertical channel the English. So these are also called channels, and they are processed in the same as the RGB channels in your image.
+21:04:34 Exactly.
+21:04:35 So basically like you can think of it like this just that now you don't have the colors but you have the minds of the different orientations, etc.
+21:04:47 That covers it.
+21:04:51 Okay, good.
+21:04:53 So, this was it about convolution. So now once we have done convolution.
+21:05:00 We often do pooling, and that's what I told you is that fooling sort of forget the exact locations of things.
+21:05:09 So it's basically a reduction operation, pudding is very simple putting as even nothing to learn, it's very, very simple.
+21:05:16 So what does pulling do it basically says in this vicinity in your image. Was there a detection or not. So it will just get it again looks at a patch.
+21:05:28 Now at a patch in your output of the layer so it actually corresponds to say for windows in your original image, if this is a tobacco thing.
+21:05:40 And instead of taking away that some of these things we just take the maximum. so it basically says, In this red area.
+21:05:48 What was the best possible detection you had what was the largest output.
+21:05:53 And that was a six, and then in the green area, what was the largest output it was an eight, and so on. So you again have a sliding window but instead of looking at a pattern in the window you just output the maximum value in this window so it's very
+21:06:08 simple and it's again, you do the window the sliding window with a straight here It happens to not have overlap, it can have overlap, as well.
+21:06:20 And the nice thing is this is so simple that it doesn't even have any, learn about parameters, it just takes the maximum.
+21:06:29 But now the thing is, let's say if this was the handle of your mug that says, Okay, so I'm aware in this area there was a head but I don't really care very sexy because cups look a little bit different so it allows me a little bit of variation, and it
+21:06:46 reduces the size of the image, which is very good. In terms of number of parameters.
+21:06:54 So, now, in summary, what we have, from our cnn is, we have the convolution operation, wherever you look at, much smaller input sizes with the same, and we repeat that detector so we know the so called weight sharing which greatly reduces the number of
+21:07:15 parameters.
+21:07:14 And we do have max pooling, which again, reduces the size of the inputs and it gives us some robots.
+21:07:25 And now we just put them together in layers and we have the hierarchy. So, in summary This builds on our ideas from fully connected networks, but it's more, it has much fewer parameters with actually learns much better.
+21:07:40 And it's really adapted to the hierarchical way because really, detect complicated patterns and image.
+21:07:49 So, what could this actually look like say for this fashion them this data set that they have been looking at. So I guess, in this case, here's my input image and the output is still my 10 classes of clothing.
+21:08:06 And then I can build a CMS or here this is too convoluted and then it has a cooling layer in yellow, and that is my feature learning.
+21:08:17 And then I flatten it, and then I do a fully connected network on top with some batch normalization. For some regularization so you could say this is basically the part of the feature learning.
+21:08:34 And this one is actually the full thing.
+21:08:44 So, this form.
+21:08:47 If the classifier.
+21:08:49 And this just learns more meaningful representations of my image.
+21:08:55 And in this particular case, we use 16 filters in each layer convolution layer and filters were small three by three your input images I predict tomorrow.
+21:09:09 So the filters here are pretty small.
+21:09:13 And then trained with Adam with Stochastic gradient descent method, with many batches.
+21:09:19 And now, we can look at to be actually get better accuracy for these images then with a fully connected network, and indeed.
+21:09:32 And not one thing we can do is we can look at the confusion matrices.
+21:09:37 For these two methods. So, This one is for the CNN.
+21:09:42 And this one is for the fully connected network.
+21:09:47 And what you already see is that the fully connected network has more dark regions that means there's more classes it confuses, and now you can see sort of their sunglasses where we get specific improvements like this one is really birth the code is really
+21:10:03 really hard, and the shirt classes really hard. It confuses basically the shirts with pullovers and coats pullovers etc so now in the CNN actually those are performing much better and you have much fewer of these confusions.
+21:10:18 So you see, especially for specific classes where maybe really the patterns, you need more of the patterns to detect make the right decision. That's what the CNN can do much better.
+21:10:31 So it can just learn better sort of part detection system.
+21:10:38 Like that give us an improvement on the data set that we have.
+21:10:44 And of course this is still a relatively simple data set our cnn was relatively simple and have only two convolution on layers.
+21:10:53 In practice, on like net very wide variety of natural images people use deeper and deeper models so there's this image net challenge, which is. million more than a million images, and the, it doesn't have 10 classes and had like thousands classes social
+21:11:11 so it's very very complicated.
+21:11:14 And this is a challenge data set for computer vision. And what you see sort of from right to left, is the error bars, over the years, so they shrank, we got better over the years.
+21:11:26 And what you see in this line is the depth of those networks. So these are shallow networks, these have eight layers. And then we have around 20 layers and then hundred 52 layers in 20 was sort of the state of the origin.
+21:11:43 So sort of deeper models became better and better people models are a little bit harder to train and they need more engineering, and they need, sort of a few more tricks to actually make them work but they can be much more expressive because they just
+21:11:58 have a much, much better hierarchy.
+21:12:03 So, what you often do is this called the skip connection so what this means is you're basically instead of just having connections from one layer to the other you sort of skip a layer you add the previous input to the next layer, without any processing.
+21:12:19 In addition, so these are caught resonance residual networks, and they give you sort of shortcuts from the input to the output and that actually stabilizes the training so that actually works better.
+21:12:32 So if you hear the resonant that's often what people use with very deep neural networks. So I also saw the question about the rainbow activations and CNN so often with CNN, with a deep wants to use radio activations, and you use the residual connections
+21:12:50 because they have in the training and the reason is that the sigmoid is sort of tapers off and the gradient become sort of ladder and squash things. And that is not so good.
+21:13:01 If you have very deep networks because of the vanishing rates, etc. So, the real sort of keep it. Keep the signal.
+21:13:10 In that sense, so that's why the rebel has worked well for computer vision.
+21:13:16 So in summary, our convolution on network implements the spatial locality by having local detectors and doing rate sharing so we apply the same detector that just leads us to match your parameters.
+21:13:34 And it has in addition to pointing operation to reduce the sizes.
+21:13:39 And then we train it the same way as are fully connected network with back propagation and SGP so there's not really much of a difference there in the training other words.
+21:13:54 So,
+21:13:56 now, what I would like to show us a few examples of what CNN, learn, and what they also not learn, don't learn. So we're just going to look at a few illustrations of what cnn actually learn because you can actually illustrated in some sense more nicely
+21:14:14 them put a fully connected networks.
+21:14:19 So, what the CNN, learn.
+21:14:25 So, what are they learn.
+21:14:29 We can look at what the filters, actually, what do they, what do they look at what to water when do they fire for what kinds of patterns to their fire.
+21:14:39 And this study which was actually done by my colleagues in season. And what they did was they trade, a neural network here's the neural network you see it has more conversational layers, it has 500 emotional layers, and then some fully connected layers
+21:14:54 as the classifier.
+21:14:56 They trained them to recognize seen so these are examples of scene so you have this greenhouse, you have a Kenyan except right Cyprus I mean your seeds.
+21:15:07 And then they looked at the different layers and they looked at what kinds of patterns, do they fire and then they try to put a name for that what's the concept there home for lunch.
+21:15:18 And of course, what do we expect by everything that I claimed was where the lower layers are going to learn something like edge detectors, and then you put those edges together into shapes and textures, these together into parts and the parts together
+21:15:39 into objects.
+21:15:36 And that's what they did. So let's look at some of the results so here's my Iran is closest to the input after layer five, it had five promotional layers.
+21:15:47 And we see the kinds of patterns that those detectors fire for that they get activated by you see sometimes in the first layer it's just how lawyers are some textures, etc, some color gradients maybe.
+21:16:06 And then as you go sort of deeper like as you go to the other layers here you get sort of parts already lights of a car.
+21:16:14 Some tree shapes and streets and then you get a full car. So as you go sort of from top to bottom here, you get more and more complicated patterns and more and more objects versus actual just colors.
+21:16:31 And this is all online if you want to play with this there's some more illustration, this is the link for it. And that is sick.
+21:16:39 So what this clock shows is the number of unique detectors for this Alex Mac, and now there's this color bars for the different layers, and each color means something so yellow means just the color detect the orange needs a texture detector so these are
+21:16:56 the very simple ones. And then, the more blue it becomes more complicated so dark blue is an object and lighter blue is apart.
+21:17:05 And you see that in the first layer you mostly just have texture and color detectors, those are much simpler similar in the second layer and then as you go into the higher layers, the pad object detectors, do you have many more object detectors you still
+21:17:22 actually have some texture detectors, but fewer of them, relative to the size, relative to the number of.
+21:17:29 So, you see sort of this hierarchical picture that's hold true. There's some of course like some variation in it in that we still have texture detectors in all of the layers, but the objects mostly occur, upper the hierarchy.
+21:17:49 So,
+21:17:52 what, so now the thing is actually this was a network for scene detection, but if you actually know what a network that detects scenes like Comic Con distinguishing greenhouse for my Canyon from a living room, etc.
+21:18:06 What does it actually learn or under the hood learns objective factors, and it just says Well, these objects are paid for classifying seems because if I know there's a table, and a shared shares and maybe a couch or something that looks like and maybe
+21:18:24 If there is these plans and parks etc maybe that's a greenhouse, so these objects helped me a lot in classifying different scenes, and indeed what actually the units learn in these neural networks are detectors for objects.
+21:18:41 So here you see basically a few so what this, these images show us this is for one unit and these are examples of patterns for which it has a very high score.
+21:18:55 So there are some that the trains are like really lions and some that detects policies or dogs etc.
+21:19:03 And they will not trade to to distinguish dogs from friends. They were trained to distinguish scenes. So big scenes it just sort of automatically detected that those were objects object for both things to learn about when classifying scenes.
+21:19:21 So, let me stop here I saw there were a few questions about resume and other things and see that I don't miss any important questions, and then we can move on and think a little bit about some other issues and pros and cons to CNN.
+21:19:45 Yes, so reprinted there was this question from Lex about what what connections exactly does the does the resonance
+21:19:57 So let's talk about resonant a little bit more. Um, so, so here's sort of the idea of the resume. So here you see the big network and you see these skipped connections so typically what you would have is sort of your forget about this thing, you have
+21:20:14 your input, and you have some layers.
+21:20:18 You basically have to wait. And then, so this is f of x is sort of your units output effect, right, so this is like a take the linear, the way that combination I have live on on the narrative but the output.
+21:20:33 So what you then do with, and this sort of the
+21:20:40 normal, CNN, what they would do is it would send X to basically f of x and f of x is basically the removal of the deleted fun.
+21:20:59 So this is just your rated some.
+21:21:03 So now, what does the rest night do instead it does the same thing, so it still keeps the same emotional layer, no difference here but then it actually adds.
+21:21:14 So let me do this in a different color. So what it does is it adds the input again.
+21:21:21 So this seems weird right the input was x, and then I saw it off just transform this x but now I added back in and this is sort of what this thing does.
+21:21:31 And I maybe can do a weighted combination so I can put like a week.
+21:21:39 If I walked, I couldn't, I couldn't make the sweet it, but this is essentially what it does.
+21:21:46 So it does this, this is called the skip connection because you sort of have a parallel.
+21:21:54 This thing is sort of the parallel the tracks, x the input is just sort of in parallel also fed into the output without any processing. So this may look very weird at first like why would you want to do this and then you just add them up that sort of
+21:22:10 doesn't make much sense. initially, but it turns out this actually helps in what you can express with that network, more compact me.
+21:22:21 And it helps a lot with a training, because if you think about the when we compute gradients we do back propagation.
+21:22:31 As we saw last lecture, but to actually get this you got told off this product of the weeds along the path and the activation of the weeds along the path.
+21:22:39 Now if you have hundred and 50 layers. That's a lot of fruits that you're gonna multiply.
+21:22:47 And it's like, just drop them off these like vanish and I have explored ingredients it's gonna get more severe, if you have like so many different layers throw your magic 950 weeks, roughly.
+21:22:59 So, what you get with these is this good connections you know actually have sort of a shorter path to the output.
+21:23:07 So you're actually, that helps with a vanishing essentially. So, what people observed actually first was that this somehow helps the training a lot it stabilizes the training will have these particular connections.
+21:23:21 It learns better with these physical connections. Later people also looked at the theory behind this. And they saw that all of these residual networks also can actually express something much more compact with because of these connections, it helps them.
+21:23:37 So it has advantages on multiple fronts and but it doesn't make like stood up for probably a three layer network, it doesn't make a difference, but if you have 250 layer network.
+21:23:49 It doesn't make a difference.
+21:23:50 So that's the main idea of the information.
+21:23:56 So you basically just take this input, input and teleported and add it to the.
+21:24:05 See this was the input skip and then give the, there's a question in the q&a box Professor around. Since our pattern detection is based on pixels and shading.
+21:24:17 Is it reasonable to state that more monitoring pictures are where the shading of the colors is more similar. Maybe the network might take longer to identify objects.
+21:24:28 Is that is that accurate.
+21:24:30 So a better question is what does it mean to take longer to recognize object so maybe you mean I'm not effective. So maybe you mean that the training will take longer.
+21:24:45 I'm.
+21:24:57 It depends a little bit. So monotone picture may mean that they have fewer edges, and there's just like smooth.
+21:24:57 Change changes and color or something like that.
+21:25:01 So, in that case yeah your filters would also be looking for just a gradual changes and then if they're very small right that that may they may not actually be able to detect it that well because within like say a three by three pillar within like a three
+21:25:16 by three patch it all looks like the same color so so it could only go back color, and then maybe you would want to use a bit larger filters or so.
+21:25:26 Or maybe it would go into higher layers but yeah that may be a problem, most natural images are not all so monotone so like they have enough variation in color and texture like across your images, even if there's a few of them that there's enough data,
+21:25:44 sort of, to learn, to detect something and maybe if you really add images that do not have edges you would not be learning as detectors.
+21:25:52 So that's probably what's going to happen they will go by something else but it's not going to learn actually factors because it has never seen it, it's not actually going to use them.
+21:26:07 There's a question by saying Yeah, when are the edge detectors required by the con one they're not sure.
+21:26:16 Yeah, so that nobody requires edge detectors. So we don't ever tell the network to learn edge detectors.
+21:26:26 And it just learned it by itself and it happens to be the case that the con bond layer learns typically like one or two layer one or two they are mostly learning these edge and texture detectors.
+21:26:42 But we don't require them they turn out to be useful, and the network's learned them and one reason actually why they probably learned that is that if you look at your actual natural images and you look at these very small patches.
+21:26:56 And at the end of the day, what your gradient descent is doing is actually just adding sort of weighted combination of your input.
+21:27:04 So it's just basically adding up catches that's going to be your route, at the end of the day it's selecting them based on the error but it's just going to add up patches.
+21:27:13 So at the end of the day, like those patches are going to contain edges and textures and that's essentially what you're going to be selected.
+21:27:21 But that happens randomly so now as i said if you have images that don't have any edges.
+21:27:27 I haven't run that experiment, like no sharp edges corners, etc. You probably wouldn't be learning edge detectors you would feel learning something else that's in some way discriminate.
+21:27:42 Soft that passed on these images, whatever it is, but I would expect you would not be learning it because you don't tell the network. And so it's not required, it just turns out to be very useful.
+21:27:57 Okay.
+21:27:58 I think we should be good to see.
+21:28:02 All right. Okay, so let's continue.
+21:28:07 So we saw a little bit sort of what that this view of this hierarchy of protections it's not really just a simplification is actually physical store to some extent.
+21:28:19 But this is really how cnn sort of detects that detections and images and image processing.
+21:28:27 So next I want to talk about a few other things to be aware of and you do like us, CNN, and also sometimes other new methods. So the first thing is ok we saw, it does actually learn the shift in where it doesn't need to learn the shift in reference because
+21:28:49 we build it in it learned these hierarchies. So now here's another thing that you brought up in the beginning and this is the other part of the perspective is for example if I rotate my input.
+21:28:58 So we didn't have many rotations of the cups actually in the images we saw in my example images they were all up right because typically that that all those photos they show them on the table or people have them and then typically don't put them upset.
+21:29:13 But let's say we would give it a cup that's upside down, and likewise we could give it a dog that's in all possible rotation directions etc So here we see some images were on the very left this is sort of the input image that we have.
+21:29:30 And then we just rotate that image, and we let a CNN, do the detection. And here again it's sort of it should be saying this is a lot more a dog. These are crocodiles Actually, This is a TV etc.
+21:29:43 So, what do you think would happen.
+21:29:48 What would be the performance of the CNN, all good. Not good.
+21:29:53 So, what would happen.
+21:29:59 given by how we know now how the CNN works so it has these filters and they just this hierarchy of these detectors etc.
+21:30:09 So Chris says that performance will drop or it will take longer to train.
+21:30:18 So, for training so we train on these kinds of images, and we test on those. Those are just modified and I didn't use them for training.
+21:30:28 So, okay, Omar says it depends on the training data.
+21:30:37 Okay, so you actually great, so I think you're already thinking along that thing that the rotation matters.
+21:30:46 The representation wouldn't match. Okay. Some people say very good detection.
+21:30:52 Some people say actually the filters would have to rotate because the filters wouldn't actually the filter looks for a nose and life.
+21:31:01 If you swap the angles, then maybe that doesn't work anymore.
+21:31:07 So let's see what actually happens. So if we do this. So here you'll see a lot of the performance. So that has different lines for the different types of objects on the x axis we have the rotation degree.
+21:31:21 So this is sort of going from left to right in the table of images.
+21:31:26 And on the y axis we have the accuracy, so the higher is better so one means I have perfect classification and zero means I get everything wrong.
+21:31:36 So now we look at this, we see that indeed like sort of appeared sin okay for some of them and then the performance drops.
+21:31:47 And then like for some of them, it goes up again at certain angles, and eventually goes up again because you have rotated once around and it looks the same as the original position.
+21:31:59 But in between here it's kind of very bad. So the crocodiles, in general are not they're very difficult I wouldn't actually recognize what it is.
+21:32:09 So, that seems to be the case so some of them are a bit more robust here.
+21:32:25 But then all of them kind of drop along to you. So indeed, the rotation, has a problem, and there's only one of them that actually peaks at 90 degrees and hundred 80 degrees and this is the TV, because if you do vs just a box and if you turn it by 90
+21:32:35 degrees, it still looks like a box, so that's why you have these peaks in their action.
+21:32:42 So,
+21:32:47 yeah, so why is that, like, why does this happen then who actually kind of already indicated it so yeah it's of course doing like.
+21:33:00 I see a lot of discussion in the chat like why did it like struggle with a dog etc and like some of these other ones it's true like if there are smaller parts, recognize about the rotation itself, why does it feel for that.
+21:33:14 And some of you said it already because we're actually using these filters and the like. And if the template for two eyes and the nose and some ears here and suddenly, those are rotated they're not in the right position anymore, so either.
+21:33:30 Indeed, I will have to rotate the filter. And this is one thing that is being done, you basically get the rotation and variant to put basically apply authoritative versions of your head or or equivalent people take your image and all possible direction,
+21:33:45 it's expensive, but you could do it.
+21:33:48 And the other thing you could do is you could teach the neural network that adopt doesn't only come up right.
+21:33:57 And you can someone said it depends on the training data so you could just tell the neural network that if a dog is upside down it's still a dog. So hence you take your input images and like your training data, and you do random rotations occasions that
+21:34:15 this training data to add that to your data to you increase your data set. And now the neural network has seen docs and all kinds of or in many more positions, and it learns that it should have also some filters for docs that look like that are in different
+21:34:29 positions.
+21:34:31 So this is called Data augmentation.
+21:34:35 So that's what we can do to address the rotation problem.
+21:34:42 So, that's just something to remember we built into the CNN, this in the it's called invariance that if we shift the object around it doesn't matter but we didn't build in anything about vocations and hence if either has to learn it, or it doesn't know
+21:34:57 it and it may fail. And this is a similar thing happening with other types of transformations of your data, either you build it into the model.
+21:35:09 You know what ahead of time that this may happen and you make the model sort of robust to that or you change your data, and at those frames for me, transform data already to the training data set.
+21:35:21 And then the models okay whatever a dog can also look like that. So this can be done with different lighting, with other kinds of transformations rotation is just one explicit law.
+21:35:36 So here's another thing that's actually not specific to CNN, but it has been in the news, you like, even for years ago and has made big news has had a big impact.
+21:35:50 And this is the following problem, and it again depends also on your training data set, as in addition to some other factors. So what was going on.
+21:36:02 This is from a study that was actually done that the MIT Media Lab.
+21:36:06 And there was a student who was a student of color and she was trying to use some face recognition software for her project, and she noticed that it just wouldn't work.
+21:36:18 And then she said I had this crazy idea she put it on a white math, and suddenly this thing started detecting her face and she said this is not right.
+21:36:26 So if you say that she started to basically.
+21:36:30 Check face recognition system more systematically. So here in this study they have four different categories of people is classified by some dermatologists, and they ran the software on these and looked at how good is the software in detecting and they'll
+21:36:50 basically saying I think the task was to say male versus female.
+21:36:54 And so it was very good other some subclass of subgroups of the data and it wasn't their fault on other stuff.
+21:37:03 But then there's differences so for example here's like the maximum best sacrifice hundred percent. The first several pairs, 79%, that's a big gap here the best one has 99 on 99 and the worst 65, and so on.
+21:37:26 And now you see there's actually some systematic biases in both in that system. And if you actually look at where does the system make these errors. So this is something that's often very good look at if you look at all the images that it got wrong.
+21:37:41 Is there some systematic biases. And if you look at all of these systems, if you look at all of the images that got wrong. I will they're pretty much all female, or even just female of color, so that if you just look at the errors that your system makes
+21:37:56 you can see sometimes that it's actually sort of putting some group at an unfair advantage or is making some systematic errors.
+21:38:05 So now there's various ways, reasons for this type of thing. One is, yeah, maybe the off court like, of course, in this case there was like a some bias and the data so that different subgroups are represented two different at different expense in your
+21:38:26 data. So there's a larger group and a smaller group so already for the larger group here, observe, much more variation of what this could look like so.
+21:38:41 Obviously if say your data basis in the extreme case 80% right please if you know a lot of the variations and white faces but not of the other one.
+21:38:59 The other one is if you fall for just average error in your loss function. Well then, even if you get that small group wrong it's as if it's a very small group it doesn't actually hurt you much. So if somehow Korea detection. There's some trade offs between
+21:39:04 accuracy for some subgroups versus others, then you're just possibly just disadvantaged smaller group because doesn't matter that much, even if you get all of them wrong.
+21:39:15 It doesn't matter as much. So that's something to be careful about when you have imbalances in data.
+21:39:21 Another similar example if I have a classification problem with a 2% plus one and the rest minus one.
+21:39:30 If your classes. Now if you classify everything as minus one you have a 2% error that's pretty good, and you haven't learned anything at all. So, sometimes on so be careful with what the method, actually does, and it can have wide ranging consequences
+21:39:49 like this face recognition software actually as an effect, many of the companies withdrew their face recognition software, many governments. This allowed the public use of these, for example, in policing in their public offices etc so they've had actually.
+21:40:07 Lots of consequences, and there is other examples and health care except for every this is a problem so this is beyond CNN, but it was sort of first coming up explicitly with the CNN and face recognition.
+21:40:23 So, that's one problem of bias, and it is part of the related to another problem, which also has to do with data. And this is what are we actually using to make the predictions.
+21:40:42 We're making.
+21:40:44 And so here I have a simple classification class for you you have images of cars and images of not cars.
+21:40:57 And now, what would be a good way to discriminate between the top images and the bottom images.
+21:41:05 So again the neural network and principal has no idea what is a car or not a car you could call it anything, it just says, I have this group of images and this group of images and I have to somehow discriminate between those two.
+21:41:19 How could I possibly discriminate between those.
+21:41:23 And of course, the car support a way to discriminate by the cars, really complicated thing to learn about and to detect because we have all these variations and cars etc etc.
+21:41:36 So people here have ideas so for reals headlights.
+21:41:42 The sky large areas with the same color.
+21:41:47 Okay, so the mirrors right so now we could look at some things okay a car looks like a box but this thing also looks like a box, something with a we with these lights, but maybe I saw like the bike lives also look like light.
+21:42:07 Something with wheels. So here you see two wheels and here you also see two wheels, so the wheels by themselves, also are not so good.
+21:42:17 So okay maybe like some kinds of colors.
+21:42:21 But those colors, maybe you could also be invite.
+21:42:26 Not here so maybe the mirrors maybe the mirrors.
+21:42:34 So, things like that license plate right license plate could be one. This one actually you don't see it. So, this one is okay. This one is okay. Some of them you don't see it because not in all countries we have the license plates on both sides.
+21:42:52 Or this one you don't yet so it's actually pretty complicated.
+21:42:57 But in the one feature that is predictive is the sky like a patch of blue, a large patch of some kind of shade of blue.
+21:43:06 So that's of course a terrible feature to distinguish between those images is not the only one. You could be actually detecting cars and that would also be right, but you could also be detecting just the sky and in this case it would work.
+21:43:23 But, of course, once I show you some other images, it would be terrible right show me a car in the garage, that's another car because it doesn't like sky.
+21:43:32 And if you think of autonomous driving Of course that's not the car detector you want to have in your car. So, it's a little, it's actually tricky. And very often you have the case that if you, especially if you look at a smaller data set, there's multiple
+21:43:47 ways how you put discriminate between these images.
+21:43:53 And in general, it's hard to have any control of what the network uses ideally what you, what you would like it to use all of those.
+21:44:00 Because then, like, it's more likely that if you have variation it's actually going to do the right thing.
+21:44:09 But it's not guaranteed, and especially if you have cases like he ever sort of the sky is a super easy feature to learn, you're going to have to do much of edge detection you're just go for the color.
+21:44:20 That's easy car you have to do all this hierarchical patching for better off different things it's much harder and takes longer to learn about.
+21:44:29 So this guy is very easy.
+21:44:32 But it's terrible.
+21:44:34 And it turns out indeed that the neural networks loves to do these like easy features. If you let it. So, of course if you have a larger data set you have more variation, it won't happen.
+21:44:47 But it can happen if you don't have that much variation. And this is also called a shortcut shortcut learning and it is known that it is a problem in your networks.
+21:44:57 So it's sometimes good to check what the new network is actually using for the detection, at what does it actually using to determine to make a decision.
+21:45:10 So that's a little bit hard to look at in general but there's methods for doing that, you could use an adversarial example, I'm gonna talk about that.
+21:45:20 Or you could use a more like some kind of interpret ability method.
+21:45:25 So what's up with these shortcuts. Essentially what shortcuts are doing is something like what I showed you that in your training data there are some correlations like the cars always come with this guy better, easy to detect that in your test data those
+21:45:40 may not be there. So the neural network uses something else and what we think.
+21:45:46 So, here is another simple illustration of this so here in your test set.
+21:45:57 Your stars versus these moons.
+21:45:57 And here's your this the training set and user testing.
+21:46:01 So in the test set.
+21:46:15 This is sort of
+21:46:07 the neural network is doing all right, but then you have another test set and it's not.
+21:46:15 And all the question is, why is this happening.
+21:46:19 And if you see it's actually not going for the shapes, it's not going for the shapes of the stars, or the moons.
+21:46:27 But what is actually different if you see, if you look at it closely.
+21:46:34 Maybe someone can see it it's what it's actually using to detect to discriminate stars from
+21:46:44 someone see that what it's using to discriminate stars from.
+21:46:52 Right, so people say the location right, the stars come sort of in these locations different from the moon location so you could just say if there's a white pixel some right here, or some way here then it's a star, and if the white pixels in that corner
+21:47:06 in the lower right corner then it simple.
+21:47:09 So that's what it's essentially doing. It's the same as what this guy is actually not using the right thing, so that's also called a shortcut.
+21:47:22 And these shortcuts actually do care and have pretty severe consequences. So let me show you some other real examples. So this is the example I already talked about with these medical images, where they were trying to detect pneumonia.
+21:47:39 And what the neural network was actually using was the tag of the hospital so this is the illustration of, here's the pack and the tag identifies the hospital and it was actually just saying oh this hospital always have had high rates of the disease and
+21:47:53 this one had low rate so for all of the patients from this hospital. First hospital as they yes and for all of the patients from the other hospitals that signal.
+21:48:03 And of course comes along the third hospital you have no idea and of course it's a terrible thing because this is we don't need a neural network to read that hospital.
+21:48:13 But it just use that. So you want to prevent it from doing so by maybe. In that case, you could just remove that path, cut it off.
+21:48:23 Another related example are adversarial examples.
+21:48:30 So, this is been in the news also few years ago I love this about the robustness of your networks, so we could have a CNN that works actually graven image detection, but we make a very tiny perturbation to that image.
+21:48:45 And so here you see the outcome, it's this to us, it looks the same, it still looks like a panda bear.
+21:48:51 But for the image for the CNN.
+21:48:56 It gives a high confidence classification of something completely different.
+21:49:02 And so, that's weird and that's like really bad because it means that the CNN is using something completely different than what we are, and what it's actually using is essentially patterns like this.
+21:49:17 So this is a very specific for innovation, but you can do the same thing I think someone had mentioned the example with a rifle in the turtle, you can put some pattern on the back of a turtle and then it will be classified as a rifle etc.
+21:49:35 So you can do these modifications and they happen because the neural network again uses something in the data that correlates with the label, but it's not what we think it is, and now there are strategies to remedy this so you can change your training
+21:49:51 a little bit by basically augmenting the data in the adversarial case it's called adversarial training it's going to do an adaptive augmentation and basically at the thought of her pronunciations like this to your training set, and then train with that
+21:50:09 so it learns to be robust to that and it learns to actually say all those nice, easy things that I was using they're actually not working.
+21:50:25 So I have to use something else and then it goes for these higher order patterns like shape and texture etc. So that is what typically helps, and this is essentially all falls under this area of data augmentation so we can either collect more data, with
+21:50:37 more variety of car images, we could change our change our data so basically cropping or rotations in our from the images the app and just augment the training set with that.
+21:50:50 And that actually helps.
+21:50:52 So, next lecture we're going to talk about transfer learning, which is another way you can actually use much more data to train your model and the more robust.
+21:51:04 And here are just some examples of such data augmentation said you could do.
+21:51:11 So cropping shifting rotation doing some other, these are essentially business running some filter.
+21:51:17 So that's where use the filtering.
+21:51:21 Um, so this was just sort of some cautions and warning messages about neural networks, and what you have to be careful about not only that cnn so check your errors, be a little bit aware of what your network actually uses to make predictions.
+21:51:40 Whether you're making any systematic errors, are there any imbalances in your training data set. So these are all things to be aware off. Beyond actually just computer vision.
+21:51:52 So I'll stop here with a lecture and I look at like there were various questions in the chat and I'll answer some of these.
+21:52:02 So one I already see is the explain ability question. And let me just elaborate a little bit more on that one.
+21:52:13 So I said okay and your network, it's hard to start off, see what it's actually using you have this big box with these problems or millions of units and they're doing something so many weeks so many units, what is it actually doing.
+21:52:27 And that's one of the drawbacks of neural network so why they're very powerful in predictions they can make actually variable predictions that can work really well, but it's hard for us to understand what they're doing.
+21:52:39 And so how can you make this a bit more understandable and there's various methods that people have come up with.
+21:52:47 To illustrate what the neural network is using so for the CNN, I showed you one technique you can actually look at what activates the moments. What are these activations, and then you can try to understand what they've learned, which of these get high
+21:53:01 waves, you can illustrate, which of these are active for your image when it's predicting and that tells you something about what patterns, it's actually a new thing, you kind of look at what part of the image, actually, is most decisive for your protection
+21:53:19 this people can do this by looking at the gradients. So if you're using the sky It would highlight a patch up in the sky, having a car detector and it highlights, catch up in the sky.
+21:53:28 Then something is wrong it's not even using the part that has the car. So, definitely. That's something went wrong.
+21:53:35 So this is something you can do.
+21:53:39 The other one is actually look at an adversarial example so I said, or the app is like perturbations. So how do you actually get an adversarial example, the way you get it is that you will take an input image, and you try to make a small perturbation
+21:53:56 for this image so that the network would classify it different.
+21:54:00 So, what are you essentially doing if the neural network say uses the position of that pixel of the star versus the moon. To determine star versus moon, you would basically place a white pixel in the position of the moon to make it a moon, and we can
+21:54:17 a little bit, the pixels in that saw. So what but you don't have to have a moon shape you just need to position and that's it. So by just looking at the position you know that something is wrong.
+21:54:29 So, that would basically take the features that are most predict differentiate them a little bit and put the other features in there. And you see actually if the neural network is your networks that use more of the shape, and the actual like texture and
+21:54:44 and the sort of what we would be using as a human to make this a bear.
+21:54:49 If you do an adversarial example for that I don't have it on the slide, it's actually looks different for a human, and I feel when you're typically that see some kind of merged version of this thing in this case with a monkey or so, so you'll also actually
+21:55:03 see both of them and in that case, you see it's doing the right thing it's using the same things that people would be using. So adversarial examples are another way you can illustrate walk you in your network is actually using.
+21:55:19 Okay, so I think that one more question. So let me just answer some more questions.
+21:55:33 So Vishal, are there some more questions along those lines Professor around what you know what are the things that you how do you highlight to a neural net.
+21:55:44 You know what exactly inside an image you want to learn and I guess that is the. That is the sort of crucial question.
+21:55:48 Right. So actually the way you do this, you can look at the activation so you can basically do some backtracking.
+21:55:57 So you'll see basically, if you remember right, when we talked about the convolution. There was one of the filters that had detected say this low, high, low pattern.
+21:56:08 And that is the one that's actually active and have a specific position position. So now you may have a few of these and some of them feed into the next level like when we detected that squared ever essentially only a few that were actually gets decided
+21:56:24 for them if we go back to the square if I find my example of that square detector, we can look at it there.
+21:56:34 So here was my square detector. And there was basically this thing that needed certain activations of my filters. So do you like reactivation tier three activations here, but the ones that are actually going to turn off to lead to the square detection
+21:56:51 detection are these ones, and these ones. So I can basically say from here, what was responsible for making this active for giving that detection of this clear relic was that for it, and it was that part of what do they correspond to they correspond to
+21:57:06 those detections come from.
+21:57:20 And that's one way to see, we're in the image was actually that detection happening and if it's the sky It would be in the sky, and that's wrong.
+21:57:31 The other thing is to look at the gradients which would tell me if I would want a different, different decision, what in the image, what parts like or what parts of my fingers will actually change so that also has some something so that's, like, closer
+21:57:57 to this adversarial example what change is in my image would be for different decision.
+21:57:54 So in that case, you look at the gradients. So that's basically the change in the rates, which are sort of.
+21:58:02 That's what you put in or changes in the image. In that case, if you look at that.
+21:58:09 So watching what is there in my image is it coming from or what changes and the image for change my decision, of which is sort of like a gradient with respect.
+21:58:26 Is there a way to output out the network learned after the training.
+21:58:32 So I'll put what the network learned is that the question. Yes.
+21:58:39 So
+21:58:42 holiday network learned after the training. So, okay, the question is, How does the network learn so there's various nice and kind of look at this one is of course the accuracy how that doesn't do one your data how that but it doesn't want training and
+21:59:01 you know that tells you something about what it has learned, right. So just the accuracies.
+21:59:04 How else can you see what it learned so you can also dig deeper you can visualize visualize what did learn. So this is what we did when we looked at the filters and the illustrations of the filters, and what you can also do is I didn't show you those
+21:59:18 illustrations, but if you go to this net the SEC website it will show you which filters emerge at what point in training.
+21:59:26 So you can even see like how these things change how many servers are there, at what point in training of, of what sword, and you'll see that like later come the object, the object was developed much later than the edge and texture and things like that
+21:59:42 so there's various levels of detail info which is where you can look into it so the normal toolbox and all night you have to meet like special code for it.
+21:59:54 But the just the accuracies and where you do well where you don't do well, those kinds of things. You get like that you could do with any normal toolboxes.
+22:00:06 Okay.
+22:00:07 I do want to point out it's scheduled stop, in terms of the lecture so for those who do need to jump off, just a quick reminder that tomorrow's. The third lecture of the week will actually be tomorrow and not on Friday.
+22:00:21 You know, visit professors availability, so that's just something I wanted to remind.
+22:00:25 For those who do need to drop off but it is the, the end official end of the session so thank you so much everyone who who does leave leave for your questions and your comments.
+22:00:34 Thank you so much for making this session so interactive, we will of course continue with this half an hour with, with the additional q amp a section, and the recording will be made available course for you to review.
+22:00:54 Thank you. I'm gonna stay around for a bit longer. But that was also there.
+22:00:57 I do believe it or not.
+22:00:58 Yeah, hello to us. Well, I'm doing great.
+22:01:02 So, one. So I see a question here from, from my about many applications for computer yeah for deep learning or for computer vision.
+22:01:16 You know vision and image processing seem to have advanced so much, and what other applications are there which may be apply CNN or, or neural networks and in general, and I guess the example here is about detecting nuances in language, and nuances and
+22:01:31 people's facial expression.
+22:01:37 That's it. Yeah, yeah. Sorry. good.
+22:01:40 So they're all are cnn applied.
+22:01:44 So yeah, it's basically.
+22:01:47 Pretty much all tasks, you have to do with image inputs and detection, filling in, so you can also use them for generation so if you say like, that's a made up task, but maybe you have sort of cut off off your image and fill it back in, and things like
+22:02:09 that so generation. Can you generate a new image, you learn sort of what an image looks like those are essentially CNN that are used under the hood in those kinds of processing, any kind of image classification detection etc video classification detection,
+22:02:25 but then the idea of a convolution is not specific to an image so we saw we can do a 1d contribution we can record the conversation we can work really contribution.
+22:02:34 So you can do the same thing to like sequence signals live audio or social and you can basically detect patterns and audio with the same type of conclusion operation, like if you actually want to detect speech, for example, things like that.
+22:02:50 It's the same kind of ideas with the filters, just add your filters are going to detect different kinds of.
+22:02:58 I think the follow up to that as well. Sorry I think through you wanted to give an answer there. So yeah, a couple of months I was going to actually ask the professor.
+22:03:07 Have you seen cnn also applied to other data sets non image data sets that have spatial relationships, and, uh, yeah, definitely. So, um, you can do something like, Yeah, man.
+22:03:24 For some geometric processing.
+22:03:25 So they're this rotation is a bit of a problem so you may want to do like variations of this.
+22:03:32 So, one place where I have seen something like this basically local patches, something like CNN filter type thing is when you're looking at molecules.
+22:03:44 of looking at the molecules like behave hard to this dissolve like big molecules antibodies etc. And so you look at the surface and total features of the surface, so that's very similar in that.
+22:04:08 The other one very good doing something like a CNN but you have to generalize it a bit is what we're talking about tomorrow in terms of graphs, so they actually have a bit more of in variances but it's sort of the same idea that you have a local patch,
+22:04:23 and you're applying essentially a filter for local patch and doing something and that's called a graph.
+22:04:33 So, doing something like that on more general things than just images, so you can do. You can do this on 3d geometric objects you can do something like that for those, you can do it for graphs, etc.
+22:04:50 If you interesting questions on the, on the chat and in fact as a follow up to the previous question. Drew, for example, have you seen, CNN, being applied to time series data.
+22:05:01 I have not so outside of the scope of this course.
+22:05:05 Usually for time series, whether it's trying to predict the stock market or trying to predict, you know generated text for, for, you know, a text prediction algorithm.
+22:05:19 Usually you see our finance recurrent neural networks, and more specifically, there's a very popular subclass of RNNs called LSTMs stands for long, short term memory.
+22:05:24 They tend and there's a lot of variations on those just like CNN, the very broad and Richfield that's ever expanding, but I you tend to see for time based data, those are more popular because they tend to to carry forward relationships between previous
+22:05:38 legs to current and future lacks right. So while CNN or especially because constructed the architecture is built around detecting spatial relationships in different contexts, are mins and LSTMs are designed to detect and preserve temporal knowledge and
+22:06:02 and say, oh sorry I'm just gonna say similar to the professors note about CNN, they're ready. they can also be used in generative models as well.
+22:06:12 Oh sorry, I'm just going to say similar to the professor's note about cnet's they're ready. They can also be used in generative models as well. And the professor The, the issue around captures I think this was a question that came up earlier.
+22:06:19 Do captures also work on on this example of adversarial, you know, creating that you gave that maybe a capture actually has certain adversarial pixels which are sort of designed to fool, or you know, misleader a narrative, an automated algorithm like
+22:06:39 this or, or are they more nuanced than that.
+22:06:37 Yeah, they're in something similar in that they are designed to make it hard for the CNN, to work on them, because he explicitly wishing to read them.
+22:06:50 So they're even like a bit more explicitly at Coursera, in the sense that they.
+22:06:58 The transformation so I sometimes find it hard to, like, correct me read those things so it's like not more than a nuance that like transformation for a human I'd say so it's it's sort of a more brute force transformation but that way you make sure that
+22:07:13 it doesn't know me for like one of the finance but it was like most of them.
+22:07:23 Yeah, but it has like the thing that the things have worked except retro destroy the shapes and
+22:07:33 there's a, there's another question I think which may be outside the scope of this lecture professor but I think the scope the question from Jacqueline is about the latest tools for image recognition and maybe the fact that Transformers have started being
+22:07:46 applied in in computer vision problems is there, maybe an intuitive way to understand the idea of Transformers professor is just outside the scope right.
+22:07:55 Yeah, so two answers to this so one is that sort of in computer vision people still use a lot of CNS but they combine them of course with more bells and whistles.
+22:08:08 So one of these is so called self supervision, which we'll talk about tomorrow and pre training, which most of the state of the art resides now using the self supervision methods.
+22:08:21 And the other things also Transformers transformers are another type of neural network they were initially I think there initially for from language.
+22:08:39 And the idea is that you have to sequence, and typically people were also looking at sort of parts of the sequence. But here you start off, then you look at sort of the sequence, and look at sort of all of it that long term relationship with them the
+22:08:59 and then they introduce this notion of attention. So the neural network sort of gets the big sequence but I learned sort of what parts are important and what are not important. So that's sort of the transformer uses this additional like idea of this attention.
+22:09:05 Part of it.
+22:09:07 That's like a very high level that's what it does. So yes, it is us now also another data like images like graphs, etc.
+22:09:17 The same idea.
+22:09:23 The question from Chow again about resonance professor, are they only an enhanced model for images or cameras and it's been applied outside of image recognition as well.
+22:09:35 So in principle the other resonant idea doesn't rely on the CNN so it started off like a separate thing. So you could introduce a Skype connection really in any network that you want.
+22:09:48 So it turned out to be really useful for these like very deep CNN, because. So the thing is that in computer vision.
+22:09:57 People have recognized that that really really is useful. So, a lot of their like state of the art computer winning models is fairly deep models, and they use these resonant connections in some other areas we don't want them to be too deep.
+22:10:14 But in general, you can use them and on other networks as well so people also do use them on other types of neural networks so for example on graph nets people also have used this residual connection so there's nothing special about the that it has to
+22:10:28 be a convolution layer you could basically skip any kind of layer if you want.
+22:10:33 That's okay. You couldn't use it.
+22:10:49 I see a question in the q&a box about trying to detect moving objects, Professor, I guess, you know, in video frames rather than just still images. Would that also still utilize the same basic cnn principles we learned today or what or maybe the bells
+22:10:54 and whistles added on top of that.
+22:10:58 Yeah. So if you think about detecting moving images, and moving objects but what do you actually are so you have your video which is sort of a sequence of images, and then there's that same pattern and April curse in all these like and slight variations
+22:11:14 of course because maybe a person is running or so before, it moves.
+22:11:19 And you want to track it so what you really want to start up the same detection but along those frames in sort of the same vicinity. because typically like they don't jump across.
+22:11:31 So, that's actually the same idea as these convolution insert so you need to convolution and effort for detect those patterns, and then you have to piece it together, to actually get the basically the trajectory toto toto transit.
+22:11:47 So you could use like the same idea essentially that now you're looking for a pattern that someone is sort of consecutively across these different images.
+22:11:57 Or you could just sort of keep track of those detections and then use a different type of processing to do the trajectories and following.
+22:12:08 But yes like back in video processing your beliefs, you know,
+22:12:20 five dimensional less you want, you can do. 3d. 4d.
+22:12:29 There's a, there's a question by severely here Professor about can you apply cnn to do more of a continuous variable prediction problem I guess the question is about can you apply cnn stir regression problems.
+22:12:44 I think there was a.
+22:12:47 There's. I think there have been some, some research papers around applying cnn to predict the price of a house from its image professor and you know that's been like an interesting example but just wanted to know if you've seen other other such example.
+22:13:01 Yeah. So in principle I mean instead of classification you can predict regret, like you can predict the continuous value that's really. So if you think about what I said about you have the feature learning and then the classification stage so basically
+22:13:16 instead of a classifier at the end of your Kappa continuous variable, and likewise you can do this for encoding and then you could even have a so called modern at the top, not a classifier but you can sort of generated image.
+22:13:32 So for example, you could do a style transfer so very useful to process and encode the image and then you say, Oh, now I want a different side so now I make it look like a painting or something like that, and you can do this, or this is like ladders and
+22:13:47 I want them to appear sicker or thinner and stuff like that so you basically also use DNS to encode it but then sort of the later stage is something else, of course look if the output should be an image you need something else.
+22:14:01 generated image.
+22:14:03 So yeah, so so let's add this not necessarily regression but that essentially. I don't know what else will be continuous variable data but you can basically use it as an encoding of your image and then you put anything, essentially you want with that
+22:14:20 encoding. It's just the more meaningful representation of that image.
+22:14:25 When I'd like to throw it back to Vishnu, if I recall I think you shared an example from previous cohort, isn't that right here my misremembering.
+22:14:32 No I don't, I don't, I'm probably miss remembering another talk but I remember someone mentioning working for some, some group that was trying to provide the support to rural communities and they developed an app that included the function for people
+22:14:47 to take warrants and protect the wait a newborn from the image.
+22:14:53 That is correct. That was the, that was a use case from yeah from a previous sort of responsibility of mine but that was about trying to predict the, the birth weight of offense, have a newborn infants directly from its image, and these are like images
+22:15:15 taken, you know, on a smartphone so that was a, you know, that was another sort of regression problem that you see an ends but I guess I don't know if so meals. So, if the question is about, maybe more numerical data, numerical features and not just the
+22:15:21 target being medical.
+22:15:24 I don't know that may be the question so new, but I guess that's the follow up, not necessarily for regression.
+22:15:29 So in some sense, images are feel like their continuous numbers, but the input, even discreet so your quota, black and white images, it will still be okay.
+22:15:46 Because the weights, so you're not restricting the weights to be discreet that would be very difficult for learning. But the weeds can be continuous numbers and then the inputs can be zeros and ones are ridiculous be like continuous numbers that's all
+22:16:01 it works.
+22:16:04 Yeah, and I have heard of lot of transformations and morphological changes that are applied images prior to training, it obviously depends on what your collection sources and how control that is the for example say I'm a quality control engineering for
+22:16:19 like a factory design like say you're taking images of widgets as they come off the line. I've heard of engineers doing that of applying simple either black white transformations or fuzzing or all kinds of other techniques to, to help improve the performance
+22:16:33 make it easier for the CNN, to find the features they want to find
+22:16:44 one question from earlier professor was about the different kinds of pooling and are there cases where rather than max pooling we want to use men pooling or average pooling or any of these other pooling schemes.
+22:16:59 We know what what generally does that depend on in terms of the objective of the fiction desk.
+22:17:06 Yeah, in principle, you could also do other types of pulling like yeah average or men so basically anything that takes us input a set of numbers and outputs a single number.
+22:17:20 You could describe it as pooling, and it's not depending on the order of the numbers and anyway.
+22:17:27 So, I'm not so sure about computer vision, and maybe journals a bit more any examples where you maybe want to use min pooling or average pulling so average maybe if you are counting detections or so that I could possibly imagine.
+22:17:46 Something like that.
+22:17:47 But one place where you actually do this is in graph next where we talk about tomorrow.
+22:17:54 So they're actually people do use. So they typically use average Cooney, but for some applications, it's actually better to use a max pulling or a min fooling because it sort of aligns better with the actual tasks so in a graph for example, but people
+22:18:09 have started doing a slacking and learn for optimization algorithms over graph, they can be notorious optimization algorithms. And if those are actually, you say you want to learn to compute the shortest path or so it's actually better to do a min them
+22:18:25 to do some martial epically otherwise.
+22:18:29 Some because it has some average.
+22:18:31 So it depends on the task so in graphs I have a few examples of things for images, I'm not for sure.
+22:18:45 Okay. So, question from Hong been about the the math behind filters dot product is.
+22:18:54 So, so the statement is not product is essentially projection and scaling and how does this production and scaling help with capturing features, or things like edges.
+22:19:06 Yeah.
+22:19:08 So I think in terms of projections it's a little bit harder to understand in some sense you're projecting into the subspace. That looks like edges in this direction.
+22:19:21 I think the intuition with the features is easiest to think of the future as a template and now the dot product also like, sort of, it tells me how much the vectors, align if you think of them as factors.
+22:19:35 Right, so the dog practice larger in this point in the same direction so when they look similar. So it turned up to ask me how similar doesn't look to my template so the doc product is sort of a similarity measure it's often used as a similarity measure.
+22:19:48 So I think that's an easier.
+22:19:53 Intuition than the projection or maybe saying okay I have a template that's a vector in a certain direction and now like the similarities how close you are in terms of angle to that vector.
+22:20:09 That's sort of, I think, easier than the subspace and projections.
+22:20:19 one another interesting question from Maurice was about how close is all of this to do sort of image D convolution. Let's say to the blur and image.
+22:20:32 Is this edge detection actually helped start that process. I know this is something we will speak about in tomorrow's session as well Professor were essentially this idea of maybe filling in make you know missing pixels.
+22:20:43 You know, is that is that something as well that cnn is can have good.
+22:20:49 Yeah, so there's actually two answers to this one is this D convolution is often also some kind of the noise in process if you have a blurry image, and you want to sort of make it sharper.
+22:21:01 So essentially that is also a filtering operation and you just have to find the right filter. So that's essentially what a CNN can do. So filling in a full hole is more than a decomposition, like that.
+22:21:14 Really a generative process. So, even that you can do with CNN, so you're sort of off to the encoding and then you do sort of inverse to get actually to generate an image, and it learned sort of the typical patterns and it feels in those typical patterns
+22:21:30 in those holes, essentially it learns to sort of learn those regular regularities that textures and then it feels and it generates those textures, essentially, inversely.
+22:21:41 The people also do super resolution.
+22:21:44 So, in all of these like if you have images you would probably want to use. CNN.
+22:21:52 But in, you may have to treat it in different ways or like deep learning is more like just a filtering and filling in the hole is more like a generating new image essentially a piece of an image.
+22:22:30 What's an interesting thought from Abdelaziz earlier about this this process of being is is PCA used in any way. On an image before feeding it into the neural network.
+22:22:36 So, just that I got it, or co significant so this is the nightly news before putting it into a neural network.
+22:22:45 Basically can be denies images by PCA before you put it into a new office PC PCA.
+22:22:54 So, in principle, so that depends a bit on your data. I don't know if you would be using PCA specifically for images, maybe just some kind of filtering.
+22:23:07 Um, it depends on your data set.
+22:23:25 So it depends.
+22:23:26 So it's the same thing sometimes we think about what we want to do we can do some pre processing and it works better.
+22:23:33 The other thing there.
+22:23:36 What I mentioned is to actually make it a bit more robust and not go for this low level textures is if you learn the images that they are some of them.
+22:23:44 That is what people essentially sometimes do to avoid adversarial attacks to train with such kinds of images so that's a more specific thing.
+22:23:54 So I would say it depends on your data.
+22:24:00 Whether that makes sense or not.
+22:24:03 Draw Do you have any more comments on that
+22:24:09 covers it very well I have nothing yet. Thank you.
+22:24:12 There's a yeah there's this interesting thought around using, CNN, maybe for facial emotion detection, through and, you know, it's that you know as as simple as you know, because we haven't covered the sort of concepts that all of these complex features
+22:24:38 essentially be thought of as combinations of simple, low level features, right. So, is it essentially the same same principle or is that maybe more nuance to sort of facial emotional.
+22:24:39 That's a very good question. I guess that it's getting up the point that a facial image could probably represent more than one emotion at the same time and that's, that's something that cnn are not going to accurately capture, but if you have something
+22:24:50 where you can label and say oh that's a happy face that's a sad face with prefix discreet labels than that is something that scene is canon have been used for.
+22:24:58 And I've even heard of, like, I think I saw this on a documentary where someone was even trying to use this for industrial pig farming, to actually do facial recognition on the pigs one to track which is which.
+22:25:09 And then to to also try and assess the emotional health of the pig. Right. So there's all kinds of wild applications out there.
+22:25:26 There's also a question here from with abort, abort object detection professor. I guess that's not a little bit outside the scope of this but what does that that sort of, I guess the, the jump in terms of not just classifying and image but also detecting
+22:25:39 where exactly.
+22:25:42 You know, and an object is inside an image is it is that exactly what we've been doing with convolutions, you know.
+22:25:51 Yeah, so you basically can use convolution neural networks also for detected detection by to basically tell you where was the detection happening to put like a bounding box or something around so essentially you could do some kind of backtracking and
+22:26:06 you can actually go so far as and really say cut out the object for me so people are doing segmentation of images with CNN, that would really like not only seeing this patch but it would really like carve out the boundary essentially of this thing so
+22:26:22 that's possible. It needs a bit more work to be able to do that but it's possible and it's because you can sort of backtrack and then you can be a bit finer.
+22:26:34 So under the hood it's the same kind of technology.
+22:26:43 There's a question here from. Oh sorry, go ahead.
+22:26:46 Go ahead. No, I didn't mean interrupt you. go ahead.
+22:26:49 No, this was I was just going to bring up another question. We got this a couple of times as well and it's around the, the real time practical applicability of CNN and neural networks professor and I guess there are certain use cases such as autonomous
+22:27:03 driving which which really need decisions to be made in real time in that kind of context, you know what, what is the sort of work that would need to be done on top of a CNN to actually make it, you know, able to give those those real time predictions
+22:27:16 as quickly as needed.
+22:27:20 Yeah, so that's the thing that you're like, of course the running the neural network and just putting a detection is faster than training it for sure, but it can be still pretty heavy and that if you have a very large network, there's a lot of weights
+22:27:35 and so on. And you want to be really fast and the extreme cases, even on your cell phone like you want to on your cell phone it has limited battery you want a model that's very lightweight and basically low power so that's the challenge and then if you
+22:27:50 have it in like small sensors or something that don't have much battery power.
+22:27:55 So what people actually do is they try to compress neural networks. So you basically take a big neural network and train it and then you try to shrink it and reduce it so I know your training and there's various techniques for doing that.
+22:28:09 So you could train the smaller neural network to mimic the big one, which turns out to actually work better than bringing it on the data from scratch because the big one also gives you some kind of confidences and that's like a more fine grained tweet
+22:28:23 back then just a class label. Other things you can do with, you can prune out with, and unit. And that's also what people do. So there's various ways to do this, but it's an active area of research, in fact I have two colleagues who work in this area
+22:28:41 we're at MIT we're actually looking at low power, CNN and neural networks and to make them to really shrink their footprint by not losing much accuracy.
+22:28:51 So it still uses the same cnn technology but you want to even though cnn some more efficient than the fully connected networks, you want to shrink them much more to really make this happen class, and more powerful so yeah it's a very impactful and the
+22:29:11 Yeah, it's very impactful and the applications go so far beyond just self driving. There's a huge industry push for edge processing, so getting things as close to the decision pointers close the instrumentation as possible.
+22:29:21 It's big in factory 4.0 and Internet of Things, it's big in like remote areas or areas without consistent internet access. So, if you have to put a model on a really great for example, you may have some limitations.
+22:29:45 Okay.
+22:29:54 I think that pretty much covers the questions there, Professor Andrew, just trying to cycle back and see if there were any other one one sort of general question and I guess we can end with this is, in general, how many images would be considered a benchmark
+22:30:06 for training such CNN.
+22:30:11 You always need more however many you have any more.
+22:30:17 Yeah. Tomorrow we'll talk about self supervised training to always do more. So like in terms of benchmark, the sort of state of the art benchmark the status image net.
+22:30:33 And it's large, so you can actually have a look at it if you just Google for image net or.
+22:30:36 I think that'll do it, you'll get to that and you can browse it as large and it's very complicated it has so many it has like more than 1000 calories and it's huge, and even then people use this in addition for that data and they may want to use more,
+22:30:50 and they want to augment more so.
+22:30:56 All right.

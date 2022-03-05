@@ -1,0 +1,568 @@
+19:50:39 From  Victor Chavarria gl  to  Everyone:
+	Good Morning!
+19:51:02 From  Cristina Chiquinquirá Hernández Labrador gl  to  Hosts and panelists:
+	Hello! Good evening
+19:51:06 From  José Andrés Valenzuela Molina gl  to  Everyone:
+	good morning!
+19:55:02 From  Diallo Bocar Elimane gl  to  Everyone:
+	Hello everyone
+19:55:05 From  Andy Mak gl  to  Everyone:
+	Good morning everyone
+19:55:05 From  Blessy Joy Chamaparampil gl  to  Everyone:
+	Hi Vishnu, Good Morning
+19:55:22 From  Curt Cardall gl  to  Everyone:
+	guten Tag all
+19:55:25 From  Monica Matthews gl  to  Everyone:
+	Good morning
+19:55:27 From  Lucy Edosomwan gl  to  Everyone:
+	Good morning Vishnu!
+19:55:38 From  Oktay Selcuk gl  to  Everyone:
+	hi everyone
+19:55:39 From  Lucy Edosomwan gl  to  Everyone:
+	Good morning everyone!
+19:55:44 From  Leng Khye Sut gl  to  Everyone:
+	Good morning!
+19:55:47 From  Zuhair Nara gl  to  Everyone:
+	afternoon
+19:55:49 From  [GL] Vishnu Subramanian  to  Everyone:
+	Hello everyone! :)
+19:55:52 From  Mohammad Aleem gl  to  Everyone:
+	Good morning, Vishnu and others
+19:56:12 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Good afternoon from Swiss
+19:56:16 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Hello
+19:56:24 From  Pallavi Kawale gl  to  Everyone:
+	Good Morning everybody..
+19:57:00 From  Mohammad Ayub gl  to  Hosts and panelists:
+	Good morning everyone :)
+19:57:30 From  Dominic H. Goodall gl  to  Everyone:
+	Good morning!
+19:57:34 From  Pedro Manuel Rossi Mercado gl  to  Everyone:
+	Hello everyone!
+19:57:43 From  Cristiano Buizza gl  to  Everyone:
+	good morning
+19:58:04 From  Kevin Humbles gl  to  Everyone:
+	Good morning
+19:58:06 From  Shan Siddiqui gl  to  Everyone:
+	Good morning!
+19:58:07 From  Zoom 73  to  Hosts and panelists:
+	Good morning/day/evening!
+19:58:16 From  RAVI KUMAR TOLETY gl  to  Everyone:
+	Good Morning All
+19:58:18 From  Chris Kaiser gl  to  Everyone:
+	morning
+19:58:32 From  NING LI gl  to  Everyone:
+	Morning!
+19:58:45 From  Chris Lieberman gl  to  Everyone:
+	Good morning all
+19:58:52 From  Reena Choudhary gl  to  Everyone:
+	good morning everyone
+19:59:12 From  Aditya Bandimatt gl  to  Everyone:
+	Namaste from Bangalore!
+19:59:16 From  Mike Hankinson gl  to  Everyone:
+	morning!
+19:59:20 From  MARIA SUSANA REZZONICO gl  to  Everyone:
+	Good morning !
+19:59:33 From  Mukul Mondal gl  to  Everyone:
+	Good Morning
+19:59:51 From  Shajan Thomas gl  to  Everyone:
+	Good morning
+19:59:59 From  Wilberto W Montoya gl  to  Everyone:
+	last one? it was so fun I do not want to end...
+20:00:24 From  Ahsan Yousaf gl  to  Hosts and panelists:
+	Good morning
+20:00:28 From  Fedor Galstyan gl  to  Everyone:
+	Good morning!
+20:00:34 From  Kuldeep Rawat gl  to  Everyone:
+	Good Morning
+20:00:38 From  Juan Bermudez gl  to  Everyone:
+	Good morning
+20:00:56 From  Estelle Pearl Yuzicappi gl  to  Everyone:
+	Good morning
+20:08:01 From  Jacqueline gl  to  Hosts and panelists:
+	Good morning. Had connection issues, but I am ok now.
+20:10:22 From  Omar Fahmy gl  to  Everyone:
+	How many layers do you build on top of the pre-trained NN
+20:10:57 From  [GL-TA]Debjyoti Ghosh  to  Everyone:
+	@Omar
+	Q:How many layers do you build on top of the pre-trained NN
+	A:It's totally subjective and dependent on the task in hand
+20:11:34 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Omar Usually, only a few. For deep models, the majority of the layers are the pre-trained portion whose weights are frozen.
+20:11:57 From  Rodrigo Senra gl  to  Everyone:
+	Could I say that I am replacing a random initialization of the weigths for another that was created from the same domain (e.g images, text,etc)?
+20:12:16 From  Ahsan Yousaf gl  to  Hosts and panelists:
+	does pre training has to be on medical images or can be on any image if the end objective is to spot tumors ?
+20:12:24 From  Wilberto W Montoya gl  to  Everyone:
+	@Omar I think the idea is to keep al CNN layes and just modify part or all the fully connected last layers
+20:13:05 From  Omar Fahmy gl  to  Everyone:
+	Thanks all@! 😄
+20:14:37 From  Rajagopalan Kasthurirangan gl  to  Hosts and panelists:
+	Are there precompile models for tasks like the imagenet?
+20:15:11 From  [GL-TA] Jai  to  Everyone:
+	@Ahsan-Q:does pre training has to be on medical images or can be on any image if the end objective is to spot tumors ?
+	A: If your end goal is spotting tumors, it should be trained on medical images specific to tumors to achieve promising results.
+20:15:43 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Rodrigo Yes, that would be a fair takeaway
+20:16:26 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	So it is possible to label automatically… magic…
+20:16:30 From  [GL-TA]Debjyoti Ghosh  to  Everyone:
+	@Ahsan
+	Q:does pre training has to be on medical images or can be on any image if the end objective is to spot tumors ?
+	A: It can be on any task that is classification. For example if you have a dog-cat classifier, you can set a few layers as non trainable and add or train a layers on the existing model and use it for medical image classification tasks
+20:16:40 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Rajagopalan Yes, there are several famous architectures like VGG16 already available out of the box in TensorFlow / Keras
+20:17:16 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	…. Wouaaaa…..
+20:18:11 From  Ahsan Yousaf gl  to  Hosts and panelists:
+	Are generative models same as CNN  ?
+20:18:13 From  Asmaa Soliman AbuMaziad gl  to  Everyone:
+	Hi, I need help in Python practice, can anyone volunteer an hour via Zoom (plz contact: asmaa@peds.arizona.edu)
+20:18:21 From  [GL-TA] Jai  to  Everyone:
+	@Rajagopalan- Q:Are there precompile models for tasks like the imagenet?
+	A: Yes, we have many pre-trained models like VGG,Resnet, Densenet etc that can work well on different kinds of datasets with appropriate tuning.
+20:18:26 From  Yair Listokin gl  to  Hosts and panelists:
+	What are pretext tasks for text data?
+20:19:12 From  Chris Kaiser gl  to  Everyone:
+	would you want to run everything through a single neural network or can these be connected together
+20:19:14 From  Alvin Kuo gl  to  Everyone:
+	Any criteria or measurement that this model is transferable?
+20:19:42 From  Fernando Garcia Corona gl  to  Everyone:
+	I still don't see where the labels are generated
+20:20:13 From  Wilberto W Montoya gl  to  Everyone:
+	Enconder/decoder pattern like in translations
+20:21:25 From  Fernando Garcia Corona gl  to  Everyone:
+	ok thanks
+20:22:34 From  Omar Fahmy gl  to  Everyone:
+	Are both of these examples considered generative learning?
+20:22:50 From  Fernando Garcia Corona gl  to  Everyone:
+	I was expecting more of an automatic classification of different objects, being able to differentiate a dog from a cat by itself
+20:23:12 From  Chris Lieberman gl  to  Hosts and panelists:
+	How doe the model know that the training is accurate if there’s no base dataset that has labels?
+20:23:20 From  Wilberto W Montoya gl  to  Everyone:
+	is like training 2 model at same time
+20:23:21 From  Chris Lieberman gl  to  Hosts and panelists:
+	There’s no reference point?
+20:23:42 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	When we have to indicate that we are not a robot through image identification, is it trick to have a free labeling of million of pictures?
+20:24:21 From  Omar Fahmy gl  to  Everyone:
+	Can’t hear the prof
+20:24:21 From  Glendon Brown gl  to  Everyone:
+	professor youre muted
+20:24:24 From  [GL-TA] Jai  to  Everyone:
+	@Alvin,Q:Any criteria or measurement that this model is transferable?
+	A: Transfer Learning is simply transfering the weights of model to another model to complete the similar task.We can actually make every model transferable, main thumb rule is the model should atleast trained on huge datasets. So that the trained model is robust enough to work on similar datasets with proper tuning.
+	 
+20:25:00 From  Kalpana Singh gl  to  Everyone:
+	Can we get an example of NLP here?
+20:25:09 From  Ahsan Yousaf gl  to  Hosts and panelists:
+	Once the model is trained to spot a tumor for example .. and then few weeks/days  later we have to train a model to spot cars .. why do we have to start from scratch .. wouldn’t that be a lost in resources ? Can’t the model keep evolving  like our brain does ..
+20:25:12 From  Riaz U Ahmed gl  to  Everyone:
+	how did we decide the first image of cat's face would go in the middle?
+20:26:37 From  Christopher Mahoney gl  to  Hosts and panelists:
+	Second NLP example
+20:31:17 From  RAVI KUMAR TOLETY gl  to  Hosts and panelists:
+	What if the backgrounds of dog and monkey are same ..then how does it affect the transfer learning process?
+20:35:33 From  Omar Fahmy gl  to  Everyone:
+	What is that chime noise?
+20:35:48 From  Adam Kritzman Frankel gl  to  Everyone:
+	someone isn't on mute
+20:37:03 From  Fernando Garcia Corona gl  to  Everyone:
+	do you agument it after the initial classification has been done? or how can you tell that all the augmented dogs are the same?
+20:37:54 From  Thanh Dang gl  to  Hosts and panelists:
+	is there a balance between positive pairs and negative pairs?
+20:37:56 From  Abdelaziz Aitouchen gl  to  Everyone:
+	what about images with low ontrast?c
+20:38:19 From  Lex Gidley gl  to  Everyone:
+	if we are starting from scratch how does it learn it is a "dog" beyond just saying "these are the same"?
+20:39:05 From  Chris Kaiser gl  to  Everyone:
+	how do you choose appropriate negatives?
+20:39:29 From  Wilberto W Montoya gl  to  Everyone:
+	Does the test data is also against un-label data or that one is labeled?
+20:40:00 From  Lex Gidley gl  to  Everyone:
+	ah - got it...thank you
+20:43:10 From  Alvin Kuo gl  to  Everyone:
+	So from greyscale to color drops the most
+20:43:37 From  [GL-TA]Debjyoti Ghosh  to  Everyone:
+	@Wilberto
+	Q:how do you choose appropriate negatives?
+	A:What you may do is, you may pick an image from a different class all total and take a cropped part from it or augment it any way you prefer.
+20:44:14 From  Alvin Kuo gl  to  Everyone:
+	Could we stack multiple pre-train models to make it a “super-smart” to do the transfer modeling?
+20:44:25 From  Chao Sun gl  to  Everyone:
+	Can you elaborate a bit more on sentiment analysis for self-supervised learning?
+20:46:32 From  Sivakumar Visweswaran gl  to  Everyone:
+	Is RNN not the best method for NLP?
+20:47:19 From  Srikanth Panchavati gl  to  Hosts and panelists:
+	What is GFPGAN?
+20:48:36 From  [GL-TA]Debjyoti Ghosh  to  Everyone:
+	@Alvin,
+	Q:Could we stack multiple pre-train models to make it a “super-smart” to do the transfer modeling?
+	A:That is a very interesting train of thought, you can definitely try it out
+20:48:59 From  Alvin Kuo gl  to  Everyone:
+	In Page 16 the chart of the negative samples, why do we see a pattern like this? https://www.dropbox.com/s/gl9nw8gch5hkfc1/WK5-3%20Page%2016%20Chart%20Pattern%20Screen%20Shot%202022-03-02%20at%2011.57.47%20PM.png?dl=0
+20:49:06 From  Chris Kaiser gl  to  Everyone:
+	like teaching a neural net to paint like Picasso?
+20:49:27 From  Wilberto W Montoya gl  to  Everyone:
+	is like CNN chess match with images (game theory)
+20:49:56 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Sivakumar RNNs and their variants (LSTMs, GRUs) have been very useful in NLP over the last decade, but their performance on various language tasks have been eclipsed by even better ideas such as Transformers (attention mechanism) and Self-supervised Learning
+20:52:37 From  [GL] Vishnu Subramanian  to  Everyone:
+	@WIlberto It's interesting you say that. The generator and discriminator do compete with each other and may reach an equilibrium called the Nash Equilibrium, which is a well known idea from Game Theory :)
+20:53:21 From  [GL-TA] Avijit  to  Everyone:
+	@Sivakumar Q:Is RNN not the best method for NLP?		A:Transformers are currently the best model in the field of NLP. They are better than all the other architectures(like RNN, LSTM) because they totally avoid recursion, by processing sentences as a whole and by learning relationships between words because of the multi-head attention mechanisms and positional embeddings.
+20:54:12 From  Rodrigo Senra gl  to  Everyone:
+	What is the input to the NN? Maybe the adjacency matrix that represents the graph? Is there a preferred encoding for the graph?
+20:56:00 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Eventually in my field…
+21:01:37 From  Paula Iglesias Otárola gl  to  Everyone:
+	So we pas "parts of the graph" separately as vectors?
+21:02:20 From  Wilberto W Montoya gl  to  Everyone:
+	yes how do the navigation
+21:02:30 From  Rodrigo Senra gl  to  Everyone:
+	isn't  Local neighborhood just a way to scale down processing and avoid feeding the all-distances matrix as input?
+21:02:40 From  Paula Iglesias Otárola gl  to  Everyone:
+	the closest next node first for each node?
+21:03:39 From  Wilberto W Montoya gl  to  Everyone:
+	not good how avoid cycles and assure full search
+21:03:53 From  Rodrigo Senra gl  to  Everyone:
+	the immediate/direct neighbors are just a line in the adjancecy matrix
+21:05:03 From  NING LI gl  to  Everyone:
+	Can you make an example what you typically try to predict/learn?
+21:05:45 From  NING LI gl  to  Everyone:
+	Or it is to predict connection/causation?
+21:06:38 From  Wilberto W Montoya gl  to  Everyone:
+	the problem with adjacency is affecte a lot on the order of the features 123, 231, 321
+21:07:04 From  Deepak Gaikwad gl  to  Everyone:
+	what are examples of neighborhood node information that are encoded?
+21:07:13 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	How the model takes into account of the evolution of the network? Does it have to be stable over time? Which is not the case…
+21:07:21 From  Paula Iglesias Otárola gl  to  Everyone:
+	Thanks!
+21:08:04 From  NING LI gl  to  Everyone:
+	Got it.
+21:08:13 From  Wilberto W Montoya gl  to  Everyone:
+	this is a nice problem
+21:09:28 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Thank you… !
+21:10:45 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Dr Vincent Yes, these models are called Temporal Graph Neural Networks, which would be more complex since they have that added dimension of time
+21:13:35 From  Wilberto W Montoya gl  to  Everyone:
+	LSTM
+21:13:42 From  Tony Thompson gl  to  Hosts and panelists:
+	add. mulitpy. concatenate.
+21:13:49 From  Ravi Kumar gl  to  Everyone:
+	Average
+21:13:51 From  Rodrigo Senra gl  to  Everyone:
+	avg
+21:13:54 From  Fernando Garcia Corona gl  to  Everyone:
+	adding
+21:13:59 From  Martin Niehoff gl  to  Everyone:
+	min, max, sigma
+21:14:00 From  Mike Hankinson gl  to  Everyone:
+	dot product
+21:18:07 From  Nikhil Kamma gl  to  Everyone:
+	`what is the Goal of aggregation? What are we actually learning ?
+21:18:38 From  Nikhil Kamma gl  to  Everyone:
+	Can we have some example
+21:19:06 From  Mike Hankinson gl  to  Everyone:
+	While applying nonlinear aggregation function to each neighbor, iteratively, does the neighborhood have trouble converging?
+21:24:58 From  Alvin Kuo gl  to  Everyone:
+	MLP = multilayer perceptron?
+21:25:04 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Alvin Yes
+21:25:10 From  Wilberto W Montoya gl  to  Everyone:
+	How deal with potential pools?
+21:26:06 From  Wilberto W Montoya gl  to  Everyone:
+	Sorry how to deal with loops?
+21:29:20 From  Rodrigo Senra gl  to  Everyone:
+	h_a^2 is the MLP(A) in the previous slide?
+21:29:58 From  Rodrigo Senra gl  to  Everyone:
+	got it
+21:31:49 From  Wilberto W Montoya gl  to  Everyone:
+	sgd
+21:33:40 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Wilberto Stochastic Gradient Descent
+21:34:05 From  Wilberto W Montoya gl  to  Everyone:
+	yes sorry I was taking notes and type by mistake in the chat
+21:34:53 From  Deepak Gaikwad gl  to  Everyone:
+	what are readout functions - eamples?
+21:35:31 From  Andy Mak gl  to  Everyone:
+	Can GNN be used for communication networks? Predict failure mode upon introducing a node or link or a loop?
+21:37:03 From  Alvin Kuo gl  to  Everyone:
+	Symptoms record
+21:37:06 From  Manish Kumar Srivastava gl  to  Everyone:
+	composition of the drug
+21:37:10 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	The receptor of the drug
+21:37:11 From  Victor Chavarria gl  to  Everyone:
+	strenght and doze
+21:37:12 From  DAVID KOMBO gl  to  Everyone:
+	Drug targets interactions network
+21:37:13 From  Shan Siddiqui gl  to  Everyone:
+	How the molecules react with each other
+21:37:22 From  Chris Kaiser gl  to  Everyone:
+	how the drugs are processed within the body
+21:37:24 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	CIP enzyme for example
+21:37:30 From  Nageswara Rao Biradhar gl  to  Everyone:
+	Molecular network
+21:37:33 From  Andriana Inkoom gl  to  Hosts and panelists:
+	Drug dosage
+21:37:38 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Liver enzyme
+21:37:40 From  Conor Bagnell gl  to  Hosts and panelists:
+	Labels of existing side effects for each drug
+21:37:44 From  Ruth Ndila Ndeto gl  to  Everyone:
+	Inhibitors
+21:37:48 From  Victor Chavarria gl  to  Everyone:
+	condition treated
+21:37:49 From  Asmaa Soliman AbuMaziad gl  to  Everyone:
+	mechanism of action
+21:37:56 From  DAVID KOMBO gl  to  Everyone:
+	drug labels
+21:38:00 From  Shan Siddiqui gl  to  Everyone:
+	Any new symptoms after starting a drug
+21:38:04 From  Steven Rubio gl  to  Everyone:
+	recipient characteristics e.g. country, age, gender etc.
+21:38:08 From  JAVIER RAMIREZ gl  to  Hosts and panelists:
+	Patient profile
+21:38:08 From  Asmaa Soliman AbuMaziad gl  to  Everyone:
+	co morbidities
+21:38:09 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Target toxicity from animal data… dog rat..
+21:38:23 From  Andriana Inkoom gl  to  Hosts and panelists:
+	Age, BMI
+21:38:28 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Pharmacokinetic
+21:38:29 From  Maria Isabel Rodriguez Torres gl  to  Everyone:
+	Gene expression
+21:38:59 From  Paula Iglesias Otárola gl  to  Everyone:
+	drug molecules to have actual nodes
+21:46:39 From  Nikhil Kamma gl  to  Everyone:
+	Why is the meaning of a protein (orange node) of drug C connected to protein of drug M
+21:48:11 From  Nirupana S Natarajan gl  to  Everyone:
+	would the order of processing the neighbours affect the output
+21:49:49 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Drug to work need to connect to a protein.
+21:49:55 From  NING LI gl  to  Everyone:
+	Can you explain how you deal/remove some of the ‘no’s again?
+21:49:59 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Like a key.
+21:50:11 From  NING LI gl  to  Everyone:
+	Putting a less weight on them?
+21:50:13 From  Alvin Kuo gl  to  Everyone:
+	Why Adam ?
+21:50:39 From  Alvin Kuo gl  to  Everyone:
+	But not SGD?
+21:52:00 From  Nikhil Kamma gl  to  Everyone:
+	Is there a Combine operation also happening in addition to aggregation?
+21:52:20 From  NING LI gl  to  Everyone:
+	Got it.Thx
+21:53:17 From  DAVID KOMBO gl  to  Everyone:
+	Traing and test set
+21:53:33 From  Fernando Garcia Corona gl  to  Everyone:
+	cross check with the dataset of known interactions
+21:54:14 From  Diallo Bocar Elimane gl  to  Everyone:
+	convergence
+21:54:27 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	You enter a combination of drugs and look at the predictions
+21:54:56 From  Diallo Bocar Elimane gl  to  Everyone:
+	Robustness
+21:56:47 From  Paula Iglesias Otárola gl  to  Everyone:
+	So we start fully conected (edges of diferent type of side effects for every pair of nodes)?
+21:56:48 From  Aditya Bandimatt gl  to  Everyone:
+	Thank you professor!
+21:57:00 From  Manish Kumar Srivastava gl  to  Everyone:
+	Thank you Professor
+21:57:00 From  Jorge A. Marty Jr. gl  to  Everyone:
+	THANK YOU!!!
+21:57:01 From  Mike Hankinson gl  to  Everyone:
+	Thanks!!
+21:57:03 From  Paula Iglesias Otárola gl  to  Everyone:
+	Thanks Proffesor!!
+21:57:05 From  Dino Cehic gl  to  Everyone:
+	Thanks!
+21:57:05 From  Rodrigo Senra gl  to  Everyone:
+	Thank you Professor
+21:57:06 From  Conor Bagnell gl  to  Hosts and panelists:
+	Thank you, very interesting.
+21:57:07 From  Mariela Trigueros gl  to  Everyone:
+	thank you so much!!
+21:57:08 From  Andy Mak gl  to  Everyone:
+	Thank you Professor
+21:57:09 From  Cheslan Simpson gl  to  Everyone:
+	Thanks Prof.
+21:57:10 From  Devinder Singh Sodhi gl  to  Everyone:
+	Thanks very much!
+21:57:10 From  Alvin Kuo gl  to  Everyone:
+	Thank you so much professor 🙂
+21:57:11 From  RAVI KUMAR TOLETY gl  to  Everyone:
+	Thank you Professor!!!!
+21:57:12 From  Oktay Selcuk gl  to  Everyone:
+	thank you Professor
+21:57:16 From  Omar Fahmy gl  to  Everyone:
+	Thank you professor
+21:57:18 From  Garreth Fitzsimons gl  to  Hosts and panelists:
+	Thank you!!!
+21:57:20 From  Yash Malai gl  to  Everyone:
+	Thank you Professor!!!
+21:57:22 From  Yanhui  Wang gl  to  Everyone:
+	Thank you Professor.
+21:57:23 From  Jacqueline gl  to  Everyone:
+	Thank you so much professor!!
+21:57:27 From  Juan Montalvo Godina gl  to  Hosts and panelists:
+	Thank you Professor
+21:57:28 From  MARIA SUSANA REZZONICO gl  to  Everyone:
+	Thanks you Professor !
+21:57:31 From  Scott Penco gl  to  Hosts and panelists:
+	Thank you!!
+21:57:33 From  Adriana Catalina Vazquez Ortiz gl  to  Hosts and panelists:
+	Thank you!
+21:57:34 From  Wilberto W Montoya gl  to  Everyone:
+	My brain hasn't work that much in years 😅
+21:57:34 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Thank you so much…
+21:57:44 From  Fedor Galstyan gl  to  Everyone:
+	Thank you professor!
+21:57:53 From  Anita Albert gl  to  Everyone:
+	Thank you Professor!
+21:57:55 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Dr Grek love the examples…
+21:58:05 From  Reto Voegeli gl  to  Everyone:
+	Thank you professo!
+21:58:09 From  Shan Siddiqui gl  to  Everyone:
+	Thank you professor!
+21:58:23 From  Kuldeep Rawat gl  to  Everyone:
+	Thank you. Great information.
+21:58:32 From  Asmaa Soliman AbuMaziad gl  to  Everyone:
+	can you post them in chat
+21:59:24 From  Chris Kaiser gl  to  Everyone:
+	yes please
+21:59:36 From  Christopher Carrero gl  to  Everyone:
+	yes please
+21:59:39 From  DAVID KOMBO gl  to  Everyone:
+	Any comments on using GCNN to predict biological activity of molecules?
+22:00:16 From  Rashidi D Barnett gl  to  Everyone:
+	steller graph?
+22:00:29 From  Yair Listokin gl  to  Everyone:
+	Can you work through an example of using neural networks for NLP? Your slide says that we use RNN for them. Can you discuss why RNN is the best for NLP?
+22:00:45 From  [GL] Vishnu Subramanian  to  Everyone:
+	StellarGraph
+22:00:50 From  Rashidi D Barnett gl  to  Everyone:
+	(770) 801-5000
+22:01:00 From  Rashidi D Barnett gl  to  Everyone:
+	oops, didn’t mean to post that number.
+22:01:01 From  Srikanth Panchavati gl  to  Hosts and panelists:
+	Sorry what was the name again professor?
+22:02:07 From  Mike Hankinson gl  to  Everyone:
+	@Rashidi lol....8675309, Jenny
+22:03:00 From  Rashidi D Barnett gl  to  Everyone:
+	@mike - or should I say Tommy.
+22:03:40 From  Mike Hankinson gl  to  Everyone:
+	🤣
+22:05:16 From  Dr Vincent Grek gl  to  Hosts and panelists:
+	Do you think that the patient journey could model using a graph network in order to optimize the patient journey ?A kind of ways for disease management… patients that are doing do not need routine visits and others more visits , more care…
+22:07:26 From  Wilberto W Montoya gl  to  Everyone:
+	I can see a lot of potential in GNN applied to the business itself like optimizing/detecting problems in organizational interactions, workflows, supply chain, any experience of an application this?
+22:08:27 From  Steven Rubio gl  to  Everyone:
+	How can we approach sarcasm?
+22:08:45 From  Steven Rubio gl  to  Everyone:
+	haha, awesome thanks.
+22:08:53 From  Yair Listokin gl  to  Everyone:
+	How about the "text" in computer code?
+22:09:00 From  Glendon Brown gl  to  Everyone:
+	"oh, a sarcasm detector, that's reeeeeal useful"
+22:09:18 From  Steven Rubio gl  to  Everyone:
+	All ears Glendon.
+22:09:27 From  Chris Kaiser gl  to  Everyone:
+	detected in your prolonging of reeeeeal
+22:09:52 From  Steven Rubio gl  to  Everyone:
+	haha
+22:09:59 From  Nikhil Kamma gl  to  Everyone:
+	can you explain a bit about message passing? how is it sent/passed?
+22:12:17 From  Rashidi D Barnett gl  to  Everyone:
+	Vishnu - can you share that?
+22:13:06 From  Rashidi D Barnett gl  to  Everyone:
+	the copilot / openai case study or article you saw?
+22:14:03 From  [GL] Vishnu Subramanian  to  Everyone:
+	@Rashidi https://www.toolbox.com/tech/artificial-intelligence/news/google-deepmind-introduces-alphacode/ :)
+22:14:17 From  JAVIER RAMIREZ gl  to  Hosts and panelists:
+	Any example on cybersecurity for detecting inside threats?
+22:15:10 From  [GL-Mentor] Drew Marlatt  to  Everyone:
+	AlphaFold paper: https://www.nature.com/articles/s41586-021-03819-2
+22:16:15 From  Sunil Acharya gl  to  Everyone:
+	do people use the "off-diagonal" elements (False negatives/positives) to tune NN/CNN/GNN in an algorthmic way?
+22:17:20 From  Rashidi D Barnett gl  to  Everyone:
+	Thanks Vishnu and Drew!
+22:17:29 From  JAVIER RAMIREZ gl  to  Hosts and panelists:
+	Thank you
+22:19:11 From  Andy Mak gl  to  Everyone:
+	Thank you Professor, Drew, and Vishnu
+22:19:33 From  Sergio Bracho Argotte gl  to  Everyone:
+	Thanks Professor! Great class!
+22:20:58 From  Surya Gutta gl  to  Hosts and panelists:
+	Can we use GNN to predict demand of components and parts for manufacturing company where severeal final products have some common parts and some different parts?
+22:24:24 From  Sunil Acharya gl  to  Everyone:
+	the reason i ask is the projects we did so far -we stopped at testing the performance and displaying the classification report- but we did not use that information to tweak the layers
+22:27:01 From  Mukul Mondal gl  to  Everyone:
+	Can you combine different parts of image or images to create animation type of movie?
+22:27:25 From  Mukul Mondal gl  to  Everyone:
+	I mean, this tech is used in such cases?
+22:29:24 From  Mukul Mondal gl  to  Everyone:
+	is there anything like this used in computer games?
+22:29:42 From  Sunil Acharya gl  to  Everyone:
+	it is mapping of an object under translation/rotation
+22:29:58 From  [GL-Mentor] Drew Marlatt  to  Everyone:
+	@Mukul, this is fundamentally the idea behind Deepfakes. Lots of great examples out there
+22:30:04 From  Oktay Selcuk gl  to  Everyone:
+	Thank you all
+22:30:06 From  Wilberto W Montoya gl  to  Everyone:
+	thank you so much very inspirational lectures 👏
+22:30:12 From  Lex Gidley gl  to  Everyone:
+	thank you
+22:30:14 From  Ahsan Yousaf gl  to  Hosts and panelists:
+	thank you!!!
+22:30:14 From  Fernando Garcia Corona gl  to  Everyone:
+	thanks a lot everyone !
+22:30:16 From  MARIA SUSANA REZZONICO gl  to  Everyone:
+	Thank you !
+22:30:16 From  Diallo Bocar Elimane gl  to  Everyone:
+	Thanks
+22:30:16 From  Chris Kaiser gl  to  Everyone:
+	Favorite Lesson Yet! Thank you kindly
+22:30:16 From  Alvin Kuo gl  to  Everyone:
+	Thank you all, professor, Drew and Vishnu! 🙂
+22:30:19 From  Sunil Acharya gl  to  Everyone:
+	Thank you professor Jegelka
+22:30:19 From  Mukul Mondal gl  to  Everyone:
+	Thank you professor and all
+22:30:21 From  Surya Gutta gl  to  Hosts and panelists:
+	Thank you all!
+22:30:23 From  Victor Chavarria gl  to  Everyone:
+	thank you
+22:30:25 From  Linda Diec gl  to  Hosts and panelists:
+	Thank you so much!
+22:30:25 From  Shan Siddiqui gl  to  Everyone:
+	Thank you all!
+22:30:26 From  Mario Diaz-Laguardia gl  to  Hosts and panelists:
+	Thanks a lot!
+22:30:27 From  DAVID KOMBO gl  to  Everyone:
+	Thank you so much Professor! great job!
+22:30:31 From  Sunil Acharya gl  to  Everyone:
+	Lots of pictures!
+22:30:33 From  Jordan  Sweeney gl  to  Everyone:
+	Thank you!
+22:30:35 From  Kurt Borg gl  to  Everyone:
+	this has been amazing.  Thank you
+22:30:39 From  Paula Iglesias Otárola gl  to  Everyone:
+	Thank you Proffesor, and all!
+22:30:40 From  Srikanth Panchavati gl  to  Hosts and panelists:
+	Thank you
+22:30:40 From  Brian A Sakarata gl  to  Everyone:
+	Thank you so much Professor!
+22:30:43 From  Shajan Thomas gl  to  Everyone:
+	Thank you
+22:30:51 From  Ji Yoon Oh gl  to  Everyone:
+	Thank you professor!
